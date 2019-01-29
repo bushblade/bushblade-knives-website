@@ -1,42 +1,59 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+const bannerQuery = graphql`
+  query indexBanner {
+    file(relativePath: { eq: "banner02.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi
-      possimus officia incidunt est, repellendus minus pariatur expedita quidem
-      ipsum corrupti labore! Dolorum dolore voluptatum qui numquam ipsa
-      voluptatem! Quis quibusdam tempora, vel dolores repellendus eius placeat
-      dolore excepturi unde commodi, doloribus adipisci error dolorem distinctio
-      alias perferendis accusamus officiis dolorum cum, iste odit. Aspernatur,
-      eos? Iste ad esse, quibusdam minima eveniet, optio quas fugit magnam
-      officiis in nam, obcaecati ea. Asperiores fuga qui delectus possimus
-      laudantium facere id officia. Est molestias quo quas sit nostrum similique
-      alias obcaecati, id culpa? Blanditiis accusamus quibusdam laboriosam ipsam
-      culpa commodi quos labore?
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi
-      possimus officia incidunt est, repellendus minus pariatur expedita quidem
-      ipsum corrupti labore! Dolorum dolore voluptatum qui numquam ipsa
-      voluptatem! Quis quibusdam tempora, vel dolores repellendus eius placeat
-      dolore excepturi unde commodi, doloribus adipisci error dolorem distinctio
-      alias perferendis accusamus officiis dolorum cum, iste odit. Aspernatur,
-      eos? Iste ad esse, quibusdam minima eveniet, optio quas fugit magnam
-      officiis in nam, obcaecati ea. Asperiores fuga qui delectus possimus
-      laudantium facere id officia. Est molestias quo quas sit nostrum similique
-      alias obcaecati, id culpa? Blanditiis accusamus quibusdam laboriosam ipsam
-      culpa commodi quos labore?
-    </p>
-  </Layout>
+  <StaticQuery
+    query={bannerQuery}
+    render={data => (
+      <Layout banner={data.file.childImageSharp.fluid}>
+        <h1>Hi people</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+          commodi possimus officia incidunt est, repellendus minus pariatur
+          expedita quidem ipsum corrupti labore! Dolorum dolore voluptatum qui
+          numquam ipsa voluptatem! Quis quibusdam tempora, vel dolores
+          repellendus eius placeat dolore excepturi unde commodi, doloribus
+          adipisci error dolorem distinctio alias perferendis accusamus officiis
+          dolorum cum, iste odit. Aspernatur, eos? Iste ad esse, quibusdam
+          minima eveniet, optio quas fugit magnam officiis in nam, obcaecati ea.
+          Asperiores fuga qui delectus possimus laudantium facere id officia.
+          Est molestias quo quas sit nostrum similique alias obcaecati, id
+          culpa? Blanditiis accusamus quibusdam laboriosam ipsam culpa commodi
+          quos labore?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+          commodi possimus officia incidunt est, repellendus minus pariatur
+          expedita quidem ipsum corrupti labore! Dolorum dolore voluptatum qui
+          numquam ipsa voluptatem! Quis quibusdam tempora, vel dolores
+          repellendus eius placeat dolore excepturi unde commodi, doloribus
+          adipisci error dolorem distinctio alias perferendis accusamus officiis
+          dolorum cum, iste odit. Aspernatur, eos? Iste ad esse, quibusdam
+          minima eveniet, optio quas fugit magnam officiis in nam, obcaecati ea.
+          Asperiores fuga qui delectus possimus laudantium facere id officia.
+          Est molestias quo quas sit nostrum similique alias obcaecati, id
+          culpa? Blanditiis accusamus quibusdam laboriosam ipsam culpa commodi
+          quos labore?
+        </p>
+      </Layout>
+    )}
+  />
 )
 
 export default IndexPage

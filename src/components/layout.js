@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Header from './header'
 import './layout.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, banner }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -20,6 +21,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header />
+        <Img fluid={banner} style={{ marginTop: '3rem' }} />
         <div
           style={{
             maxWidth: 960,
