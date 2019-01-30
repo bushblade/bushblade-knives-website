@@ -19,11 +19,17 @@ const Links = styled.div`
   align-items: center;
   margin: auto;
   a {
+    transition: all 0.2s ease-in-out;
     text-shadow: none;
     margin: 0 1rem;
     color: rgb(51, 51, 51);
     background-image: none;
     font-size: 1.5rem;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+    :hover {
+      transform: scale(1.1);
+      text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+    }
   }
 `
 
