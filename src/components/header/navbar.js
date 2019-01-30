@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+import Menu from './menu'
+
 const Nav = styled.nav`
   position: sticky;
   top: 0px;
@@ -30,21 +32,27 @@ const Links = styled.div`
       transform: scale(1.1);
       text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
     }
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 `
 
 const navbar = () => {
   return (
-    <Nav>
-      <Links>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </Links>
-      <Links>
-        <Link to="/work">Work</Link>
-        <Link to="/contact">Contact</Link>
-      </Links>
-    </Nav>
+    <>
+      <Nav>
+        <Links>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </Links>
+        <Links>
+          <Link to="/work">Work</Link>
+          <Link to="/contact">Contact</Link>
+        </Links>
+      </Nav>
+      <Menu />
+    </>
   )
 }
 

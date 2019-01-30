@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../images/logo01-web.svg'
+import logo from './logo01-web.svg'
 import styled from 'styled-components'
 import { Spring, config } from 'react-spring'
 import { Link } from 'gatsby'
