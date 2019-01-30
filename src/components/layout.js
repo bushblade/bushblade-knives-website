@@ -21,13 +21,12 @@ const Layout = ({ children, banner }) => (
     render={data => (
       <>
         <Header />
-        <Img fluid={banner} style={{ marginTop: '3rem' }} />
+        <Img fluid={banner} />
         <div
           style={{
             maxWidth: 960,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
-            margin: '5rem auto 0 auto',
           }}
         >
           {children}
