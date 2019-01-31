@@ -1,6 +1,7 @@
 import Typography from 'typography'
-import fairyGates from 'typography-theme-fairy-gates'
+import kirkham from 'typography-theme-kirkham'
+// lincoln.headerFontFamily = ['Lora', 'serif']
 
-const typography = new Typography(fairyGates)
+const typography = new Typography(kirkham)
 
 export default typography

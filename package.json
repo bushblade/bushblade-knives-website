@@ -23,7 +23,10 @@
     "react-typography": "^0.16.18",
     "styled-components": "^4.1.3",
     "typography": "^0.16.18",
-    "typography-theme-fairy-gates": "^0.16.18"
+    "typography-theme-elk-glen": "^0.16.18",
+    "typography-theme-fairy-gates": "^0.16.18",
+    "typography-theme-kirkham": "^0.16.18",
+    "typography-theme-lincoln": "^0.16.18"
   },
   "keywords": [
     "gatsby"

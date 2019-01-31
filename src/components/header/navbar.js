@@ -26,8 +26,9 @@ const Links = styled.div`
     margin: 0 1rem;
     color: rgb(51, 51, 51);
     background-image: none;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
     :hover {
       transform: scale(1.1);
       text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);

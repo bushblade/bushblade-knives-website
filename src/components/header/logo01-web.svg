@@ -13,37 +13,37 @@
   <defs
      id="defs4725">
     <filter
-       height="1.1084464"
-       y="-0.054223206"
-       width="1.1084464"
-       x="-0.054223206"
-       id="filter6343"
+       height="1.0542232"
+       y="-0.027111601"
+       width="1.0542232"
+       x="-0.027111601"
+       id="filter1889"
        style="color-interpolation-filters:sRGB">
       <feGaussianBlur
-         id="feGaussianBlur6345"
-         stdDeviation="13.566917" />
+         id="feGaussianBlur1891"
+         stdDeviation="6.783458" />
     </filter>
     <filter
-       height="1.3350178"
-       y="-0.16750892"
-       width="1.044349"
-       x="-0.022174481"
-       id="filter6339"
+       height="1.1675089"
+       y="-0.083754447"
+       width="1.0221745"
+       x="-0.01108724"
+       id="filter1893"
        style="color-interpolation-filters:sRGB">
       <feGaussianBlur
-         id="feGaussianBlur6341"
-         stdDeviation="1.8771676" />
+         id="feGaussianBlur1895"
+         stdDeviation="0.93858374" />
     </filter>
     <filter
-       height="1.2081344"
-       y="-0.10406718"
-       width="1.0506948"
-       x="-0.025347417"
-       id="filter6335"
+       height="1.1040672"
+       y="-0.052033584"
+       width="1.0253474"
+       x="-0.012673708"
+       id="filter1897"
        style="color-interpolation-filters:sRGB">
       <feGaussianBlur
-         id="feGaussianBlur6337"
-         stdDeviation="1.8771676" />
+         id="feGaussianBlur1899"
+         stdDeviation="0.93858374" />
     </filter>
   </defs>
   <metadata
@@ -64,7 +64,7 @@
      id="layer2">
     <g
        id="g6263"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:0.40294118;fill:#333333;fill-opacity:1;stroke:#333333;stroke-width:0.85086757;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter6335)"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:0.203;fill:#333333;fill-opacity:1;stroke:#333333;stroke-width:0.85086757;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1897)"
        transform="matrix(0.44976074,0,0,0.44976074,-104.99231,-137.67435)"
        aria-label="Bushblade">
       <path
@@ -106,7 +106,7 @@
     </g>
     <g
        id="g6303"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:0.40294118;fill:#333333;fill-opacity:1;stroke:#333333;stroke-width:0.7507655;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter6339)"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:0.203;fill:#333333;fill-opacity:1;stroke:#333333;stroke-width:0.7507655;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1893)"
        transform="matrix(0.44976074,0,0,0.44976074,-104.99231,-137.67435)"
        aria-label="handmade by Will Adams">
       <path
@@ -187,7 +187,7 @@
          d="m 525.50193,371.51193 q -0.053,0.53048 -0.68962,1.51187 -0.63658,0.98139 -0.98139,0.98139 -0.1061,0 -0.1061,-0.15914 0,-0.23872 0.29176,-0.95487 0.29177,-0.74267 0.29177,-0.95487 0,-0.39786 -0.47743,-0.39786 -0.0796,0 -0.8753,0.13262 -0.6631,0.15915 -1.75059,0.84877 -1.06096,0.68963 -1.06096,1.51188 0,0.29176 0.13262,0.53048 0.34481,0.68962 1.19358,1.16706 0.8753,0.47743 1.48535,0.90181 0.63658,0.42439 0.63658,1.11401 0,1.16706 -1.80364,2.25455 -1.77711,1.06096 -3.05026,1.06096 -0.2122,0 -0.34482,-0.18567 -0.13262,-0.15914 -0.13262,-0.34481 0,-0.31829 0.29177,-0.31829 0.87529,0 2.44021,-0.53048 1.59145,-0.557 1.59145,-1.19358 0,-0.37134 -0.61006,-0.8753 -0.58353,-0.50395 -1.29968,-0.92834 -0.68962,-0.42438 -1.29968,-1.00791 -0.58353,-0.61006 -0.58353,-1.16706 0,-0.45091 0.31829,-0.84877 0.23872,-0.29177 0.50396,-0.55701 0.26524,-0.29176 0.50396,-0.50395 0.23871,-0.2122 0.53048,-0.42439 0.31829,-0.21219 0.557,-0.37134 0.23872,-0.15914 0.55701,-0.31828 0.31829,-0.15915 0.50396,-0.23872 0.18567,-0.1061 0.47743,-0.23872 0.31829,-0.13262 0.42438,-0.15914 0.13263,-0.0531 0.39787,-0.15915 0.26524,-0.10609 0.29176,-0.10609 0.45091,-0.13262 0.68963,-0.13262 0.95486,0 0.95486,1.06096 z" />
     </g>
     <g
-       style="display:inline;opacity:0.40294118;stroke:#333333;stroke-width:20.45614433;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter6343)"
+       style="display:inline;opacity:0.203;stroke:#333333;stroke-width:20.45614433;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1889)"
        id="g6321"
        transform="matrix(0.06223052,0,0,0.06223052,-41.329916,-10.483728)">
       <path
