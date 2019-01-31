@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Transition } from 'react-spring'
+import { Transition, Trail } from 'react-spring'
+import { Link } from 'gatsby'
+import navLinks from './navLinks'
 
 const MenuButton = styled.div`
   position: fixed;
-  top: 1rem;
+  top: 0.4rem;
   right: 1rem;
   z-index: 12;
   display: block;
@@ -42,13 +44,47 @@ const MenuButton = styled.div`
     props.open &&
     css`
       transform: rotate(45deg);
+      span {
+        background-color: whitesmoke;
+      }
       span:before {
         transform: rotate(90deg);
+        background-color: whitesmoke;
       }
       span:after {
         transform: rotate(90deg);
+        background-color: whitesmoke;
       }
     `}
+  @media (min-width: 800px) {
+    display: none;
+  }
+`
+const Menu = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(73, 75, 70, 0.95);
+  display: flex;
+  justify-content: center;
+  font-family: 'Bilbo', cursive;
+  ul {
+    list-style: none;
+    margin-top: 4rem;
+    li {
+      margin: 1rem;
+    }
+  }
+  a {
+    text-shadow: none;
+    background-image: none;
+    color: whitesmoke;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+  }
   @media (min-width: 800px) {
     display: none;
   }
@@ -63,27 +99,32 @@ const menu = () => {
       </MenuButton>
       <Transition
         items={open}
-        from={{ transform: 'translate3d(100%,0,0)' }}
-        enter={{ transform: 'translate3d(0,0,0)' }}
-        leave={{ transform: 'translate3d(100%,0,0)' }}
+        from={{ transform: 'translate3d(100%,-100%,0)', opacity: 0 }}
+        enter={{ transform: 'translate3d(0,0,0)', opacity: 1 }}
+        leave={{ transform: 'translate3d(100%,-100%,0)', opacity: 0 }}
       >
         {open =>
           open &&
           (props => (
-            <div
-              style={{
-                position: 'fixed',
-                top: '0',
-                right: '0',
-                zIndex: '11',
-                height: '100vh',
-                width: '15rem',
-                backgroundColor: 'pink',
-                ...props,
-              }}
-            >
-              ✌️
-            </div>
+            <Menu style={props}>
+              <ul>
+                <Trail
+                  items={navLinks}
+                  keys={item => item.text}
+                  from={{ transform: 'translate3d(0,-40px,0)' }}
+                  to={{ transform: 'translate3d(0,0px,0)' }}
+                  delay={200}
+                >
+                  {item => linkprops => (
+                    <li key={item.text} style={linkprops}>
+                      <Link onClick={() => setOpen(false)} to={item.to}>
+                        {item.text}
+                      </Link>
+                    </li>
+                  )}
+                </Trail>
+              </ul>
+            </Menu>
           ))
         }
       </Transition>
