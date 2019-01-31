@@ -70,7 +70,7 @@ const Menu = styled.div`
   background-color: rgba(73, 75, 70, 0.95);
   display: flex;
   justify-content: center;
-  font-family: 'Bilbo', cursive;
+  /* font-family: 'Bilbo', cursive; */
   ul {
     list-style: none;
     margin-top: 4rem;
@@ -83,6 +83,7 @@ const Menu = styled.div`
     background-image: none;
     color: whitesmoke;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    font-style: italic;
     font-size: 2rem;
   }
   @media (min-width: 800px) {

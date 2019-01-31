@@ -16,9 +16,9 @@ const LogoContainer = styled.div`
   width: 10rem;
   margin-left: -5rem;
   height: 3rem;
-  a {
+  /* a {
     background-image: none;
-  }
+  } */
 `
 
 const Header = () => {
