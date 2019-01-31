@@ -12,7 +12,7 @@ const LogoContainer = styled.div`
   position: fixed;
   top: 0;
   left: 50%;
-  z-index: 11;
+  z-index: 10;
   width: 10rem;
   margin-left: -5rem;
   height: 3rem;
