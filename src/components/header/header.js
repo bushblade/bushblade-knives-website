@@ -23,21 +23,26 @@ const LogoContainer = styled.div`
 
 const Header = () => {
   const [logoBig, setLogoBig] = useState(true)
+
+  const handleScroll = () => {
+    let scrollPos = window.scrollY
+    if (scrollPos > 15 && logoBig) {
+      setLogoBig(false)
+    } else if (scrollPos < 15 && !logoBig) {
+      setLogoBig(true)
+    }
+  }
+
   useLayoutEffect(
     () => {
       if (window) {
-        window.addEventListener('scroll', () => {
-          let scrollPos = window.scrollY
-          if (scrollPos > 15 && logoBig) {
-            setLogoBig(false)
-          } else if (scrollPos < 15 && !logoBig) {
-            setLogoBig(true)
-          }
-        })
+        window.addEventListener('scroll', handleScroll)
       }
+      return () => window.removeEventListener('scroll', handleScroll)
     },
     [logoBig]
   )
+
   return (
     <>
       <LogoContainer>
