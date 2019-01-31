@@ -5,8 +5,8 @@ import Layout from '../components/layout/layout'
 // import SEO from '../components/layout/seo'
 
 const bannerQuery = graphql`
-  query indexBanner {
-    file(relativePath: { eq: "banner02.jpg" }) {
+  query contactBanner {
+    file(relativePath: { eq: "banner03.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid

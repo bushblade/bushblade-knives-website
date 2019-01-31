@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import logo from './logo01-web.svg'
 import styled from 'styled-components'
 import { Spring, config } from 'react-spring'
@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
 
 const Header = () => {
   const [logoBig, setLogoBig] = useState(true)
-  useEffect(
+  useLayoutEffect(
     () => {
       if (window) {
         window.addEventListener('scroll', () => {
