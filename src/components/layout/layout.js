@@ -6,10 +6,10 @@ import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
 
 import Header from '../header/header'
+import Footer from '../layout/footer'
 import './layout.css'
 
 const LayoutWrapper = styled.div`
-  /* background-color: #c2c2a3; */
   background-color: #f1f1f1;
   ${props =>
     props.backgroundImage &&
@@ -46,11 +46,7 @@ const Layout = ({ children, banner }) => (
         <LayoutWrapper backgroundImage={backgroundImage}>
           <Img fluid={banner} />
           <ContentContainer>{children}</ContentContainer>
-          <footer
-            style={{ backgroundColor: 'rgba(73, 75, 70, 1)', height: '15rem' }}
-          >
-            © {new Date().getFullYear()} {data.site.siteMetadata.author}
-          </footer>
+          <Footer author={data.site.siteMetadata.author} />
         </LayoutWrapper>
       </>
     )}

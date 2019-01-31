@@ -14,7 +14,6 @@ const Nav = styled.nav`
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* font-family: 'Bilbo', cursive; */
 `
 const Links = styled.div`
   display: flex;
@@ -25,7 +24,6 @@ const Links = styled.div`
     text-shadow: none;
     margin: 0 1rem;
     color: rgb(51, 51, 51);
-    /* font-size: 1.7rem; */
     font-size: 1.2rem;
     font-style: italic;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
