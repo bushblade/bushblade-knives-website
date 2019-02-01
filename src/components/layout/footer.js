@@ -18,6 +18,7 @@ const Bottom = styled.div`
   grid-area: bottom;
   display: flex;
   justify-content: center;
+  align-items: center;
 `
 
 const footer = ({ author }) => {
