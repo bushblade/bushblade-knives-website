@@ -2,14 +2,8 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Transition, Trail, Spring, config } from 'react-spring'
 import { Link } from 'gatsby'
-import navLinks from './navLinks'
+import { siteLinks, socilaLinks, socialLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faFacebookSquare,
-  faInstagram,
-  faTwitter,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons'
 
 const MenuButton = styled.div`
   position: fixed;
@@ -131,7 +125,7 @@ const menu = () => {
             <Menu style={props}>
               <ul>
                 <Trail
-                  items={navLinks}
+                  items={siteLinks}
                   keys={item => item.text}
                   from={{ transform: 'translate3d(0,-40px,0)' }}
                   to={{ transform: 'translate3d(0,0px,0)' }}
@@ -154,30 +148,11 @@ const menu = () => {
               >
                 {props => (
                   <SocialLinks style={props}>
-                    <a
-                      href="https://www.facebook.com/Bushbladehandmadeknives/"
-                      target="_blank"
-                    >
-                      <FontAwesomeIcon icon={faFacebookSquare} size="lg" />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/bushblade/"
-                      target="_blank"
-                    >
-                      <FontAwesomeIcon icon={faInstagram} size="lg" />
-                    </a>
-                    <a
-                      href="https://twitter.com/Bushblade?lang=en-gb"
-                      target="_blank"
-                    >
-                      <FontAwesomeIcon icon={faTwitter} size="lg" />
-                    </a>
-                    <a
-                      href="https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA"
-                      target="_blank"
-                    >
-                      <FontAwesomeIcon icon={faYoutube} size="lg" />
-                    </a>
+                    {socialLinks.map(({ to, icon }) => (
+                      <a href={to} target="_blank" key={to}>
+                        <FontAwesomeIcon icon={icon} size="lg" />
+                      </a>
+                    ))}
                   </SocialLinks>
                 )}
               </Spring>

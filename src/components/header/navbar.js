@@ -1,14 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faFacebookSquare,
-  faInstagram,
-  faTwitter,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons'
+import { siteLinks, socialLinks } from './navLinks'
 
 import Menu from './menu'
 
@@ -32,12 +26,7 @@ const Links = styled.div`
   display: flex;
   align-items: center;
   margin: auto;
-  grid-area: llinks;
-  ${props =>
-    props.right &&
-    css`
-      grid-area: rlinks;
-    `}
+  grid-area: ${props => (props.right ? 'rlinks' : 'llinks')};
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
@@ -64,30 +53,18 @@ const navbar = () => {
     <>
       <Nav>
         <Links>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/work">Work</Link>
-          <Link to="/contact">Contact</Link>
+          {siteLinks.map(({ to, text }) => (
+            <Link to={to} key={to}>
+              {text}
+            </Link>
+          ))}
         </Links>
         <Links right>
-          <a
-            href="https://www.facebook.com/Bushbladehandmadeknives/"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={faFacebookSquare} size="lg" />
-          </a>
-          <a href="https://www.instagram.com/bushblade/" target="_blank">
-            <FontAwesomeIcon icon={faInstagram} size="lg" />
-          </a>
-          <a href="https://twitter.com/Bushblade?lang=en-gb" target="_blank">
-            <FontAwesomeIcon icon={faTwitter} size="lg" />
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={faYoutube} size="lg" />
-          </a>
+          {socialLinks.map(({ to, icon }) => (
+            <a href={to} target="_blank" key={to}>
+              <FontAwesomeIcon icon={icon} size="lg" />
+            </a>
+          ))}
         </Links>
       </Nav>
       <Menu />

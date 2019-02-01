@@ -21,6 +21,7 @@ moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     background: '#e9e9e9',
     fontStyle: 'italic',
   },
+  'h1,h2,h3,h4,h5,h6': { color: 'rgb(51, 51, 51)' },
 })
 
 const typography = new Typography(moraga)
