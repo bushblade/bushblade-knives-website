@@ -16,9 +16,10 @@ const LogoContainer = styled.div`
   width: 10rem;
   margin-left: -5rem;
   height: 3rem;
-  /* a {
-    background-image: none;
-  } */
+  a {
+    border: none;
+    box-shadow: none;
+  }
 `
 
 const Header = () => {

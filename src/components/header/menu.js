@@ -56,7 +56,7 @@ const MenuButton = styled.div`
         background-color: whitesmoke;
       }
     `}
-  @media (min-width: 800px) {
+  @media (min-width: 1000px) {
     display: none;
   }
 `
@@ -82,8 +82,13 @@ const Menu = styled.div`
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     font-style: italic;
     font-size: 2rem;
+    border: none;
+    box-shadow: none;
+    :hover {
+      background: none;
+    }
   }
-  @media (min-width: 800px) {
+  @media (min-width: 1000px) {
     display: none;
   }
 `
