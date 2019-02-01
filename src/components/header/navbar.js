@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { siteLinks, socialLinks } from './navLinks'
 
+import Logo from './logo'
 import Menu from './menu'
 
 const Nav = styled.nav`
@@ -52,6 +53,7 @@ const navbar = () => {
   return (
     <>
       <Nav>
+        <Logo />
         <Links>
           {siteLinks.map(({ to, text }) => (
             <Link to={to} key={to}>

@@ -5,11 +5,11 @@ import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
 
-import Header from '../header/header'
 import Footer from '../layout/footer'
+import Navbar from '../header/navbar'
 import './layout.css'
 
-const LayoutWrapper = styled.div`
+const LayoutWrapper = styled.header`
   background-color: #f1f1f1;
   ${props =>
     props.backgroundImage &&
@@ -42,7 +42,8 @@ const Layout = ({ children, banner }) => (
     `}
     render={data => (
       <>
-        <Header />
+        <div style={{ height: '3rem' }} />
+        <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
           <Img fluid={banner} />
           <ContentContainer>{children}</ContentContainer>
