@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebookSquare,
   faInstagram,
-  faGooglePlusSquare,
+  faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
@@ -70,16 +70,22 @@ const navbar = () => {
           <Link to="/contact">Contact</Link>
         </Links>
         <Links right>
-          <a href="https://www.facebook.com/Bushbladehandmadeknives/">
+          <a
+            href="https://www.facebook.com/Bushbladehandmadeknives/"
+            target="_blank"
+          >
             <FontAwesomeIcon icon={faFacebookSquare} size="lg" />
           </a>
-          <a href="https://www.instagram.com/bushblade/">
+          <a href="https://www.instagram.com/bushblade/" target="_blank">
             <FontAwesomeIcon icon={faInstagram} size="lg" />
           </a>
-          <a href="https://plus.google.com/u/0/+WillAdamsbushblade">
-            <FontAwesomeIcon icon={faGooglePlusSquare} size="lg" />
+          <a href="https://twitter.com/Bushblade?lang=en-gb" target="_blank">
+            <FontAwesomeIcon icon={faTwitter} size="lg" />
           </a>
-          <a href="https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA">
+          <a
+            href="https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA"
+            target="_blank"
+          >
             <FontAwesomeIcon icon={faYoutube} size="lg" />
           </a>
         </Links>

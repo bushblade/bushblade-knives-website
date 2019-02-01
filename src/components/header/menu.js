@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Transition, Trail } from 'react-spring'
+import { Transition, Trail, Spring, config } from 'react-spring'
 import { Link } from 'gatsby'
 import navLinks from './navLinks'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faFacebookSquare,
+  faInstagram,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
 
 const MenuButton = styled.div`
   position: fixed;
@@ -69,7 +76,8 @@ const Menu = styled.div`
   width: 100%;
   background-color: rgba(73, 75, 70, 0.95);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   ul {
     list-style: none;
     margin-top: 4rem;
@@ -91,6 +99,17 @@ const Menu = styled.div`
   @media (min-width: 1000px) {
     display: none;
   }
+`
+const SocialLinks = styled.div`
+  display: flex;
+  width: 100%;
+  @media (min-width: 700px) {
+    width: 50%;
+  }
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+  padding: 2rem;
 `
 
 const menu = () => {
@@ -127,6 +146,41 @@ const menu = () => {
                   )}
                 </Trail>
               </ul>
+              <Spring
+                from={{ opacity: 0, transform: 'translate3d(0, 100%, 0)' }}
+                to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
+                reset
+                config={config.stiff}
+              >
+                {props => (
+                  <SocialLinks style={props}>
+                    <a
+                      href="https://www.facebook.com/Bushbladehandmadeknives/"
+                      target="_blank"
+                    >
+                      <FontAwesomeIcon icon={faFacebookSquare} size="lg" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/bushblade/"
+                      target="_blank"
+                    >
+                      <FontAwesomeIcon icon={faInstagram} size="lg" />
+                    </a>
+                    <a
+                      href="https://twitter.com/Bushblade?lang=en-gb"
+                      target="_blank"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} size="lg" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA"
+                      target="_blank"
+                    >
+                      <FontAwesomeIcon icon={faYoutube} size="lg" />
+                    </a>
+                  </SocialLinks>
+                )}
+              </Spring>
             </Menu>
           ))
         }
