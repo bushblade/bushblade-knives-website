@@ -16,19 +16,28 @@ const socialLinks = [
   {
     to: 'https://www.facebook.com/Bushbladehandmadeknives/',
     icon: faFacebookSquare,
+    text: 'Facebook',
   },
   {
     to: 'https://www.instagram.com/bushblade/',
     icon: faInstagram,
+    text: 'Instagram',
   },
   {
     to: 'https://twitter.com/Bushblade?lang=en-gb',
     icon: faTwitter,
+    text: 'Twitter',
   },
   {
     to: 'https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA',
     icon: faYoutube,
+    text: 'YouTube',
   },
 ]
 
-export { siteLinks, socialLinks }
+const knifeLinks = [
+  { to: 'work/woodlore-clone', text: 'Woodlore Clone' },
+  { to: 'work/midi', text: 'Midi' },
+]
+
+export { siteLinks, socialLinks, knifeLinks }
