@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { siteLinks, socialLinks } from './navLinks'
@@ -63,7 +63,7 @@ const navbar = () => {
         </Links>
         <Links right>
           {socialLinks.map(({ to, icon }) => (
-            <a href={to} target="_blank" key={to}>
+            <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
               <FontAwesomeIcon icon={icon} size="lg" />
             </a>
           ))}

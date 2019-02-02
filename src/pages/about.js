@@ -45,7 +45,11 @@ const IndexPage = () => (
         <p>
           In 2003 I attended a week long bushcraft course called the Woodlander
           which was run by{' '}
-          <a href="http://www.woodsmoke.uk.com/" target="_blank">
+          <a
+            href="http://www.woodsmoke.uk.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Woodsmoke
           </a>{' '}
           in the Lake District, the course was excellent and I'm happy to say I
@@ -54,7 +58,11 @@ const IndexPage = () => (
           next few years I consolidated my learning with time spent in remote
           area's of England and Scotland as well as the Bahamas practicing the
           skills I had learned. In 2007 and 2008 I assisted the{' '}
-          <a href="http://www.woodsmoke.uk.com/" target="_blank">
+          <a
+            href="http://www.woodsmoke.uk.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Woodsmoke
           </a>{' '}
           team on many on their courses, further learning from a different
@@ -65,7 +73,11 @@ const IndexPage = () => (
           I only spend a few days each week making knives as the majority of my
           time these days is dedicated to my twin girls. I am a keen climber and
           can be often found training at{' '}
-          <a href="http://www.rokt.co.uk/" target="_blank">
+          <a
+            href="http://www.rokt.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Rokt{' '}
           </a>
           my local climbing gym.
@@ -73,7 +85,11 @@ const IndexPage = () => (
         <p>
           I also have a passion for web developement, which you can learn more
           about
-          <a href="http://www.bushbladeprojects.co.uk" target="_blank">
+          <a
+            href="http://www.bushbladeprojects.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {' '}
             here
           </a>

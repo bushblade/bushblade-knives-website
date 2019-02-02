@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Transition, Trail, Spring, config } from 'react-spring'
 import { Link } from 'gatsby'
-import { siteLinks, socilaLinks, socialLinks } from './navLinks'
+import { siteLinks, socialLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MenuButton = styled.div`
@@ -149,7 +149,12 @@ const menu = () => {
                 {props => (
                   <SocialLinks style={props}>
                     {socialLinks.map(({ to, icon }) => (
-                      <a href={to} target="_blank" key={to}>
+                      <a
+                        href={to}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={to}
+                      >
                         <FontAwesomeIcon icon={icon} size="lg" />
                       </a>
                     ))}

@@ -28,6 +28,11 @@ const ContentContainer = styled.div`
   margin: auto;
 `
 
+const PadDiv = styled.div`
+  background-color: #c2c2a3;
+  height: 3rem;
+`
+
 const Layout = ({ children, banner }) => (
   <StaticQuery
     query={graphql`
@@ -42,7 +47,7 @@ const Layout = ({ children, banner }) => (
     `}
     render={data => (
       <>
-        <div style={{ height: '3rem' }} />
+        <PadDiv />
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
           <Img fluid={banner} />
