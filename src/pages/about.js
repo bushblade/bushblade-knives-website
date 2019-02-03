@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout'
 import { NarrowContainer } from '../components/layout/styledComponents'
-// import { aboutQuery } from '../queries/aboutQueries'
 // import SEO from '../components/layout/seo'
 
 const aboutQuery = graphql`

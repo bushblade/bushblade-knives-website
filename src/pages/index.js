@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-// import { indexQuery } from '../queries/indexQueries'
 
 import Layout from '../components/layout/layout'
 import RowGallery from '../components/rowGallery'

@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout'
 import { NarrowContainer } from '../components/layout/styledComponents'
-// import { contactQuery } from '../queries/contactQueries'
 
 // import SEO from '../components/layout/seo'
 
