@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import Img from 'gatsby-image'
 import Lightbox from 'react-images'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Container = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr;
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    ${props =>
+      css`
+        grid-template-columns: repeat(${props.columns}, 1fr);
+      `}
   }
 `
 const Thumbnail = styled.div`
@@ -16,7 +19,7 @@ const Thumbnail = styled.div`
   box-shadow: -1px 3px 6px 1px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
   :hover {
-    transform: scale(1.01);
+    transform: scale(1.01) translate3d(0, -2px, 0);
     box-shadow: -2px 5px 8px 2px rgba(0, 0, 0, 0.3);
   }
 `
@@ -26,7 +29,7 @@ const RowGallery = ({ images }) => {
   const [current, setCurrent] = useState(0)
   return (
     <div style={{ marginBottom: '2rem', marginTop: '2rem' }}>
-      <Container>
+      <Container columns={images.length}>
         {images.map((image, indx) => (
           <Thumbnail
             onClick={() => {

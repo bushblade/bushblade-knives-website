@@ -23,7 +23,7 @@ const LayoutWrapper = styled.header`
 `
 
 const ContentContainer = styled.div`
-  max-width: 960px;
+  max-width: 1400px;
   padding: 1rem;
   margin: auto;
 `

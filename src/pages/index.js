@@ -6,6 +6,7 @@ import { indexQuery } from '../queries/indexQueries'
 
 import Layout from '../components/layout/layout'
 import RowGallery from '../components/rowGallery'
+import { NarrowContainer } from '../components/layout/styledComponents'
 // import SEO from '../components/layout/seo'
 
 const IndexPage = () => (
@@ -13,9 +14,13 @@ const IndexPage = () => (
     query={indexQuery}
     render={data => (
       <Layout banner={data.banner.childImageSharp.fluid}>
-        <div style={{ textAlign: 'center' }}>
+        <NarrowContainer style={{ textAlign: 'center' }}>
           <h1>Welcome to Bushblade knives</h1>
-          <blockquote style={{ boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.1)' }}>
+          <blockquote
+            style={{
+              boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.1)',
+            }}
+          >
             <FontAwesomeIcon
               icon={faQuoteLeft}
               size="xs"
@@ -34,13 +39,15 @@ const IndexPage = () => (
               style={{ marginBottom: '0.3rem' }}
             />
           </blockquote>
-          <RowGallery
-            images={[
-              data.image1.childImageSharp.fluid,
-              data.image2.childImageSharp.fluid,
-              data.image3.childImageSharp.fluid,
-            ]}
-          />
+        </NarrowContainer>
+        <RowGallery
+          images={[
+            data.image1.childImageSharp.fluid,
+            data.image2.childImageSharp.fluid,
+            data.image3.childImageSharp.fluid,
+          ]}
+        />
+        <NarrowContainer style={{ textAlign: 'center' }}>
           <p>
             <strong>I am a firm believer in form following function.</strong> I
             aim to make a functional tool that will be a pleasure to own and use
@@ -58,7 +65,7 @@ const IndexPage = () => (
           <h2 style={{ color: '#a94442' }}>
             You must be over 18 years of age to order a knife.
           </h2>
-        </div>
+        </NarrowContainer>
       </Layout>
     )}
   />
