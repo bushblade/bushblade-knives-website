@@ -1,21 +1,60 @@
 import React from 'react'
-import { StaticQuery, Link } from 'gatsby'
+import { StaticQuery, Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-import { indexQuery } from '../queries/indexQueries'
+// import { indexQuery } from '../queries/indexQueries'
 
 import Layout from '../components/layout/layout'
 import RowGallery from '../components/rowGallery'
 import { NarrowContainer } from '../components/layout/styledComponents'
 // import SEO from '../components/layout/seo'
 
+const indexQuery = graphql`
+  query indexQuery {
+    banner: file(relativePath: { eq: "banner02.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image1: file(
+      relativePath: { eq: "bushblade-knives-antler-woodlore-clone.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image2: file(relativePath: { eq: "bushblade-knives-black-G10.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image3: file(
+      relativePath: { eq: "bushblade-knives-green-micarta-woodlore-clones.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
 const IndexPage = () => (
   <StaticQuery
     query={indexQuery}
     render={data => (
-      <Layout banner={data.banner.childImageSharp.fluid}>
+      <Layout
+        banner={data.banner.childImageSharp.fluid}
+        pageTitle="Welcome to Bushblade knives"
+      >
         <NarrowContainer style={{ textAlign: 'center' }}>
-          <h1>Welcome to Bushblade knives</h1>
           <blockquote
             style={{
               boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.1)',

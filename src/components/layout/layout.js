@@ -33,7 +33,7 @@ const PadDiv = styled.div`
   height: 3rem;
 `
 
-const Layout = ({ children, banner }) => (
+const Layout = ({ children, banner, pageTitle }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -51,7 +51,11 @@ const Layout = ({ children, banner }) => (
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
           <Img fluid={banner} />
-          <ContentContainer>{children}</ContentContainer>
+          <br />
+          <ContentContainer>
+            {pageTitle && <h1 style={{ textAlign: 'center' }}>{pageTitle}</h1>}
+            {children}
+          </ContentContainer>
           <Footer author={data.site.siteMetadata.author} />
         </LayoutWrapper>
       </>

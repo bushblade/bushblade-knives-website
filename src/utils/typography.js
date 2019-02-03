@@ -1,7 +1,7 @@
 import Typography from 'typography'
 import moraga from 'typography-theme-moraga'
 // kirkham.headerFontFamily = ['Philosopher', 'sans-serif']
-moraga.scaleRatio = 1.6
+// moraga.scaleRatio = 1.8
 moraga.headerWeight = '500'
 moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
   a: {
