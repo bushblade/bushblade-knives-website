@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { siteLinks, socialLinks, knifeLinks } from '../header/navLinks'
 import { Link } from 'gatsby'
-import { faPhone, faAt } from '@fortawesome/free-solid-svg-icons'
+import { faAt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const FooterContainer = styled.footer`
@@ -10,6 +10,7 @@ const FooterContainer = styled.footer`
   color: whitesmoke;
   padding: 2rem 1rem 1rem 1rem;
   border-bottom: 5px solid #c2c2a3;
+  /* border-top: 5px solid rgb(51, 51, 51); */
   display: grid;
   /* justify-items: center; */
   grid-template-columns: 1fr;
@@ -39,6 +40,7 @@ const Bottom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.8rem;
 `
 const ListContainer = styled.div`
   display: flex;
@@ -99,7 +101,8 @@ const footer = ({ author }) => {
         </ListContainer>
       </Main>
       <Bottom>
-        All content © {new Date().getFullYear()} {author}
+        All content © {new Date().getFullYear()} {author}. Site design and
+        development by {author}
       </Bottom>
     </FooterContainer>
   )

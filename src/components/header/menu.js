@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Transition, Trail, Spring, config } from 'react-spring'
 import { Link } from 'gatsby'
-import { siteLinks, socialLinks } from './navLinks'
+import { siteLinks, socialLinks, knifeLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MenuButton = styled.div`
@@ -74,7 +74,7 @@ const Menu = styled.div`
   align-items: center;
   ul {
     list-style: none;
-    margin-top: 4rem;
+    margin-top: 2rem;
     li {
       margin: 1rem;
     }
@@ -125,7 +125,7 @@ const menu = () => {
             <Menu style={props}>
               <ul>
                 <Trail
-                  items={siteLinks}
+                  items={siteLinks.concat(knifeLinks)}
                   keys={item => item.text}
                   from={{ transform: 'translate3d(0,-40px,0)' }}
                   to={{ transform: 'translate3d(0,0px,0)' }}
