@@ -1,10 +1,22 @@
 import React from 'react'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout'
 import { NarrowContainer } from '../components/layout/styledComponents'
-import { aboutQuery } from '../queries/aboutQueries'
+// import { aboutQuery } from '../queries/aboutQueries'
 // import SEO from '../components/layout/seo'
+
+const aboutQuery = graphql`
+  query aboutQuery {
+    file(relativePath: { eq: "banner04.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 const IndexPage = () => (
   <StaticQuery
