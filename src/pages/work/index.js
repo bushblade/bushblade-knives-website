@@ -1,8 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Layout from '../components/layout/layout'
-import { NarrowContainer } from '../components/layout/styledComponents'
+import Layout from '../../components/layout/layout'
+import { NarrowContainer } from '../../components/layout/styledComponents'
 // import SEO from '../components/layout/seo'
 
 const bannerQuery = graphql`
