@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Gallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
-
-const options = {
-  headers: {
-    Authorization: 'Client-ID d41fae7124a5aec',
-  },
-}
+import { options } from '../config'
 
 const KnifeGallery = ({ album }) => {
   const [images, setImages] = useState([])
