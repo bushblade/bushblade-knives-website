@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../../components/layout/layout'
 import { StaticQuery, graphql } from 'gatsby'
-import axios from 'axios'
+
+import KnifeGallery from '../../components/knifeGallery'
 
 const query = graphql`
   query woodloreBanner {
@@ -22,6 +23,7 @@ const WoodloreClone = () => {
       render={data => (
         <Layout banner={data.file.childImageSharp.fluid}>
           <h1>The woodlore clone page</h1>
+          <KnifeGallery album="tykr6P0" />
         </Layout>
       )}
     />
