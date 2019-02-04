@@ -20,6 +20,14 @@ moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     padding: '1rem',
     background: '#e9e9e9',
     fontStyle: 'italic',
+    boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.1)',
+  },
+  article: {
+    borderRadius: '5px',
+    borderTop: '5px solid #c2c2a3',
+    padding: '1rem',
+    background: '#e9e9e9',
+    boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.1)',
   },
   'h1,h2,h3,h4,h5,h6': { color: 'rgb(51, 51, 51)' },
 })
