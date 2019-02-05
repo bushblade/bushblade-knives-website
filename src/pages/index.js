@@ -54,7 +54,7 @@ const IndexPage = () => (
         pageTitle="Welcome to Bushblade knives"
       >
         <NarrowContainer style={{ textAlign: 'center' }}>
-          <blockquote>
+          <blockquote style={{ maxWidth: '800px', margin: 'auto' }}>
             <FontAwesomeIcon
               icon={faQuoteLeft}
               size="xs"

@@ -4,10 +4,12 @@ import Gallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
 import { options } from '../config'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
-const Img = styled.img`
+const ImageWrapper = styled.div`
   box-shadow: -1px 3px 6px 1px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
+  border-radius: 2px;
   cursor: pointer;
   :hover {
     transform: scale(1.01) translate3d(0, -2px, 0);
@@ -15,22 +17,53 @@ const Img = styled.img`
   }
 `
 
-const ImageComponent = ({ index, onClick, photo, margin }) => (
-  <Img
-    {...photo}
+const GatsbyImage = ({ index, onClick, photo, margin }) => (
+  <ImageWrapper
     style={{ margin, height: photo.height, width: photo.width }}
     onClick={e => onClick(e, { index, photo })}
-  />
+  >
+    <Img fluid={photo.fluid} />
+  </ImageWrapper>
 )
 
-const KnifeGallery = ({ album }) => {
+const ImageComponent = ({ index, onClick, photo, margin }) => (
+  <ImageWrapper>
+    <img
+      {...photo}
+      style={{ margin, height: photo.height, width: photo.width }}
+      onClick={e => onClick(e, { index, photo })}
+    />
+  </ImageWrapper>
+)
+
+const KnifeGallery = ({ album, photos }) => {
   const [images, setImages] = useState([])
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
 
   useEffect(
     () => {
-      if (images.length === 0) {
+      if (images.length === 0 && photos) {
+        setImages(
+          photos
+            .sort((a, b) => {
+              const fileNumber = file =>
+                Number(
+                  file.node.childImageSharp.fluid.originalName.replace(
+                    /[a-z]/gi,
+                    ''
+                  )
+                )
+              return fileNumber(b) - fileNumber(a)
+            })
+            .map(({ node: { childImageSharp: { fluid, original } } }) => ({
+              height: original.height,
+              width: original.width,
+              src: fluid.originalImg,
+              fluid,
+            }))
+        )
+      } else if (images.length === 0 && !photos) {
         axios
           .get(`https://api.imgur.com/3/album/${album}`, options)
           .then(res => {
@@ -56,7 +89,7 @@ const KnifeGallery = ({ album }) => {
             setCurrent(obj.index)
             setOpen(true)
           }}
-          ImageComponent={ImageComponent}
+          ImageComponent={photos ? GatsbyImage : ImageComponent}
           margin={5}
         />
       )}
@@ -71,6 +104,8 @@ const KnifeGallery = ({ album }) => {
         currentImage={current}
         isOpen={isOpen}
         backdropClosesModal
+        // showThumbnails
+        width={2000}
       />
     </>
   )

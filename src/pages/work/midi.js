@@ -13,6 +13,23 @@ const query = graphql`
         }
       }
     }
+    allFile(filter: { relativeDirectory: { eq: "midi-images" } }) {
+      edges {
+        node {
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            fluid {
+              ...GatsbyImageSharpFluid
+              originalName
+              originalImg
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -24,7 +41,7 @@ const Midi = () => {
         return (
           <Layout banner={data.file.childImageSharp.fluid}>
             <h1>The Midi page</h1>
-            <KnifeGallery album="5kwDl8j" />
+            <KnifeGallery album="5kwDl8j" photos={data.allFile.edges} />
           </Layout>
         )
       }}
