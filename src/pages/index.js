@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+// import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import RowGallery from '../components/rowGallery'
@@ -45,6 +46,10 @@ const indexQuery = graphql`
   }
 `
 
+// const Title = styled.div`
+//   margin: auto;
+// `
+
 const IndexPage = () => (
   <StaticQuery
     query={indexQuery}
@@ -60,13 +65,13 @@ const IndexPage = () => (
               size="xs"
               style={{ marginBottom: '0.3rem' }}
             />{' '}
-            I have used and acquired many knives over the years, from a variety
-            of brand name manufacturers. Without sufficient funds to purchase my
-            ideal knife I decided to try and make my own, and made my first
-            knife in 2001. The first attempts yielded functional success in
-            replicating the now famous Woodlore knives designed by Ray Mears and
-            at the time made by Alan Wood. I still own these knives but the
-            quality of my work has improved somewhat since the early days.{' '}
+            Having used and acquired many knives over the years, from a variety
+            of brand name manufacturers and without sufficient funds to purchase
+            my ideal knife I decided to try and make my own. I made my first
+            knives in 2001 yielding functional success in replicating the now
+            famous Woodlore knives designed by Ray Mears and at the time made by
+            Alan Wood. I still own these knives but the quality of my work has
+            improved somewhat since the early days.{' '}
             <FontAwesomeIcon
               icon={faQuoteRight}
               size="xs"
