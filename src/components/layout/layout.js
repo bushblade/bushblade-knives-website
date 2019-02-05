@@ -50,7 +50,7 @@ const Layout = ({ children, banner, pageTitle }) => (
         <PadDiv />
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
-          <Img fluid={banner} />
+          <Img fixed={typeof window === 'undefined' ? {src: {}} : undefined} fluid={banner} />
           <br />
           <ContentContainer>
             {pageTitle && <h1 style={{ textAlign: 'center' }}>{pageTitle}</h1>}

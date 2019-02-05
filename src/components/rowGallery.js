@@ -38,7 +38,10 @@ const RowGallery = ({ images }) => {
             }}
             key={`row-gallery-img${indx}`}
           >
-            <Img fluid={image} />
+            <Img
+              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+              fluid={image}
+            />
           </Thumbnail>
         ))}
       </Container>

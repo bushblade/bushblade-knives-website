@@ -20,7 +20,10 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
     style={{ margin, height: photo.height, width: photo.width }}
     onClick={e => onClick(e, { index, photo })}
   >
-    <Img fluid={photo.fluid} />
+    <Img
+      fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+      fluid={photo.fluid}
+    />
   </ImageWrapper>
 )
 

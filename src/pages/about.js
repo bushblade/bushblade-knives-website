@@ -95,6 +95,7 @@ const IndexPage = () => (
           </Cell>
           <Cell>
             <Img
+              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
               fluid={data.me.childImageSharp.fluid}
               style={{ margin: 'auto' }}
               title="Yep that's me"
@@ -104,6 +105,7 @@ const IndexPage = () => (
         <TwoColumnContainer>
           <Cell>
             <Img
+              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
               fluid={data.woodsmoke.childImageSharp.fluid}
               title="June 2003"
             />
