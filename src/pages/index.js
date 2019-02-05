@@ -46,17 +46,14 @@ const indexQuery = graphql`
   }
 `
 
-// const Title = styled.div`
-//   margin: auto;
-// `
-
 const IndexPage = () => (
   <StaticQuery
     query={indexQuery}
     render={data => (
       <Layout
         banner={data.banner.childImageSharp.fluid}
-        pageTitle="Welcome to Bushblade knives"
+        pageTitle="Welcome to Bushblade"
+        tagline={' handmade knives by Will Adams'}
       >
         <NarrowContainer style={{ textAlign: 'center' }}>
           <blockquote style={{ maxWidth: '800px', margin: 'auto' }}>

@@ -28,6 +28,15 @@ module.exports = {
         path: `${__dirname}/src/images/midi-images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Bilbo`,
+          `Philosopher`, // you can also specify font weights and styles
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -73,6 +73,7 @@ const IndexPage = () => (
       <Layout
         banner={data.file.childImageSharp.fluid}
         pageTitle="A little about me"
+        tagline=" bushcrafter, climber, developer..."
       >
         <TwoColumnContainer>
           <Cell>

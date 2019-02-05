@@ -7,6 +7,7 @@ import backgroundImage from '../../images/floweroflife.svg'
 
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
+import TagLine from './tagLine'
 import './layout.css'
 
 const LayoutWrapper = styled.header`
@@ -33,7 +34,30 @@ const PadDiv = styled.div`
   height: 3rem;
 `
 
-const Layout = ({ children, banner, pageTitle }) => (
+const Title = styled.div`
+  text-align: center;
+  margin: 1rem auto 3rem auto;
+  h1 {
+    /* font-style: italic; */
+    font-family: 'Bilbo';
+    display: inline-block;
+    border-bottom: 3px solid #c2c2a3;
+    padding: 0 2rem;
+    margin: 0;
+    line-height: 0.9;
+  }
+  h1 > span {
+    font-family: 'Philosopher';
+    font-style: italic;
+    display: inline-block;
+    transform: translateY(1rem);
+    font-size: 1.4rem;
+    background-color: #f1f1f1;
+    padding: 0 0.2rem;
+  }
+`
+
+const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -50,10 +74,27 @@ const Layout = ({ children, banner, pageTitle }) => (
         <PadDiv />
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
-          <Img fixed={typeof window === 'undefined' ? {src: {}} : undefined} fluid={banner} />
+          <Img
+            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+            fluid={banner}
+          />
           <br />
           <ContentContainer>
-            {pageTitle && <h1 style={{ textAlign: 'center' }}>{pageTitle}</h1>}
+            {pageTitle && (
+              <Title>
+                <h1 style={{ textAlign: 'center' }}>
+                  {pageTitle}{' '}
+                  <span>
+                    {' '}
+                    {typeof tagline !== 'string' ? (
+                      <TagLine tagline={tagline} />
+                    ) : (
+                      tagline
+                    )}
+                  </span>
+                </h1>
+              </Title>
+            )}
             {children}
           </ContentContainer>
           <Footer author={data.site.siteMetadata.author} />
