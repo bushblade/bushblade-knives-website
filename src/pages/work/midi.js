@@ -41,7 +41,7 @@ const Midi = () => {
         return (
           <Layout banner={data.file.childImageSharp.fluid}>
             <h1>The Midi page</h1>
-            <KnifeGallery album="5kwDl8j" photos={data.allFile.edges} />
+            <KnifeGallery photos={data.allFile.edges} />
           </Layout>
         )
       }}

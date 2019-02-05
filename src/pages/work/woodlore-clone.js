@@ -40,7 +40,7 @@ const WoodloreClone = () => {
       render={data => (
         <Layout banner={data.banner.childImageSharp.fluid}>
           <h1>The woodlore clone page</h1>
-          <KnifeGallery album="tykr6P0" photos={data.allFile.edges} />
+          <KnifeGallery photos={data.allFile.edges} />
         </Layout>
       )}
     />

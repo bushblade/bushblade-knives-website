@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import Gallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
-import { options } from '../config'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -26,17 +24,7 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
   </ImageWrapper>
 )
 
-const ImageComponent = ({ index, onClick, photo, margin }) => (
-  <ImageWrapper>
-    <img
-      {...photo}
-      style={{ margin, height: photo.height, width: photo.width }}
-      onClick={e => onClick(e, { index, photo })}
-    />
-  </ImageWrapper>
-)
-
-const KnifeGallery = ({ album, photos }) => {
+const KnifeGallery = ({ photos }) => {
   const [images, setImages] = useState([])
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -63,19 +51,6 @@ const KnifeGallery = ({ album, photos }) => {
               fluid,
             }))
         )
-      } else if (images.length === 0 && !photos) {
-        axios
-          .get(`https://api.imgur.com/3/album/${album}`, options)
-          .then(res => {
-            setImages(
-              res.data.data.images.map(({ id, height, width, link }) => ({
-                id,
-                height,
-                width,
-                src: link,
-              }))
-            )
-          })
       }
     },
     [images]
@@ -89,7 +64,7 @@ const KnifeGallery = ({ album, photos }) => {
             setCurrent(obj.index)
             setOpen(true)
           }}
-          ImageComponent={photos ? GatsbyImage : ImageComponent}
+          ImageComponent={GatsbyImage}
           margin={5}
         />
       )}
@@ -104,7 +79,6 @@ const KnifeGallery = ({ album, photos }) => {
         currentImage={current}
         isOpen={isOpen}
         backdropClosesModal
-        // showThumbnails
         width={2000}
       />
     </>
