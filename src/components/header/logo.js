@@ -47,6 +47,7 @@ const Logo = () => {
     transform: logoBig
       ? 'scale(1.5) translate3d(0, 1rem, 0)'
       : 'scale(1) translate3d(0, 0rem, 0)',
+    config: config.stiff,
   })
 
   return (

@@ -68,12 +68,7 @@ const MenuButton = styled.div`
   }
 `
 const Menu = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 11;
   height: 100vh;
-  width: 100%;
   background-color: rgba(73, 75, 70, 0.95);
   display: flex;
   flex-direction: column;
@@ -121,6 +116,19 @@ const menu = () => {
     opacity: open ? 1 : 0,
   })
 
+  const allLinks = siteLinks.concat(knifeLinks)
+
+  const trail = useTrail(allLinks.length, {
+    opacity: open ? 1 : 0,
+    transform: open ? 'translate3d(0,0px,0)' : 'translate3d(0,-40px,0)',
+    config: config.stiff,
+    delay: 200,
+    reset: !open,
+    from: {
+      transform: 'translate3d(0,-40px,0)',
+    },
+  })
+
   const socialSpring = useSpring({
     opacity: open ? 1 : 0,
     transform: open ? 'translate3d(0, 0, 0)' : 'translate3d(0, 50%, 0)',
@@ -129,19 +137,8 @@ const menu = () => {
       transform: 'translate3d(0, 50%, 0)',
     },
     config: config.slow,
-    delay: 1000,
-  })
-
-  const allLinks = siteLinks.concat(knifeLinks)
-
-  const trail = useTrail(allLinks.length, {
-    opacity: open ? 1 : 0,
-    transform: open ? 'translate3d(0,0px,0)' : 'translate3d(0,-40px,0)',
-    config: config.stiff,
-    delay: 200,
-    from: {
-      transform: 'translate3d(0,-40px,0)',
-    },
+    delay: 500,
+    reset: !open,
   })
 
   return (
