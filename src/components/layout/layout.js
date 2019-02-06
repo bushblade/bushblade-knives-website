@@ -1,14 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
-// import { useSpring, animated } from 'react-spring'
 
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
-import TagLine from './tagLine'
+import PageTitle from './pageTitle'
 import './layout.css'
 
 const LayoutWrapper = styled.header`
@@ -35,31 +33,7 @@ const PadDiv = styled.div`
   height: 3rem;
 `
 
-const Title = styled.div`
-  text-align: center;
-  margin: 1rem auto 3rem auto;
-  h1 {
-    /* font-style: italic; */
-    font-family: 'Bilbo', serif;
-    font-size: 2.8rem;
-    display: inline-block;
-    border-bottom: 3px solid #c2c2a3;
-    padding: 0 2rem;
-    margin: 0;
-    line-height: 0.9;
-  }
-  h1 > span {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: italic;
-    display: inline-block;
-    transform: translateY(1rem);
-    font-size: 1.4rem;
-    background-color: #f1f1f1;
-    padding: 0 0.2rem;
-  }
-`
-
-const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
+const Layout = ({ children, banner, pageTitle, tagline }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -84,19 +58,7 @@ const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
             <br />
             <ContentContainer>
               {pageTitle && (
-                <Title>
-                  <h1 style={{ textAlign: 'center' }}>
-                    {pageTitle}{' '}
-                    <span>
-                      {' '}
-                      {typeof tagline !== 'string' ? (
-                        <TagLine tagline={tagline} />
-                      ) : (
-                        tagline
-                      )}
-                    </span>
-                  </h1>
-                </Title>
+                <PageTitle pageTitle={pageTitle} tagline={tagline} />
               )}
               {children}
             </ContentContainer>
@@ -107,9 +69,5 @@ const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
     }}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout
