@@ -40,7 +40,7 @@ const Title = styled.div`
   margin: 1rem auto 3rem auto;
   h1 {
     /* font-style: italic; */
-    font-family: 'Bilbo';
+    font-family: 'Bilbo', serif;
     font-size: 2.8rem;
     display: inline-block;
     border-bottom: 3px solid #c2c2a3;
@@ -49,7 +49,7 @@ const Title = styled.div`
     line-height: 0.9;
   }
   h1 > span {
-    font-family: 'Philosopher';
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
     display: inline-block;
     transform: translateY(1rem);
@@ -84,7 +84,10 @@ const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
           <ContentContainer>
             {pageTitle && (
               <Spring
-                from={{ opacity: 0, transform: 'translate3d(0, 30px, 0)' }}
+                from={{
+                  opacity: 0,
+                  transform: `translate3d(0, 30px, 0)`,
+                }}
                 to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
               >
                 {props => (
