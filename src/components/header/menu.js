@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Transition, Trail, Spring, config } from 'react-spring'
+import {
+  useTransition,
+  useTrail,
+  useSpring,
+  config,
+  animated,
+} from 'react-spring'
 import { Link } from 'gatsby'
 import { siteLinks, socialLinks, knifeLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -104,67 +110,77 @@ const SocialLinks = styled.div`
   align-items: flex-end;
   height: 100%;
   padding: 2rem;
+  margin: auto;
 `
 
 const menu = () => {
   const [open, setOpen] = useState(false)
+
+  const menuSpring = useSpring({
+    transform: open ? 'translate3d(0,0,0)' : 'translate3d(100%,-100%,0)',
+    opacity: open ? 1 : 0,
+  })
+
+  const socialSpring = useSpring({
+    opacity: open ? 1 : 0,
+    transform: open ? 'translate3d(0, 0, 0)' : 'translate3d(0, 50%, 0)',
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, 50%, 0)',
+    },
+    config: config.slow,
+    delay: 1000,
+  })
+
+  const allLinks = siteLinks.concat(knifeLinks)
+
+  const trail = useTrail(allLinks.length, {
+    opacity: open ? 1 : 0,
+    transform: open ? 'translate3d(0,0px,0)' : 'translate3d(0,-40px,0)',
+    config: config.stiff,
+    delay: 200,
+    from: {
+      transform: 'translate3d(0,-40px,0)',
+    },
+  })
+
   return (
     <>
       <MenuButton open={open} onClick={() => setOpen(!open)}>
         <span />
       </MenuButton>
-      <Transition
-        items={open}
-        from={{ transform: 'translate3d(100%,-100%,0)', opacity: 0 }}
-        enter={{ transform: 'translate3d(0,0,0)', opacity: 1 }}
-        leave={{ transform: 'translate3d(100%,-100%,0)', opacity: 0 }}
+      <animated.div
+        style={{
+          zIndex: 11,
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          width: '100%',
+          height: '100vh',
+          ...menuSpring,
+        }}
       >
-        {open =>
-          open &&
-          (props => (
-            <Menu style={props}>
-              <ul>
-                <Trail
-                  items={siteLinks.concat(knifeLinks)}
-                  keys={item => item.text}
-                  from={{ transform: 'translate3d(0,-40px,0)' }}
-                  to={{ transform: 'translate3d(0,0px,0)' }}
-                  delay={200}
-                >
-                  {item => linkprops => (
-                    <li key={item.text} style={linkprops}>
-                      <Link onClick={() => setOpen(false)} to={item.to}>
-                        {item.text}
-                      </Link>
-                    </li>
-                  )}
-                </Trail>
-              </ul>
-              <Spring
-                from={{ opacity: 0, transform: 'translate3d(0, 100%, 0)' }}
-                to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
-                reset
-                config={config.stiff}
-              >
-                {props => (
-                  <SocialLinks style={props}>
-                    {socialLinks.map(({ to, icon }) => (
-                      <a
-                        href={to}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={to}
-                      >
-                        <FontAwesomeIcon icon={icon} size="lg" />
-                      </a>
-                    ))}
-                  </SocialLinks>
-                )}
-              </Spring>
-            </Menu>
-          ))
-        }
-      </Transition>
+        <Menu>
+          <ul>
+            {trail.map((props, index) => (
+              <animated.li key={allLinks[index].text} style={props}>
+                <Link onClick={() => setOpen(false)} to={allLinks[index].to}>
+                  {allLinks[index].text}
+                </Link>
+              </animated.li>
+            ))}
+          </ul>
+          <animated.div style={{ width: '100%', ...socialSpring }}>
+            <SocialLinks>
+              {socialLinks.map(({ to, icon }) => (
+                <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
+                  <FontAwesomeIcon icon={icon} size="lg" />
+                </a>
+              ))}
+            </SocialLinks>
+          </animated.div>
+        </Menu>
+      </animated.div>
     </>
   )
 }

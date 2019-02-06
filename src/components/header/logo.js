@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
 import logo from './logo01-web.svg'
 import styled from 'styled-components'
-import { Spring, config } from 'react-spring'
+import { config, useSpring, animated } from 'react-spring'
 import { Link } from 'gatsby'
 
 const LogoContainer = styled.div`
@@ -43,30 +43,22 @@ const Logo = () => {
     [logoBig]
   )
 
+  const logoAnimation = useSpring({
+    transform: logoBig
+      ? 'scale(1.5) translate3d(0, 1rem, 0)'
+      : 'scale(1) translate3d(0, 0rem, 0)',
+  })
+
   return (
     <LogoContainer>
       <Link to="/">
-        <Spring
-          from={{
-            transform: logoBig
-              ? 'scale(1) translate3d(0, 0rem, 0)'
-              : 'scale(1.5) translate3d(0, 1rem, 0)',
-          }}
-          to={{
-            transform: logoBig
-              ? 'scale(1.5) translate3d(0, 1rem, 0)'
-              : 'scale(1) translate3d(0, 0rem, 0)',
-          }}
-          config={config.stiff}
-        >
-          {props => (
-            <img
-              src={logo}
-              alt="Bushblade Handmade Knives"
-              style={{ margin: '0', height: '3rem', ...props }}
-            />
-          )}
-        </Spring>
+        <animated.div style={logoAnimation}>
+          <img
+            src={logo}
+            alt="Bushblade Handmade Knives"
+            style={{ margin: '0', height: '3rem' }}
+          />
+        </animated.div>
       </Link>
     </LogoContainer>
   )
