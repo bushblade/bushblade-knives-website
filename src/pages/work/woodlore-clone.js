@@ -38,8 +38,11 @@ const WoodloreClone = () => {
     <StaticQuery
       query={query}
       render={data => (
-        <Layout banner={data.banner.childImageSharp.fluid}>
-          <h1>The woodlore clone page</h1>
+        <Layout
+          banner={data.banner.childImageSharp.fluid}
+          pageTitle="Woodlore Clone"
+          tagline="The design that inspired it all"
+        >
           <KnifeGallery photos={data.allFile.edges} />
         </Layout>
       )}

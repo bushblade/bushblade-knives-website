@@ -39,8 +39,11 @@ const Midi = () => {
       query={query}
       render={data => {
         return (
-          <Layout banner={data.banner.childImageSharp.fluid}>
-            <h1>The Midi page</h1>
+          <Layout
+            banner={data.banner.childImageSharp.fluid}
+            pageTitle="Model 01 Midi"
+            tagline="my design, my choice"
+          >
             <KnifeGallery photos={data.allFile.edges} />
           </Layout>
         )
