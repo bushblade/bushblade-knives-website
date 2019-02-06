@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
+import { Spring } from 'react-spring'
 
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
@@ -82,19 +83,26 @@ const Layout = ({ children, banner, pageTitle, tagline = '' }) => (
           <br />
           <ContentContainer>
             {pageTitle && (
-              <Title>
-                <h1 style={{ textAlign: 'center' }}>
-                  {pageTitle}{' '}
-                  <span>
-                    {' '}
-                    {typeof tagline !== 'string' ? (
-                      <TagLine tagline={tagline} />
-                    ) : (
-                      tagline
-                    )}
-                  </span>
-                </h1>
-              </Title>
+              <Spring
+                from={{ opacity: 0, transform: 'translate3d(0, 30px, 0)' }}
+                to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
+              >
+                {props => (
+                  <Title style={props}>
+                    <h1 style={{ textAlign: 'center' }}>
+                      {pageTitle}{' '}
+                      <span>
+                        {' '}
+                        {typeof tagline !== 'string' ? (
+                          <TagLine tagline={tagline} />
+                        ) : (
+                          tagline
+                        )}
+                      </span>
+                    </h1>
+                  </Title>
+                )}
+              </Spring>
             )}
             {children}
           </ContentContainer>
