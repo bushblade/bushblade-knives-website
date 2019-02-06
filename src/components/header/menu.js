@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import {
-  useTransition,
-  useTrail,
-  useSpring,
-  config,
-  animated,
-} from 'react-spring'
+import { useTrail, useSpring, config, animated } from 'react-spring'
 import { Link } from 'gatsby'
 import { siteLinks, socialLinks, knifeLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -73,6 +67,7 @@ const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   ul {
     list-style: none;
     margin-top: 2rem;
@@ -97,13 +92,10 @@ const Menu = styled.div`
 `
 const SocialLinks = styled.div`
   display: flex;
-  width: 100%;
   @media (min-width: 700px) {
     width: 50%;
   }
   justify-content: space-around;
-  align-items: flex-end;
-  height: 100%;
   padding: 2rem;
   margin: auto;
 `
@@ -153,7 +145,6 @@ const menu = () => {
           top: 0,
           right: 0,
           width: '100%',
-          height: '100vh',
           ...menuSpring,
         }}
       >
