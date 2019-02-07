@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { siteLinks, socialLinks } from './navLinks'
+import { siteLinks, socialLinks, knifeLinks } from './navLinks'
 
 import Logo from './logo'
 import Menu from './menu'
@@ -49,9 +49,37 @@ const Links = styled.div`
   }
 `
 
+const PadDiv = styled.div`
+  background-color: #c2c2a3;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  div {
+    margin-left: 0.5rem;
+    @media (max-width: 1000px) {
+      display: none;
+    }
+    a {
+      border: none;
+      box-shadow: none;
+      padding: 0 0.3rem;
+      color: rgb(51, 51, 51);
+    }
+  }
+`
+
 const navbar = () => {
   return (
     <>
+      <PadDiv>
+        <div>
+          {socialLinks.map(({ to, icon }) => (
+            <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
+              <FontAwesomeIcon icon={icon} size="lg" />
+            </a>
+          ))}
+        </div>
+      </PadDiv>
       <Nav>
         <Logo />
         <Links>
@@ -62,10 +90,10 @@ const navbar = () => {
           ))}
         </Links>
         <Links right>
-          {socialLinks.map(({ to, icon }) => (
-            <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
-              <FontAwesomeIcon icon={icon} size="lg" />
-            </a>
+          {knifeLinks.map(({ to, text }) => (
+            <Link to={to} key={to}>
+              {text}
+            </Link>
           ))}
         </Links>
       </Nav>

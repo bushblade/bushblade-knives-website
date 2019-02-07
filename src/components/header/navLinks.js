@@ -8,8 +8,8 @@ import {
 const siteLinks = [
   { to: '/', text: 'Home' },
   { to: '/about', text: 'About' },
-  { to: '/work', text: 'Work' },
   { to: '/contact', text: 'Contact' },
+  { to: '/work', text: 'Work' },
 ]
 
 const socialLinks = [
