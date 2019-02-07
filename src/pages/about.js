@@ -64,7 +64,7 @@ const IndexPage = () => (
           <Cell>
             <article>
               <p>
-                <strong>I have always had a passion for wild</strong> places and
+                <strong>I have always had a passion for wild places</strong> and
                 spending time in them; bushcraft for me is a way of being
                 comfortable and feeling at home in wild places.{' '}
               </p>
@@ -138,7 +138,14 @@ const IndexPage = () => (
                 </a>{' '}
                 team on many of their courses, further learning from a different
                 perspective. I have also worked with other UK bushcraft schools
-                including Bushtruck and Dryad Bushcraft.{' '}
+                including Bushtruck and{' '}
+                <a
+                  href="https://www.dryadbushcraft.co.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Dryad Bushcraft.
+                </a>{' '}
               </p>
             </article>
           </Cell>
