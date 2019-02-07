@@ -7,7 +7,6 @@ import backgroundImage from '../../images/floweroflife.svg'
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
 import PageTitle from './pageTitle'
-import './layout.css'
 
 const LayoutWrapper = styled.header`
   background-color: #f1f1f1;

@@ -4,6 +4,12 @@ import moraga from 'typography-theme-moraga'
 // moraga.scaleRatio = 1.8
 moraga.headerWeight = '500'
 moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+  '*': {
+    boxSizing: 'border-box',
+  },
+  body: {
+    backgroundColor: '#c2c2a3',
+  },
   a: {
     color: 'rgb(51, 51, 51)',
     textDecoration: 'none',
