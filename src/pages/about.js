@@ -64,8 +64,8 @@ const IndexPage = () => (
           <Cell>
             <article>
               <p>
-                <strong>I have always had a passion for wild places</strong> and
-                spending time in them; bushcraft for me is a way of being
+                <strong>I have always had a passion for wild placesu</strong>{' '}
+                and spending time in them; bushcraft for me is a way of being
                 comfortable and feeling at home in wild places.{' '}
               </p>
               <p>
