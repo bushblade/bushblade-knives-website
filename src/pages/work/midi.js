@@ -40,9 +40,6 @@ const query = graphql`
 const ImageContainer = styled.div`
   display: flex;
   align-items: center;
-  img {
-    /* transform: rotate(15deg); */
-  }
 `
 
 const Midi = () => {
