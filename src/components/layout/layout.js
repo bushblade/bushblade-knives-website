@@ -45,28 +45,24 @@ const Layout = ({ children, banner, pageTitle, tagline }) => (
         }
       }
     `}
-    render={data => {
-      return (
-        <>
-          <PadDiv />
-          <Navbar />
-          <LayoutWrapper backgroundImage={backgroundImage}>
-            <Img
-              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-              fluid={banner}
-            />
-            <br />
-            <ContentContainer>
-              {pageTitle && (
-                <PageTitle pageTitle={pageTitle} tagline={tagline} />
-              )}
-              {children}
-            </ContentContainer>
-            <Footer author={data.site.siteMetadata.author} />
-          </LayoutWrapper>
-        </>
-      )
-    }}
+    render={data => (
+      <>
+        <PadDiv />
+        <Navbar />
+        <LayoutWrapper backgroundImage={backgroundImage}>
+          <Img
+            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+            fluid={banner}
+          />
+          <br />
+          <ContentContainer>
+            {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
+            {children}
+          </ContentContainer>
+          <Footer author={data.site.siteMetadata.author} />
+        </LayoutWrapper>
+      </>
+    )}
   />
 )
 
