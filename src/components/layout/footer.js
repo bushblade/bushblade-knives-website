@@ -102,7 +102,7 @@ const footer = ({ author }) => {
       </Main>
       <Bottom>
         All content © {new Date().getFullYear()} {author}. Site design and
-        development by {author}
+        development by {author}. All images © Lou Adams Photography
       </Bottom>
     </FooterContainer>
   )
