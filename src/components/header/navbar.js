@@ -14,7 +14,7 @@ const Nav = styled.nav`
   z-index: 9;
   width: 100%;
   height: 3rem;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   grid-template-areas: 'llinks logo rlinks';
