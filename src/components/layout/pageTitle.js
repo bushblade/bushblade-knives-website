@@ -43,7 +43,7 @@ const PageTitle = ({ pageTitle, tagline = '' }) => {
     transform: 'translate3d(0, 1rem, 0)',
     opacity: 1,
     delay: 300,
-    config: config.siff,
+    config: config.stiff,
     from: {
       transform: 'translate3d(10rem, 1rem, 0)',
       opacity: 0,
