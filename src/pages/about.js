@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 
 import Layout from '../components/layout/layout'
-// import { NarrowContainer } from '../components/layout/styledComponents'
+import { TwoColumnContainer } from '../components/layout/styledComponents'
 // import SEO from '../components/layout/seo'
 
 const aboutQuery = graphql`
@@ -44,21 +44,6 @@ const aboutQuery = graphql`
         }
       }
     }
-  }
-`
-
-const TwoColumnContainer = styled.div`
-  ${props =>
-    props.narrow &&
-    css`
-      max-width: 960px;
-    `}
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 2rem auto;
-  @media (min-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
   }
 `
 
