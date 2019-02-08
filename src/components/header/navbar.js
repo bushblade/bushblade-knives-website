@@ -77,7 +77,7 @@ const navbar = () => {
   return (
     <>
       <PadDiv>
-        <div>
+        {/* <div>
           {socialLinks.map(({ to, icon, color }) => (
             <SocialLink
               href={to}
@@ -89,7 +89,7 @@ const navbar = () => {
               <FontAwesomeIcon icon={icon} size="lg" />
             </SocialLink>
           ))}
-        </div>
+        </div> */}
       </PadDiv>
       <Nav>
         <Logo />
