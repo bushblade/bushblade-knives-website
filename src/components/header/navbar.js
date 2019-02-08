@@ -59,12 +59,17 @@ const PadDiv = styled.div`
     @media (max-width: 1000px) {
       display: none;
     }
-    a {
-      border: none;
-      box-shadow: none;
-      padding: 0 0.3rem;
-      color: rgb(51, 51, 51);
-    }
+  }
+`
+const SocialLink = styled.a`
+  border: none;
+  box-shadow: none;
+  padding: 0 0.3rem;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+  color: rgb(51, 51, 51);
+  :hover {
+    color: ${props => props.color};
   }
 `
 
@@ -73,10 +78,16 @@ const navbar = () => {
     <>
       <PadDiv>
         <div>
-          {socialLinks.map(({ to, icon }) => (
-            <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
+          {socialLinks.map(({ to, icon, color }) => (
+            <SocialLink
+              href={to}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={to}
+              color={color}
+            >
               <FontAwesomeIcon icon={icon} size="lg" />
-            </a>
+            </SocialLink>
           ))}
         </div>
       </PadDiv>

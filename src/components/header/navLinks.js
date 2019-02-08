@@ -17,21 +17,25 @@ const socialLinks = [
     to: 'https://www.facebook.com/Bushbladehandmadeknives/',
     icon: faFacebookSquare,
     text: 'Facebook',
+    color: '#3B5998',
   },
   {
     to: 'https://www.instagram.com/bushblade/',
     icon: faInstagram,
     text: 'Instagram',
+    color: '#bc2a8d',
   },
   {
     to: 'https://twitter.com/Bushblade?lang=en-gb',
     icon: faTwitter,
     text: 'Twitter',
+    color: '#1dcaff',
   },
   {
     to: 'https://www.youtube.com/channel/UC-A8Y3qftUHT5cYwVlW0ttA',
     icon: faYoutube,
     text: 'YouTube',
+    color: '#ff0000',
   },
 ]
 
