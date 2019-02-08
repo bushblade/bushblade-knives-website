@@ -54,6 +54,7 @@ const PadDiv = styled.div`
   height: 3rem;
   display: flex;
   align-items: center;
+  width: 100%;
   div {
     margin-left: 0.5rem;
     @media (max-width: 1000px) {
@@ -68,6 +69,9 @@ const SocialLink = styled.a`
   transition: all 0.2s ease-in-out;
   font-size: 0.9rem;
   color: rgb(51, 51, 51);
+  @media (max-width: 1000px) {
+    display: none;
+  }
   :hover {
     color: ${props => props.color};
   }
@@ -76,21 +80,7 @@ const SocialLink = styled.a`
 const navbar = () => {
   return (
     <>
-      <PadDiv>
-        {/* <div>
-          {socialLinks.map(({ to, icon, color }) => (
-            <SocialLink
-              href={to}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={to}
-              color={color}
-            >
-              <FontAwesomeIcon icon={icon} size="lg" />
-            </SocialLink>
-          ))}
-        </div> */}
-      </PadDiv>
+      <PadDiv />
       <Nav>
         <Logo />
         <Links>
