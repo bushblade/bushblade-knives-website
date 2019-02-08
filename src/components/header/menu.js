@@ -72,14 +72,14 @@ const Menu = styled.div`
     list-style: none;
     margin-top: 2rem;
     li {
-      margin: 1rem;
+      margin: 0.8rem;
     }
   }
   a {
     color: whitesmoke;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     font-style: italic;
-    font-size: 2rem;
+    font-size: 1.7rem;
     border: none;
     box-shadow: none;
     :hover {
@@ -160,8 +160,14 @@ const menu = () => {
           </ul>
           <animated.div style={{ width: '100%', ...socialSpring }}>
             <SocialLinks>
-              {socialLinks.map(({ to, icon }) => (
-                <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
+              {socialLinks.map(({ to, icon, color }) => (
+                <a
+                  href={to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={to}
+                  color={color}
+                >
                   <FontAwesomeIcon icon={icon} size="lg" />
                 </a>
               ))}
