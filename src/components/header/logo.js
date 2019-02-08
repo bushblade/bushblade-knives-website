@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from './logo01-web.svg'
 import styled from 'styled-components'
 import { config, useSpring, animated } from 'react-spring'
@@ -33,7 +33,7 @@ const Logo = () => {
     }
   }
 
-  useLayoutEffect(
+  useEffect(
     () => {
       if (window) {
         window.addEventListener('scroll', handleScroll)
