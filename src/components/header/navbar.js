@@ -9,7 +9,8 @@ import Menu from './menu'
 
 const Nav = styled.nav`
   position: sticky;
-  top: 0px;
+  top: 0;
+  left: 0;
   background-color: #c2c2a3;
   z-index: 9;
   width: 100%;

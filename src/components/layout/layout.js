@@ -8,7 +8,7 @@ import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
 import PageTitle from './pageTitle'
 
-const LayoutWrapper = styled.header`
+const LayoutWrapper = styled.section`
   background-color: #f1f1f1;
   ${props =>
     props.backgroundImage &&

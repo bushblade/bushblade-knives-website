@@ -52,17 +52,9 @@ const PageTitle = ({ pageTitle, tagline = '' }) => {
 
   return (
     <Title>
-      <animated.h1 style={headingProps}>
-        {pageTitle}{' '}
-        <animated.span style={tagProps}>
-          {' '}
-          {typeof tagline !== 'string' ? (
-            <TagLine tagline={tagline} />
-          ) : (
-            tagline
-          )}
-        </animated.span>
-      </animated.h1>
+      <h1>
+        {pageTitle} <span> {tagline}</span>
+      </h1>
     </Title>
   )
 }
