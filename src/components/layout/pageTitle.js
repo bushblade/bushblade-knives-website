@@ -22,7 +22,7 @@ const Title = styled.div`
     font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
     display: inline-block;
-    transform: translateY(1rem);
+    /* transform: translateY(1rem); */
     font-size: 1.4rem;
     background-color: #f1f1f1;
     padding: 0 0.2rem;
@@ -45,16 +45,16 @@ const PageTitle = ({ pageTitle, tagline = '' }) => {
     delay: 300,
     config: config.stiff,
     from: {
-      transform: 'translate3d(10rem, 1rem, 0)',
+      transform: 'translate3d(-10rem, 1rem, 0)',
       opacity: 0,
     },
   })
 
   return (
     <Title>
-      <h1>
-        {pageTitle} <span> {tagline}</span>
-      </h1>
+      <animated.h1 style={headingProps}>
+        {pageTitle} <animated.span style={tagProps}> {tagline}</animated.span>
+      </animated.h1>
     </Title>
   )
 }

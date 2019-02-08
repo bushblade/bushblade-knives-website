@@ -13,7 +13,7 @@ const Nav = styled.nav`
   left: 0;
   background-color: #c2c2a3;
   z-index: 9;
-  width: 100%;
+  max-width: 100vw;
   height: 3rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   display: grid;
@@ -55,7 +55,7 @@ const PadDiv = styled.div`
   height: 3rem;
   display: flex;
   align-items: center;
-  width: 100%;
+  max-width: 100vw;
   div {
     margin-left: 0.5rem;
     @media (max-width: 1000px) {
