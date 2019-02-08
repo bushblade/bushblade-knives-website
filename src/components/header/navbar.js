@@ -80,7 +80,21 @@ const SocialLink = styled.a`
 const navbar = () => {
   return (
     <>
-      <PadDiv />
+      <PadDiv>
+        <div>
+          {socialLinks.map(({ to, icon, color }) => (
+            <SocialLink
+              href={to}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={to}
+              color={color}
+            >
+              <FontAwesomeIcon icon={icon} size="lg" />
+            </SocialLink>
+          ))}
+        </div>
+      </PadDiv>
       <Nav>
         <Logo />
         <Links>
