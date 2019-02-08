@@ -42,7 +42,7 @@ const PageTitle = ({ pageTitle, tagline = '' }) => {
   const tagProps = useSpring({
     transform: 'translate3d(0, 1rem, 0)',
     opacity: 1,
-    delay: 300,
+    delay: 400,
     config: config.stiff,
     from: {
       transform: 'translate3d(-10rem, 1rem, 0)',
