@@ -10,7 +10,7 @@ const Title = styled.div`
   h1 {
     /* font-style: italic; */
     font-family: 'Bilbo', serif;
-    font-size: 2.8rem;
+    font-size: 3rem;
     display: inline-block;
     border-bottom: 3px solid #c2c2a3;
     padding: 0 2rem;
