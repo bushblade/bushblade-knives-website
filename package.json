@@ -9,6 +9,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.7.0",
     "@fortawesome/free-solid-svg-icons": "^5.7.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@researchgate/react-intersection-observer": "^0.7.4",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-google-fonts": "0.0.4",

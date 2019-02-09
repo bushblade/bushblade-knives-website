@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
+// import Observer from '@researchgate/react-intersection-observer'
 
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
