@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import KnifeGallery from '../../components/knifeGallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
+import SVG from './woodloreSVG'
 
 const query = graphql`
   query woodloreImages {
@@ -55,7 +56,7 @@ const WoodloreClone = () => {
           <TwoColumnContainer>
             <ImageContainer>
               <div>
-                <img src={woodloreClone} alt="Woodlore Clone Design" />
+                <SVG />
                 <img src={woodloreSpine} alt="Woodlore Clone Design" />
               </div>
             </ImageContainer>
