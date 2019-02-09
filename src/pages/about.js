@@ -2,10 +2,14 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
+// import SEO from '../components/layout/seo'
 
 import Layout from '../components/layout/layout'
-import { TwoColumnContainer } from '../components/layout/styledComponents'
-// import SEO from '../components/layout/seo'
+import {
+  TwoColumnContainer,
+  NarrowContainer,
+} from '../components/layout/styledComponents'
+import KnifeGallery from '../components/knifeGallery'
 
 const aboutQuery = graphql`
   query aboutQuery {
@@ -30,17 +34,20 @@ const aboutQuery = graphql`
         }
       }
     }
-    girls: file(relativePath: { eq: "me-double-carry.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    code: file(relativePath: { eq: "coding-bushblade-knives.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
+    allFile(filter: { relativeDirectory: { eq: "me" } }) {
+      edges {
+        node {
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            fluid {
+              ...GatsbyImageSharpFluid
+              originalName
+              originalImg
+            }
+          }
         }
       }
     }
@@ -58,24 +65,26 @@ const IndexPage = () => (
       <Layout
         banner={data.file.childImageSharp.fluid}
         pageTitle="A little about me"
-        tagline=" bushcrafter, climber, developer..."
+        tagline=" bushcrafter, climber, developer, dad..."
       >
         <TwoColumnContainer>
           <Cell>
             <article>
               <p>
-                <strong>I have always had a passion for wild placesu</strong>{' '}
-                and spending time in them; bushcraft for me is a way of being
+                <strong>I have always had a passion for wild places</strong> and
+                spending time in them; bushcraft for me is a way of being
                 comfortable and feeling at home in wild places.{' '}
               </p>
               <p>
                 As a child the subject for me and my friends came under the
-                heading of 'survival' and books by the likes of Lofty Wiseman
-                and Eddie McGee were high on my Christmas list. However,
-                survival implied a sense of 'how to get out of this alive',
-                whereas I was in search of 'how can I stay here longer?' When
-                Ray Mears appeared on TV in the early 90's and brought the term
-                bushcraft to my attention, that became my subject of study.
+                heading of 'survival' and books by the likes of{' '}
+                <em>Lofty Wiseman </em>
+                and <em>Eddie McGee </em>were high on my Christmas list.
+                However, survival implied a sense of 'how to get out of this
+                alive', whereas I was in search of 'how can I stay here longer?'
+                When <em>Ray Mears </em>appeared on TV in the early 90's and
+                brought the term bushcraft to my attention, that became my
+                subject of study.
               </p>
             </article>
           </Cell>
@@ -150,37 +159,50 @@ const IndexPage = () => (
             </article>
           </Cell>
         </TwoColumnContainer>
-
-        <p>
-          I only spend a few days each week making knives as the majority of my
-          time these days is dedicated to my twin girls. I am a keen climber and
-          can be often found training at{' '}
-          <a
-            href="http://www.rokt.co.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rokt{' '}
-          </a>
-          , my local climbing gym.
-        </p>
-        <p>
-          I also have a passion for web development which originaly came from a
-          need to build a website for Bushblade Knives, which you can learn more
-          about
-          <a
-            href="http://www.bushbladeprojects.co.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {' '}
-            here.
-          </a>{' '}
-          For those geeky enough to want to know - this site is built with
-          GatsbyJS, ReactJS and styled-components mainly using VS Code on a
-          desktop instalation of Manjaro Linux with continuous deployment to
-          Netlify through GitHub.
-        </p>
+        <NarrowContainer>
+          <p>
+            I only spend a few days each week making knives as the majority of
+            my time these days is dedicated to my twin girls. I am a keen
+            climber and can be often found training at{' '}
+            <a
+              href="http://www.rokt.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rokt{' '}
+            </a>
+            , my local climbing gym.
+          </p>
+          <p>
+            I also have a passion for web development which originaly came from
+            a need to build a website for Bushblade Knives, which you can learn
+            more about
+            <a
+              href="http://www.bushbladeprojects.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {' '}
+              here.
+            </a>{' '}
+            For those geeky enough to want to know - this site is built with
+            GatsbyJS, ReactJS and styled-components mainly using VS Code on a
+            desktop instalation of Manjaro Linux with continuous deployment to
+            Netlify through GitHub.
+          </p>
+        </NarrowContainer>
+        <KnifeGallery
+          photos={data.allFile.edges}
+          columns={width => {
+            if (width < 700) {
+              return 1
+            } else if (width < 1000) {
+              return 2
+            } else {
+              return 7
+            }
+          }}
+        />
       </Layout>
     )}
   />

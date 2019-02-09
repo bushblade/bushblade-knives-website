@@ -36,7 +36,7 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
   </ImageWrapper>
 )
 
-const KnifeGallery = ({ photos }) => {
+const KnifeGallery = ({ photos, ...rest }) => {
   const [images, setImages] = useState([])
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -78,6 +78,7 @@ const KnifeGallery = ({ photos }) => {
           }}
           ImageComponent={GatsbyImage}
           margin={5}
+          {...rest}
         />
       )}
       <Lightbox
