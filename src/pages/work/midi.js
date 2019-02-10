@@ -2,11 +2,12 @@ import React from 'react'
 import Layout from '../../components/layout/layout'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import midiSVG from '../../images/midi-website.svg'
+// import midiSVG from '../../images/midi-website.svg'
 import midiSpine from '../../images/midi-spine.svg'
 
 import KnifeGallery from '../../components/knifeGallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
+import MidiSVG from './midiSVG'
 
 const query = graphql`
   query midiImages {
@@ -56,7 +57,7 @@ const Midi = () => {
             <TwoColumnContainer>
               <ImageContainer>
                 <div>
-                  <img src={midiSVG} alt="Model 01 Midi" />
+                  <MidiSVG />
                   <img src={midiSpine} alt="Model 01 Midi" />
                 </div>
               </ImageContainer>
