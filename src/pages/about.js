@@ -161,9 +161,9 @@ const IndexPage = () => (
         </TwoColumnContainer>
         <NarrowContainer>
           <p>
-            I only spend a few days each week making knives as the majority of
-            my time these days is dedicated to my twin girls. I am a keen
-            climber and can be often found training at{' '}
+            <strong>I only spend a few days each week making knives </strong>as
+            the majority of my time these days is dedicated to my twin girls. I
+            am a keen climber and can be often found training at{' '}
             <a
               href="http://www.rokt.co.uk/"
               target="_blank"
