@@ -1,13 +1,12 @@
 import React from 'react'
 import Layout from '../../components/layout/layout'
 import { StaticQuery, graphql } from 'gatsby'
-import woodloreClone from '../../images/woodlore-website.svg'
-import woodloreSpine from '../../images/woodlore-spine.svg'
 import styled from 'styled-components'
 
 import KnifeGallery from '../../components/knifeGallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
-import SVG from './woodloreSVG'
+import WoodloreSVG from './woodloreSVG'
+import WoodloreSpineSVG from './woodloreSpineSVG'
 
 const query = graphql`
   query woodloreImages {
@@ -41,6 +40,7 @@ const query = graphql`
 const ImageContainer = styled.div`
   display: flex;
   align-items: center;
+  width: '100%';
 `
 
 const WoodloreClone = () => {
@@ -55,9 +55,9 @@ const WoodloreClone = () => {
         >
           <TwoColumnContainer>
             <ImageContainer>
-              <div>
-                <SVG />
-                <img src={woodloreSpine} alt="Woodlore Clone Design" />
+              <div style={{ width: '100%' }}>
+                <WoodloreSVG />
+                <WoodloreSpineSVG />
               </div>
             </ImageContainer>
             <article>
