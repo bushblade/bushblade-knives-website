@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -57,6 +57,9 @@ const PadDiv = styled.div`
   display: flex;
   align-items: center;
   max-width: 100vw;
+  @media (max-width: 780px) {
+    display: none;
+  }
   div {
     margin-left: 0.5rem;
     @media (max-width: 1000px) {
@@ -80,10 +83,23 @@ const SocialLink = styled.a`
 `
 
 const navbar = () => {
-  const [logoBig, set] = useState(true)
+  const [logoBig, set] = useState(false)
+  const [mobile, setMobile] = useState(false)
+
+  useEffect(
+    () => {
+      if (window) {
+        window.innerWidth < 780 ? setMobile(true) : setMobile(false)
+      }
+    },
+    [mobile]
+  )
+
   const observerOptions = {
     onChange: event => {
-      event ? set(true) : set(false)
+      if (!mobile) {
+        event ? set(true) : set(false)
+      }
     },
     threshold: 0.5,
     rootMargin: '0% 0% 0%',
