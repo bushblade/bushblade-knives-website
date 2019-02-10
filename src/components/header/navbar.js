@@ -58,7 +58,7 @@ const PadDiv = styled.div`
   align-items: center;
   max-width: 100vw;
   @media (max-width: 780px) {
-    display: none;
+    display: ${props => (props.mobile ? 'none' : '')};
   }
   div {
     margin-left: 0.5rem;
@@ -108,7 +108,7 @@ const navbar = () => {
   return (
     <>
       <Observer {...observerOptions}>
-        <PadDiv>
+        <PadDiv mobile={mobile}>
           <div>
             {socialLinks.map(({ to, icon, color }) => (
               <SocialLink
