@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { siteLinks, socialLinks, knifeLinks } from './navLinks'
+import Observer from 'react-intersection-observer'
 
 import Logo from './logo'
 import Menu from './menu'
@@ -79,25 +80,36 @@ const SocialLink = styled.a`
 `
 
 const navbar = () => {
+  const [logoBig, set] = useState(true)
+  const observerOptions = {
+    onChange: event => {
+      event ? set(true) : set(false)
+    },
+    threshold: 0.5,
+    rootMargin: '0% 0% 0%',
+  }
+
   return (
     <>
-      <PadDiv>
-        <div>
-          {socialLinks.map(({ to, icon, color }) => (
-            <SocialLink
-              href={to}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={to}
-              color={color}
-            >
-              <FontAwesomeIcon icon={icon} size="lg" />
-            </SocialLink>
-          ))}
-        </div>
-      </PadDiv>
+      <Observer {...observerOptions}>
+        <PadDiv>
+          <div>
+            {socialLinks.map(({ to, icon, color }) => (
+              <SocialLink
+                href={to}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={to}
+                color={color}
+              >
+                <FontAwesomeIcon icon={icon} size="lg" />
+              </SocialLink>
+            ))}
+          </div>
+        </PadDiv>
+      </Observer>
       <Nav>
-        <Logo />
+        <Logo logoBig={logoBig} />
         <Links>
           {siteLinks.map(({ to, text }) => (
             <Link to={to} key={to}>

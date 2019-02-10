@@ -21,28 +21,7 @@ const LogoContainer = styled.div`
   }
 `
 
-const Logo = () => {
-  const [logoBig, setLogoBig] = useState(true)
-
-  const handleScroll = () => {
-    let scrollPos = window.scrollY
-    if (scrollPos > 15 && logoBig) {
-      setLogoBig(false)
-    } else if (scrollPos < 15 && !logoBig) {
-      setLogoBig(true)
-    }
-  }
-
-  useEffect(
-    () => {
-      if (window) {
-        window.addEventListener('scroll', handleScroll)
-      }
-      return () => window.removeEventListener('scroll', handleScroll)
-    },
-    [logoBig]
-  )
-
+const Logo = ({ logoBig }) => {
   const logoAnimation = useSpring({
     transform: logoBig
       ? 'scale(1.5) translate3d(0, 1rem, 0)'
