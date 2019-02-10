@@ -2,7 +2,7 @@ import React from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import styled from 'styled-components'
 
-import TagLine from './tagLine'
+// import TagLine from './tagLine'
 
 const Title = styled.div`
   text-align: center;

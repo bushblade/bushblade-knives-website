@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Img from 'gatsby-image'
 // import SEO from '../components/layout/seo'
 
