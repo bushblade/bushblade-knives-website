@@ -3,7 +3,7 @@ import Layout from '../../components/layout/layout'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import KnifeGallery from '../../components/knifeGallery'
+import Gallery from '../../components/knifeGallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
 import MidiSVG from './midiSVG'
 import MidiSpineSVG from './midiSpineSVG'
@@ -86,7 +86,7 @@ const Midi = () => {
                 </p>
               </article>
             </TwoColumnContainer>
-            <KnifeGallery photos={data.allFile.edges} />
+            <Gallery photos={data.allFile.edges} />
           </Layout>
         )
       }}

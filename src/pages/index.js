@@ -5,7 +5,7 @@ import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 // import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
-import RowGallery from '../components/rowGallery'
+import Gallery from '../components/Gallery'
 import { NarrowContainer } from '../components/layout/styledComponents'
 // import SEO from '../components/layout/seo'
 
@@ -18,28 +18,20 @@ const indexQuery = graphql`
         }
       }
     }
-    image1: file(
-      relativePath: { eq: "bushblade-knives-antler-woodlore-clone.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    image2: file(relativePath: { eq: "bushblade-knives-black-G10.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    image3: file(
-      relativePath: { eq: "bushblade-knives-green-micarta-woodlore-clones.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
+    allFile(filter: { relativeDirectory: { eq: "index-images" } }) {
+      edges {
+        node {
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            fluid {
+              ...GatsbyImageSharpFluid
+              originalName
+              originalImg
+            }
+          }
         }
       }
     }
@@ -76,13 +68,20 @@ const IndexPage = () => (
             />
           </blockquote>
         </NarrowContainer>
-        <RowGallery
-          images={[
-            data.image1.childImageSharp.fluid,
-            data.image2.childImageSharp.fluid,
-            data.image3.childImageSharp.fluid,
-          ]}
+        <br />
+        <Gallery
+          columns={width => {
+            if (width < 700) {
+              return 2
+            } else if (width < 1000) {
+              return 3
+            } else {
+              return 6
+            }
+          }}
+          photos={data.allFile.edges}
         />
+        <br />
         <NarrowContainer style={{ textAlign: 'center' }}>
           <p>
             <strong>I am a firm believer in form following function.</strong> I
