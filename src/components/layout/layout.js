@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
-// import Observer from '@researchgate/react-intersection-observer'
+import Seo from './seo'
 
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
@@ -28,7 +28,7 @@ const ContentContainer = styled.div`
   margin: auto;
 `
 
-const Layout = ({ children, banner, pageTitle, tagline }) => (
+const Layout = ({ children, banner, pageTitle, tagline, keywords }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -42,6 +42,7 @@ const Layout = ({ children, banner, pageTitle, tagline }) => (
     `}
     render={data => (
       <>
+        <Seo title={pageTitle} keywords={keywords} />
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
           <Img

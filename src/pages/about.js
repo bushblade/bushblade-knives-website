@@ -69,7 +69,7 @@ const IndexPage = () => (
       >
         <TwoColumnContainer>
           <Cell>
-            <article>
+            <blockquote>
               <p>
                 <strong>I have always had a passion for wild places</strong> and
                 spending time in them; bushcraft for me is a way of being
@@ -86,7 +86,7 @@ const IndexPage = () => (
                 brought the term bushcraft to my attention, that became my
                 subject of study.
               </p>
-            </article>
+            </blockquote>
           </Cell>
           <Cell>
             <Img
@@ -115,7 +115,7 @@ const IndexPage = () => (
             </h4>
           </Cell>
           <Cell>
-            <article>
+            <blockquote>
               <p>
                 In 2003 I attended a week long bushcraft course called the
                 Woodlander which was run by{' '}
@@ -156,7 +156,7 @@ const IndexPage = () => (
                   Dryad Bushcraft.
                 </a>{' '}
               </p>
-            </article>
+            </blockquote>
           </Cell>
         </TwoColumnContainer>
         <NarrowContainer>
