@@ -7,7 +7,6 @@ import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import Layout from '../components/layout/layout'
 import Gallery from '../components/Gallery'
 import { NarrowContainer } from '../components/layout/styledComponents'
-// import SEO from '../components/layout/seo'
 
 const indexQuery = graphql`
   query indexQuery {
