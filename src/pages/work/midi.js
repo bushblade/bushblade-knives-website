@@ -7,6 +7,7 @@ import Gallery from '../../components/Gallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
 import MidiSVG from './midiSVG'
 import MidiSpineSVG from './midiSpineSVG'
+import MidiSkeletonSVG from './midiSkeletonSVG'
 
 const query = graphql`
   query midiImages {
@@ -58,6 +59,7 @@ const Midi = () => {
                 <div style={{ width: '100%' }}>
                   <MidiSVG />
                   <MidiSpineSVG />
+                  <MidiSkeletonSVG />
                 </div>
               </ImageContainer>
               <article>
