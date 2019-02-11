@@ -58,7 +58,7 @@ const Cell = styled.div`
   margin: 1rem 0;
 `
 
-const IndexPage = () => (
+const AboutPage = () => (
   <StaticQuery
     query={aboutQuery}
     render={data => (
@@ -208,4 +208,4 @@ const IndexPage = () => (
   />
 )
 
-export default IndexPage
+export default AboutPage

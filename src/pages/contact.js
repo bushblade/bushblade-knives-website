@@ -19,7 +19,7 @@ const contactQuery = graphql`
   }
 `
 
-const IndexPage = () => (
+const ContactPage = () => (
   <StaticQuery
     query={contactQuery}
     render={data => (
@@ -59,4 +59,4 @@ const IndexPage = () => (
   />
 )
 
-export default IndexPage
+export default ContactPage
