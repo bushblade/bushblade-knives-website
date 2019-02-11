@@ -33,9 +33,10 @@ const Links = styled.div`
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
-    margin: 0 0.5rem;
+    padding: 0 0.5rem;
+    line-height: 1.4rem;
     @media (min-width: 1100px) {
-      margin: 0 1rem;
+      margin: 0 0.5rem;
     }
     color: rgb(51, 51, 51);
     font-size: 1.2rem;

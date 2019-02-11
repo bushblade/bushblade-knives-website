@@ -100,6 +100,10 @@ const SocialLinks = styled.div`
   margin: auto;
 `
 
+const activeStyle = {
+  borderBottom: '2px solid whitesmoke',
+}
+
 const menu = () => {
   const [open, setOpen] = useState(false)
 
@@ -152,7 +156,11 @@ const menu = () => {
           <ul>
             {trail.map((props, index) => (
               <animated.li key={allLinks[index].text} style={props}>
-                <Link onClick={() => setOpen(false)} to={allLinks[index].to}>
+                <Link
+                  onClick={() => setOpen(false)}
+                  to={allLinks[index].to}
+                  activeStyle={activeStyle}
+                >
                   {allLinks[index].text}
                 </Link>
               </animated.li>
