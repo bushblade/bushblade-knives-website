@@ -84,22 +84,22 @@ const SocialLink = styled.a`
 
 const navbar = () => {
   const [logoBig, set] = useState(false)
-  // const [mobile, setMobile] = useState(false)
+  const [mobile, setMobile] = useState(false)
 
-  // useEffect(
-  //   () => {
-  //     if (window) {
-  //       window.innerWidth < 780 ? setMobile(true) : setMobile(false)
-  //     }
-  //   },
-  //   [mobile]
-  // )
+  useEffect(
+    () => {
+      if (window) {
+        window.innerWidth < 780 ? setMobile(true) : setMobile(false)
+      }
+    },
+    [mobile]
+  )
 
   const observerOptions = {
     onChange: event => {
-      // if (!mobile) {
-      event ? set(true) : set(false)
-      // }
+      if (!mobile) {
+        event ? set(true) : set(false)
+      }
     },
     threshold: 0.5,
     rootMargin: '0% 0% 0%',
@@ -108,7 +108,7 @@ const navbar = () => {
   return (
     <>
       <Observer {...observerOptions}>
-        <PadDiv>
+        <PadDiv mobile={mobile}>
           <div>
             {socialLinks.map(({ to, icon, color }) => (
               <SocialLink
