@@ -42,6 +42,9 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
 `
+const SVGContainer = styled.div`
+  margin: 1rem 0;
+`
 
 const Midi = () => {
   return (
@@ -58,7 +61,9 @@ const Midi = () => {
               <ImageContainer>
                 <div style={{ width: '100%' }}>
                   <MidiSVG />
-                  <MidiSpineSVG />
+                  <SVGContainer>
+                    <MidiSpineSVG />
+                  </SVGContainer>
                   <MidiSkeletonSVG />
                 </div>
               </ImageContainer>

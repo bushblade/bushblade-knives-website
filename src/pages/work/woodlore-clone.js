@@ -44,6 +44,10 @@ const ImageContainer = styled.div`
   width: '100%';
 `
 
+const SVGContainer = styled.div`
+  margin: 1rem 0;
+`
+
 const WoodloreClone = () => {
   return (
     <StaticQuery
@@ -58,7 +62,9 @@ const WoodloreClone = () => {
             <ImageContainer>
               <div style={{ width: '100%' }}>
                 <WoodloreSVG />
-                <WoodloreSpineSVG />
+                <SVGContainer>
+                  <WoodloreSpineSVG />
+                </SVGContainer>
                 <WoodloreSkeletonSVG />
               </div>
             </ImageContainer>
