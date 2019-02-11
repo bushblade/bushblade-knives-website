@@ -77,7 +77,7 @@ const Midi = () => {
                   </li>
                   <li>3mm thick O1 tool steel</li>
                   <li>Hardened to ~ 59RC and double tempered</li>
-                  <li>Skeltonised tang for balance and weight reduction</li>
+                  <li>Skeletonised tang for balance and weight reduction</li>
                 </ul>
                 <p>
                   Browse the gallery below or check out even more images in the{' '}

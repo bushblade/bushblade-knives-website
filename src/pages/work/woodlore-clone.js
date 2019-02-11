@@ -73,7 +73,7 @@ const WoodloreClone = () => {
                 <li>4mm or 3mm thick O1 tool steel</li>
                 <li>Hardened to ~ 59RC and double tempered</li>
                 <li>
-                  Skeltonised and tapered (4mm) tang for balance and weight
+                  Skeletonised and tapered (4mm) tang for balance and weight
                   reduction
                 </li>
               </ul>
