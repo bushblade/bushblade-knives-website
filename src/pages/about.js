@@ -9,7 +9,7 @@ import {
   TwoColumnContainer,
   NarrowContainer,
 } from '../components/layout/styledComponents'
-import KnifeGallery from '../components/knifeGallery'
+import Gallery from '../components/Gallery'
 
 const aboutQuery = graphql`
   query aboutQuery {
@@ -191,7 +191,7 @@ const IndexPage = () => (
             Netlify through GitHub.
           </p>
         </NarrowContainer>
-        <KnifeGallery
+        <Gallery
           photos={data.allFile.edges}
           columns={width => {
             if (width < 700) {

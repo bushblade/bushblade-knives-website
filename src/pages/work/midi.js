@@ -3,7 +3,7 @@ import Layout from '../../components/layout/layout'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Gallery from '../../components/knifeGallery'
+import Gallery from '../../components/Gallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
 import MidiSVG from './midiSVG'
 import MidiSpineSVG from './midiSpineSVG'
