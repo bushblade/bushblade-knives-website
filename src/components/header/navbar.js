@@ -86,10 +86,15 @@ const navbar = () => {
   const [logoBig, set] = useState(false)
   const [mobile, setMobile] = useState(false)
 
+  const checkWindowSize = () => {
+    window.innerWidth < 780 ? setMobile(true) : setMobile(false)
+  }
+
   useEffect(
     () => {
       if (window) {
-        window.innerWidth < 780 ? setMobile(true) : setMobile(false)
+        checkWindowSize()
+        window.onresize = checkWindowSize
       }
     },
     [mobile]
@@ -125,7 +130,7 @@ const navbar = () => {
         </PadDiv>
       </Observer>
       <Nav>
-        <Logo logoBig={logoBig} />
+        <Logo logoBig={logoBig && !mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
             <Link to={to} key={to}>
