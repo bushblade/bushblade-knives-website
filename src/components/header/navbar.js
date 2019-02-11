@@ -82,6 +82,10 @@ const SocialLink = styled.a`
   }
 `
 
+const activeStyle = {
+  borderBottom: '3px solid rgba(73, 75, 70, 0.95)',
+}
+
 const navbar = () => {
   const [logoBig, set] = useState(false)
   const [mobile, setMobile] = useState(false)
@@ -133,14 +137,14 @@ const navbar = () => {
         <Logo logoBig={logoBig && !mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
-            <Link to={to} key={to}>
+            <Link to={to} key={to} activeStyle={activeStyle}>
               {text}
             </Link>
           ))}
         </Links>
         <Links right>
           {knifeLinks.map(({ to, text }) => (
-            <Link to={to} key={to}>
+            <Link to={to} key={to} activeStyle={activeStyle}>
               {text}
             </Link>
           ))}
