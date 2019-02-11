@@ -2,7 +2,8 @@ import React from 'react'
 import { StaticQuery, Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-// import styled from 'styled-components'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout/layout'
 import Gallery from '../components/Gallery'
@@ -13,6 +14,13 @@ const indexQuery = graphql`
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    profile: file(relativePath: { eq: "me-profile.jpg" }) {
+      childImageSharp {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }
@@ -37,6 +45,17 @@ const indexQuery = graphql`
   }
 `
 
+const ProfileContainer = styled.div`
+  margin: auto;
+  max-width: 960px;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media (min-width: 800px) {
+    grid-template-columns: 40% 60%;
+    grid-gap: 1rem;
+  }
+`
+
 const IndexPage = () => (
   <StaticQuery
     query={indexQuery}
@@ -46,7 +65,8 @@ const IndexPage = () => (
         pageTitle="Welcome to Bushblade"
         tagline={' handmade knives by Will Adams'}
       >
-        <NarrowContainer style={{ textAlign: 'center' }}>
+        <ProfileContainer>
+          <Img fluid={data.profile.childImageSharp.fluid} title="Will Adams" />
           <blockquote style={{ maxWidth: '800px', margin: 'auto' }}>
             <FontAwesomeIcon
               icon={faQuoteLeft}
@@ -66,7 +86,7 @@ const IndexPage = () => (
               style={{ marginBottom: '0.3rem' }}
             />
           </blockquote>
-        </NarrowContainer>
+        </ProfileContainer>
         <br />
         <Gallery
           columns={width => {
