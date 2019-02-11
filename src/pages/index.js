@@ -64,6 +64,14 @@ const IndexPage = () => (
         banner={data.banner.childImageSharp.fluid}
         pageTitle="Welcome to Bushblade"
         tagline={' handmade knives by Will Adams'}
+        keywords={[
+          'ray mears',
+          'alan wood',
+          'bushcraft',
+          'handmade',
+          'knife',
+          'uk',
+        ]}
       >
         <ProfileContainer>
           <Img fluid={data.profile.childImageSharp.fluid} title="Will Adams" />
