@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { navigateTo } from 'gatsby-link'
 
 const Field = styled.div`
   margin: 1.75rem auto;
@@ -74,7 +75,14 @@ const ContactForm = () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', name, email, message }),
       })
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res)
+          if (res.ok) {
+            setName({ ...name, text: '' })
+            setEmail({ ...email, text: '' })
+            setMessage({ ...message, text: '' })
+          }
+        })
         .catch(error => alert(error))
     }
 
@@ -88,7 +96,12 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} data-netlify="true" name="contact">
+    <form
+      onSubmit={handleSubmit}
+      data-netlify="true"
+      name="contact"
+      method="post"
+    >
       <input type="hidden" name="form-name" value="contact" />
       <Field valid={name.valid} length={name.text.length}>
         <label>Your Name: </label>
