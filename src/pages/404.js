@@ -1,14 +1,33 @@
 import React from 'react'
 
 import Layout from '../components/layout/layout'
-import SEO from '../components/layout/seo'
+import { NarrowContainer } from '../components/layout/styledComponents'
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const NotFoundPage = ({ location }) => {
+  console.log(location.pathname)
+  return (
+    <Layout pageTitle="404:" tagline="not found">
+      <NarrowContainer>
+        <article
+          style={{
+            maxWidth: '600px',
+            margin: 'auto',
+            textAlign: 'center',
+            marginBottom: '15rem',
+          }}
+        >
+          <h2 style={{ color: '#a94442' }}>ROUTE NOT FOUND</h2>
+          <p>
+            😭
+            <strong> {location.pathname}</strong> does not exist on this site...
+            yet.
+            <br />
+            Don't be sad, try one of the other links. 😎
+          </p>
+        </article>
+      </NarrowContainer>
+    </Layout>
+  )
+}
 
 export default NotFoundPage
