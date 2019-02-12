@@ -6,7 +6,6 @@ const Field = styled.div`
   margin: 1.75rem auto;
   max-width: 600px;
   label {
-    color: #363636;
     display: block;
     font-size: 1rem;
     font-weight: 700;
@@ -25,17 +24,21 @@ const Field = styled.div`
     padding-left: calc(0.625em - 1px);
     padding-right: calc(0.625em - 1px);
     padding-top: calc(0.375em - 1px);
-    background-color: #fff;
+    background-color: whitesmoke;
     border-color: ${({ length, valid }) =>
-      length === 0 ? '#dbdbdb' : valid ? 'green' : 'red'};
+      length === 0 ? '#dbdbdb' : valid ? 'rgb(60, 179, 113)' : '#a94442'};
     color: #363636;
     box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
     :focus,
     :active {
       outline: none;
-      box-shadow: inset 0 1px 2px
+      box-shadow: inset 0 1px 5px
         ${({ length, valid }) =>
-          length === 0 ? 'rgba(10, 10, 10, 0.1)' : valid ? 'green' : 'red'};
+          length === 0
+            ? 'rgba(10, 10, 10, 0.1)'
+            : valid
+            ? 'rgba(60, 179, 113, 0.5)'
+            : 'rgba(169, 68, 66, 0.5)'};
     }
     width: 100%;
   }
@@ -73,7 +76,12 @@ const ContactForm = () => {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', name, email, message }),
+        body: encode({
+          'form-name': 'contact',
+          name: name.text,
+          email: email.text,
+          message: message.text,
+        }),
       })
         .then(res => {
           console.log(res)
