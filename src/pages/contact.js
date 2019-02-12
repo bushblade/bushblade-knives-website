@@ -5,8 +5,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import { NarrowContainer } from '../components/layout/styledComponents'
 
-// import SEO from '../components/layout/seo'
-
 const contactQuery = graphql`
   query contactQuery {
     file(relativePath: { eq: "banner03.jpg" }) {

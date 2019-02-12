@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-// import SEO from '../components/layout/seo'
 
 import Layout from '../components/layout/layout'
 import {
@@ -13,7 +12,7 @@ import Gallery from '../components/Gallery'
 
 const aboutQuery = graphql`
   query aboutQuery {
-    file(relativePath: { eq: "banner04.jpg" }) {
+    banner: file(relativePath: { eq: "banner04.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
@@ -63,9 +62,19 @@ const AboutPage = () => (
     query={aboutQuery}
     render={data => (
       <Layout
-        banner={data.file.childImageSharp.fluid}
+        banner={data.banner.childImageSharp.fluid}
         pageTitle="A little about me"
         tagline=" bushcrafter, climber, developer, dad..."
+        keywords={[
+          'will adams',
+          'knifemaker',
+          'profile',
+          'climber',
+          'bushcrafter',
+          'developer',
+          'dad',
+          'father',
+        ]}
       >
         <TwoColumnContainer>
           <Cell>

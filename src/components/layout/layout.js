@@ -45,10 +45,12 @@ const Layout = ({ children, banner, pageTitle, tagline, keywords }) => (
         <Seo title={pageTitle} keywords={keywords} />
         <Navbar />
         <LayoutWrapper backgroundImage={backgroundImage}>
-          <Img
-            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-            fluid={banner}
-          />
+          {banner && (
+            <Img
+              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+              fluid={banner}
+            />
+          )}
           <br />
           <ContentContainer>
             {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}

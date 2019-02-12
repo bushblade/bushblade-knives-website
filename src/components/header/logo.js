@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo01-web.svg'
 import styled from 'styled-components'
 import { config, useSpring, animated } from 'react-spring'
 import { Link } from 'gatsby'
