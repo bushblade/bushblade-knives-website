@@ -88,7 +88,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} data-netlify="true">
+    <form onSubmit={handleSubmit} data-netlify="true" name="contact">
       <input type="hidden" name="form-name" value="contact" />
       <Field valid={name.valid} length={name.text.length}>
         <label>Your Name: </label>
