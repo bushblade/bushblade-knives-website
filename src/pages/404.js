@@ -6,7 +6,7 @@ import { NarrowContainer } from '../components/layout/styledComponents'
 const NotFoundPage = ({ location }) => {
   console.log(location.pathname)
   return (
-    <Layout pageTitle="404:" tagline="not found">
+    <Layout pageTitle="404" tagline="not found">
       <NarrowContainer>
         <article
           style={{

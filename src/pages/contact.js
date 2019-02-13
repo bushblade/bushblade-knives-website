@@ -24,7 +24,7 @@ const ContactPage = () => (
     render={data => (
       <Layout
         banner={data.file.childImageSharp.fluid}
-        pageTitle="Contact Me:"
+        pageTitle="Contact Me"
         tagline="bushblade@gmail.com"
       >
         <NarrowContainer>
