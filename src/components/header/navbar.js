@@ -88,7 +88,7 @@ const activeStyle = {
 }
 
 const navbar = () => {
-  const [logoBig, set] = useState(false)
+  const [logoBig, set] = useState(true)
   const [mobile, setMobile] = useState(false)
 
   const checkWindowSize = () => {
