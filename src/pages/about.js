@@ -12,7 +12,7 @@ import Gallery from '../components/Gallery'
 
 const aboutQuery = graphql`
   query aboutQuery {
-    banner: file(relativePath: { eq: "banner04.jpg" }) {
+    banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
