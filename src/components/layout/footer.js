@@ -10,9 +10,7 @@ const FooterContainer = styled.footer`
   color: whitesmoke;
   padding: 2rem 1rem 1rem 1rem;
   border-bottom: 5px solid #c2c2a3;
-  /* border-top: 5px solid rgb(51, 51, 51); */
   display: grid;
-  /* justify-items: center; */
   grid-template-columns: 1fr;
   grid-template-rows: 5fr 1fr;
   grid-template-areas: 'main' 'bottom';
@@ -50,16 +48,17 @@ const ListContainer = styled.div`
   margin-bottom: 2rem;
   h4 {
     color: whitesmoke;
+    font-style: italic;
     margin-bottom: 0.5rem;
-    /* border-bottom: 1px solid #c2c2a3; */
     box-shadow: inset 0 -2px 0px 0px #c2c2a3;
     padding: 0 0.5rem 0.2rem 0.5rem;
   }
   a {
     color: whitesmoke;
     font-size: 0.9rem;
+    box-shadow: inset 0 -2px 0px 0px transparent;
+    transition: all 0.2s ease-in-out;
     :hover {
-      /* border-bottom: 1px solid #c2c2a3; */
       box-shadow: inset 0 -2px 0px 0px #c2c2a3;
       background: none;
     }
