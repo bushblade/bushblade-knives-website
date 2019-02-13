@@ -87,12 +87,18 @@ const activeStyle = {
   borderBottom: '3px solid rgba(73, 75, 70, 0.95)',
 }
 
+const isMobile = () => {
+  if (window) {
+    return window.innerWidth < 780
+  }
+}
+
 const navbar = () => {
   const [logoBig, set] = useState(true)
-  const [mobile, setMobile] = useState(false)
+  const [mobile, setMobile] = useState(isMobile())
 
   const checkWindowSize = () => {
-    window.innerWidth < 780 ? setMobile(true) : setMobile(false)
+    isMobile() ? setMobile(true) : setMobile(false)
   }
 
   useEffect(
