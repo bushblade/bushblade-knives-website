@@ -22,7 +22,11 @@ const ContactPage = () => (
   <StaticQuery
     query={contactQuery}
     render={data => (
-      <Layout banner={data.file.childImageSharp.fluid} pageTitle="Contact Me">
+      <Layout
+        banner={data.file.childImageSharp.fluid}
+        pageTitle="Contact Me:"
+        tagline="bushblade@gmail.com"
+      >
         <NarrowContainer>
           <ContactForm />
         </NarrowContainer>

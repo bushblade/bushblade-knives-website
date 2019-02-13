@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { navigateTo } from 'gatsby-link'
+
+import Button from '../components/layout/button'
 
 const Field = styled.div`
   margin: 1.75rem auto;
@@ -20,10 +21,7 @@ const Field = styled.div`
     font-size: 1rem;
     height: 2.25em;
     line-height: 1.5;
-    padding-bottom: calc(0.375em - 1px);
-    padding-left: calc(0.625em - 1px);
-    padding-right: calc(0.625em - 1px);
-    padding-top: calc(0.375em - 1px);
+    padding: calc(0.375em - 1px) calc(0.625em - 1px);
     background-color: whitesmoke;
     border-color: ${({ length, valid }) =>
       length === 0 ? '#dbdbdb' : valid ? 'rgb(60, 179, 113)' : '#a94442'};
@@ -71,8 +69,11 @@ const ContactForm = () => {
     regex: /\S/,
   })
 
+  const CheckValid = () =>
+    [name, email, message].every(({ text, regex }) => regex.test(text))
+
   const handleSubmit = e => {
-    if ([name, email, message].every(({ text, regex }) => regex.test(text))) {
+    if (CheckValid()) {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -86,15 +87,19 @@ const ContactForm = () => {
         .then(res => {
           console.log(res)
           if (res.ok) {
-            setName({ ...name, text: '' })
-            setEmail({ ...email, text: '' })
-            setMessage({ ...message, text: '' })
+            clearForm()
           }
         })
         .catch(error => alert(error))
     }
 
     e.preventDefault()
+  }
+
+  const clearForm = () => {
+    setName({ ...name, text: '' })
+    setEmail({ ...email, text: '' })
+    setMessage({ ...message, text: '' })
   }
 
   const handleChange = (value, field, set) => {
@@ -147,7 +152,10 @@ const ContactForm = () => {
         />
       </Field>
       <Field>
-        <button type="submit">Send</button>
+        <Button type="submit" disabled={!CheckValid()}>
+          Send Message
+        </Button>
+        <Button onClick={clearForm}>Clear Form</Button>
       </Field>
     </form>
   )
