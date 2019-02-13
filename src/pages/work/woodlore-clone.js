@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/layout/layout'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Gallery from '../../components/Gallery'
@@ -11,7 +11,7 @@ import WoodloreSkeletonSVG from './woodloreSkeletonSVG'
 
 const query = graphql`
   query woodloreImages {
-    banner: file(relativePath: { eq: "banner02.jpg" }) {
+    banner: file(relativePath: { eq: "woodlore-clone-banner.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
@@ -81,6 +81,10 @@ const WoodloreClone = () => {
                 <li>
                   Skeletonised and tapered (4mm) tang for balance and weight
                   reduction
+                </li>
+                <li>
+                  Prices start at £270 <Link to="/contact">contact me</Link> for
+                  further details
                 </li>
               </ul>
               <p>

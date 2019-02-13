@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/layout/layout'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Gallery from '../../components/Gallery'
@@ -83,6 +83,10 @@ const Midi = () => {
                   <li>3mm thick O1 tool steel</li>
                   <li>Hardened to ~ 59RC and double tempered</li>
                   <li>Skeletonised tang for balance and weight reduction</li>
+                  <li>
+                    Prices start at £200 <Link to="/contact">contact me</Link>{' '}
+                    for further details
+                  </li>
                 </ul>
                 <p>
                   Browse the gallery below or check out even more images in the{' '}
