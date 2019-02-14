@@ -95,7 +95,7 @@ const isMobile = () => {
 
 const navbar = () => {
   const [logoBig, set] = useState(true)
-  const [mobile, setMobile] = useState(true)
+  const [mobile, setMobile] = useState(isMobile())
 
   const checkWindowSize = () => {
     isMobile() ? setMobile(true) : setMobile(false)
