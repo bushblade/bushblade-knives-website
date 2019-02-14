@@ -59,7 +59,7 @@ const encode = data => {
     .join('&')
 }
 
-const ContactForm = () => {
+const ContactForm = ({ setMessageSent }) => {
   const [name, setName] = useState({
     text: '',
     valid: false,
@@ -95,6 +95,7 @@ const ContactForm = () => {
           console.log(res)
           if (res.ok) {
             clearForm()
+            setMessageSent(true)
           }
         })
         .catch(error => alert(error))
@@ -117,7 +118,6 @@ const ContactForm = () => {
 
   return (
     <form
-      style={{ maxWidth: '600px', margin: 'auto' }}
       onSubmit={handleSubmit}
       data-netlify="true"
       name="contact"
