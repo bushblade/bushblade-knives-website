@@ -55,12 +55,11 @@ const Links = styled.div`
 const PadDiv = styled.div`
   background-color: #c2c2a3;
   height: 3rem;
-  display: flex;
-  align-items: center;
   max-width: 100vw;
   @media (max-width: 780px) {
-    display: ${props => (props.mobile ? 'none' : '')};
+    display: none;
   }
+  align-items: center;
   div {
     margin-left: 0.5rem;
     @media (max-width: 1000px) {
@@ -124,7 +123,7 @@ const navbar = () => {
   return (
     <>
       <Observer {...observerOptions}>
-        <PadDiv mobile={mobile}>
+        <PadDiv>
           <div>
             {socialLinks.map(({ to, icon, color }) => (
               <SocialLink
