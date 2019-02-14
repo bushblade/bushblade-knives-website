@@ -83,7 +83,7 @@ const WoodloreClone = () => {
                   reduction
                 </li>
                 <li>
-                  Prices start at £270 <Link to="/contact">contact me</Link> for
+                  Prices start at £370 <Link to="/contact">contact me</Link> for
                   further details
                 </li>
               </ul>

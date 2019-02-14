@@ -84,7 +84,7 @@ const Midi = () => {
                   <li>Hardened to ~ 59RC and double tempered</li>
                   <li>Skeletonised tang for balance and weight reduction</li>
                   <li>
-                    Prices start at £200 <Link to="/contact">contact me</Link>{' '}
+                    Prices start at £300 <Link to="/contact">contact me</Link>{' '}
                     for further details
                   </li>
                 </ul>
