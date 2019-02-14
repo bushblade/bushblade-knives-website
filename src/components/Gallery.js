@@ -68,7 +68,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
     [images]
   )
   return (
-    <>
+    <div style={{ margin: '4rem auto' }}>
       {images.length > 1 && (
         <Gallery
           photos={images}
@@ -94,7 +94,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
         backdropClosesModal
         width={2000}
       />
-    </>
+    </div>
   )
 }
 

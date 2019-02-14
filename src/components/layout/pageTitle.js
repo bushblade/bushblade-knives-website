@@ -2,13 +2,10 @@ import React from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import styled from 'styled-components'
 
-// import TagLine from './tagLine'
-
 const Title = styled.div`
   text-align: center;
-  margin: 1rem auto 3rem auto;
+  margin: 1rem auto 5rem auto;
   h1 {
-    /* font-style: italic; */
     font-family: 'Bilbo', serif;
     font-size: 3rem;
     display: inline-block;
@@ -22,7 +19,6 @@ const Title = styled.div`
     font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
     display: inline-block;
-    /* transform: translateY(1rem); */
     font-size: 1.4rem;
     background-color: #f1f1f1;
     padding: 0 0.2rem;

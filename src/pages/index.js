@@ -46,13 +46,13 @@ const indexQuery = graphql`
 `
 
 const ProfileContainer = styled.div`
-  margin: auto;
+  margin: 0 auto 4rem auto;
   max-width: 960px;
   display: grid;
   grid-template-columns: 1fr;
   @media (min-width: 800px) {
     grid-template-columns: 40% 60%;
-    grid-gap: 1rem;
+    grid-gap: 1.5rem;
   }
 `
 
@@ -95,20 +95,7 @@ const IndexPage = () => (
             />
           </blockquote>
         </ProfileContainer>
-        <br />
-        <Gallery
-          columns={width => {
-            if (width < 700) {
-              return 2
-            } else if (width < 1000) {
-              return 3
-            } else {
-              return 6
-            }
-          }}
-          photos={data.allFile.edges}
-        />
-        <br />
+
         <NarrowContainer style={{ textAlign: 'center' }}>
           <p>
             <strong>I am a firm believer in form following function.</strong> I
@@ -128,6 +115,18 @@ const IndexPage = () => (
             You must be over 18 years of age to order a knife.
           </h2>
         </NarrowContainer>
+        <Gallery
+          columns={width => {
+            if (width < 700) {
+              return 2
+            } else if (width < 1000) {
+              return 3
+            } else {
+              return 6
+            }
+          }}
+          photos={data.allFile.edges}
+        />
       </Layout>
     )}
   />
