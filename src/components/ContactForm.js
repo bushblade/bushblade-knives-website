@@ -5,7 +5,6 @@ import Button from '../components/layout/button'
 
 const Field = styled.div`
   margin: 1.75rem auto;
-  max-width: 600px;
   label {
     display: block;
     font-size: 1rem;
@@ -43,6 +42,14 @@ const Field = styled.div`
   textarea {
     max-height: 600px;
     min-height: 120px;
+  }
+`
+
+const BtnField = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 780px) {
+    justify-content: space-around;
   }
 `
 
@@ -110,6 +117,7 @@ const ContactForm = () => {
 
   return (
     <form
+      style={{ maxWidth: '600px', margin: 'auto' }}
       onSubmit={handleSubmit}
       data-netlify="true"
       name="contact"
@@ -151,12 +159,12 @@ const ContactForm = () => {
           }
         />
       </Field>
-      <Field>
+      <BtnField>
         <Button type="submit" disabled={!CheckValid()}>
           Send Message
         </Button>
         <Button onClick={clearForm}>Clear Form</Button>
-      </Field>
+      </BtnField>
     </form>
   )
 }

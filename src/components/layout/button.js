@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useSpring, animated, config } from 'react-spring'
 
-const BtnContainer = styled.span`
-  margin: 0 1rem;
+const BtnContainer = styled.div`
+  margin: 0 1rem 1rem 0;
+  @media (max-width: 780px) {
+    margin: 0 0.5rem 1rem 0;
+  }
   button {
     outline: none;
     border: 2px solid silver;
