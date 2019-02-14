@@ -29,6 +29,9 @@ const Container = styled.div`
     grid-template-areas: 'form article';
     grid-gap: 1rem;
   }
+  div {
+    margin-bottom: 2rem;
+  }
 `
 
 const ContactPage = () => {
@@ -52,32 +55,44 @@ const ContactPage = () => {
         >
           <Container>
             <div style={{ gridArea: 'form' }}>
-              {transition.map(({ item, key, props }) =>
-                messageSent ? (
-                  <animated.div style={props} key={key}>
-                    <MessageSuccess />
-                  </animated.div>
-                ) : (
-                  <animated.div style={props} key={key}>
-                    <ContactForm setMessageSent={setMessageSent} />
-                  </animated.div>
-                )
+              {messageSent ? (
+                <MessageSuccess />
+              ) : (
+                <ContactForm setMessageSent={setMessageSent} />
               )}
             </div>
 
-            <div style={{ gridArea: 'article' }}>
-              <article>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                  similique nesciunt, excepturi rerum numquam velit magni? Est
-                  veniam aperiam pariatur, eos quas dolore maxime ad deserunt
-                  fugiat iste sed dignissimos nulla! Rerum eligendi corporis
-                  dolorum optio? Officia nisi dolores quisquam unde facere
-                  maxime, totam explicabo aliquid odit laborum porro quod
-                  reprehenderit nemo ducimus a enim ipsum mollitia blanditiis!
-                  Facere,
-                </p>
-              </article>
+            <div style={{ gridArea: 'article', padding: '0 1rem' }}>
+              <h2>A few things I get asked often...</h2>
+              <hr />
+              <h3>How much does a knife cost?</h3>
+              <p>
+                Each knife is custom made and as such price can vary depending
+                on materials, sheath options and etching etc. As a rough guide a
+                Midi in 3mm stock starts at £200 and a Woodlore Clone in 4mm
+                stock with a tapered tang starts at £270.
+              </p>
+              <h3>Can you make a knife to my design?</h3>
+              <p>At the moment I do not take on commisioned designs.</p>
+              <h3>What's your waiting list like?</h3>
+              <p>
+                I have moved away from commisioned work for the forseeable
+                future. Any knives I have available will be listed on the{' '}
+                <a
+                  href="'https://www.facebook.com/Bushbladehandmadeknives/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook page.
+                </a>{' '}
+                Please follow me on social media for latest availability.
+              </p>
+              {/* <h3>Who built your website?</h3> */}
+              {/* <p>
+                I built the site myself. I am not a developer by profession but
+                if you have a project you think I would be intersted in then
+                please get in touch.
+              </p> */}
             </div>
           </Container>
         </Layout>

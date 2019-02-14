@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Button from '../components/layout/button'
 
 const Field = styled.div`
-  margin: 1.75rem auto;
+  margin: 0 auto;
   label {
     display: block;
     font-size: 1rem;
