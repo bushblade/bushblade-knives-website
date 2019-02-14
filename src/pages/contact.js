@@ -89,7 +89,7 @@ const ContactPage = () => {
                 I have moved away from commisioned work for the forseeable
                 future. Any knives I have available will be listed on the{' '}
                 <a
-                  href="'https://www.facebook.com/Bushbladehandmadeknives/"
+                  href="https://www.facebook.com/Bushbladehandmadeknives/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
