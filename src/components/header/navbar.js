@@ -88,14 +88,14 @@ const activeStyle = {
 }
 
 const isMobile = () => {
-  if (window) {
+  if (typeof window !== 'undefined') {
     return window.innerWidth < 780
   }
 }
 
 const navbar = () => {
   const [logoBig, set] = useState(true)
-  const [mobile, setMobile] = useState(isMobile())
+  const [mobile, setMobile] = useState(true)
 
   const checkWindowSize = () => {
     isMobile() ? setMobile(true) : setMobile(false)
