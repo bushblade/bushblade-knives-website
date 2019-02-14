@@ -3,6 +3,10 @@ module.exports = {
     title: `Bushblade Knives`,
     description: `Handmade knives by Will Adams`,
     author: `Will Adams`,
+    prices: {
+      midi: '300',
+      woodloreClone: '370',
+    },
   },
   plugins: [
     `gatsby-plugin-styled-components`,

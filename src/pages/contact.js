@@ -16,6 +16,14 @@ const contactQuery = graphql`
         }
       }
     }
+    prices: site {
+      siteMetadata {
+        prices {
+          midi
+          woodloreClone
+        }
+      }
+    }
   }
 `
 
@@ -69,8 +77,10 @@ const ContactPage = () => {
               <p>
                 Each knife is custom made and as such price can vary depending
                 on materials, sheath options and etching etc. As a rough guide a
-                Midi in 3mm stock starts at £300 and a Woodlore Clone in 4mm
-                stock with a tapered tang starts at £370.
+                Midi in 3mm stock starts at £
+                {data.prices.siteMetadata.prices.midi} and a Woodlore Clone in
+                4mm stock with a tapered tang starts at £
+                {data.prices.siteMetadata.prices.woodloreClone}.
               </p>
               <h3>Can you make a knife to my design?</h3>
               <p>At the moment I do not take on commisioned designs.</p>

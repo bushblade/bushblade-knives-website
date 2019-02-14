@@ -35,6 +35,13 @@ const query = graphql`
         }
       }
     }
+    prices: site {
+      siteMetadata {
+        prices {
+          woodloreClone
+        }
+      }
+    }
   }
 `
 
@@ -83,8 +90,9 @@ const WoodloreClone = () => {
                   reduction
                 </li>
                 <li>
-                  Prices start at £370 <Link to="/contact">contact me</Link> for
-                  further details
+                  Prices start at £
+                  {data.prices.siteMetadata.prices.woodloreClone}{' '}
+                  <Link to="/contact">contact me</Link> for further details
                 </li>
               </ul>
               <p>
