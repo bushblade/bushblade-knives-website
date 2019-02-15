@@ -69,10 +69,9 @@ export const WoodsmokeContainer = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
   grid-template-areas: 'right right' 'left left';
   @media (min-width: 800px) {
-    grid-template-areas: 'left right' 'left right';
+    grid-template-areas: 'left right';
   }
 `
 
