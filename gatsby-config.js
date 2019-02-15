@@ -4,8 +4,8 @@ module.exports = {
     description: `Handmade knives by Will Adams`,
     author: `Will Adams`,
     prices: {
-      midi: '300',
-      woodloreClone: '370',
+      midi: '255',
+      woodloreClone: '320',
     },
   },
   plugins: [
