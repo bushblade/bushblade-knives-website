@@ -94,11 +94,10 @@ const WoodloreClone = () => {
               </p>
               <ul>
                 <li>222mm overall length with a blade length of 112mm</li>
-                <li>4mm or 3mm thick O1 tool steel</li>
+                <li>4mm thick O1 tool steel</li>
                 <li>Hardened to ~ 59RC and double tempered</li>
                 <li>
-                  Skeletonised and tapered (4mm) tang for balance and weight
-                  reduction
+                  Skeletonised and tapered tang for balance and weight reduction
                 </li>
                 <li>
                   Prices start at £
