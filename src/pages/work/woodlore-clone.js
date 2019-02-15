@@ -64,6 +64,17 @@ const WoodloreClone = () => {
           banner={data.banner.childImageSharp.fluid}
           pageTitle="Woodlore Clone"
           tagline="The design that inspired it all"
+          keywords={[
+            'bushblade',
+            'knife',
+            'ray mears',
+            'alan wood',
+            'woodlore',
+            'bushcraft',
+            'handmade',
+            'knife',
+            'carving',
+          ]}
         >
           <TwoColumnContainer>
             <ImageContainer>

@@ -92,6 +92,8 @@ const AboutPage = () => (
           'developer',
           'dad',
           'father',
+          'woodsmoke',
+          'survival',
         ]}
       >
         <TwoColumnContainer>

@@ -60,6 +60,7 @@ const ContactPage = () => {
           banner={data.file.childImageSharp.fluid}
           pageTitle="Contact Me"
           tagline="bushblade@gmail.com"
+          keywords={['contact', 'email', 'social media', 'phone']}
         >
           <Container>
             <div style={{ gridArea: 'form' }}>

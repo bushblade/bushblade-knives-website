@@ -63,6 +63,16 @@ const Midi = () => {
             banner={data.banner.childImageSharp.fluid}
             pageTitle="Model 01 Midi"
             tagline="my design, my choice"
+            keywords={[
+              'bushblade',
+              'knife',
+              'midi',
+              'model 01',
+              'bushcraft',
+              'handmade',
+              'knife',
+              'carving',
+            ]}
           >
             <TwoColumnContainer>
               <ImageContainer>
