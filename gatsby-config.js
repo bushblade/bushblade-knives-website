@@ -42,10 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Bilbo`,
-          `Philosopher`, // you can also specify font weights and styles
-        ],
+        fonts: [`Bilbo`],
       },
     },
     `gatsby-transformer-sharp`,
