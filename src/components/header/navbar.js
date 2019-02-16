@@ -116,7 +116,7 @@ const navbar = () => {
         event ? set(true) : set(false)
       }
     },
-    threshold: 0.5,
+    threshold: 0.7,
     rootMargin: '0% 0% 0%',
   }
 
