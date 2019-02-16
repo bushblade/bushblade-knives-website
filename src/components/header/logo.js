@@ -6,12 +6,6 @@ import { Link } from 'gatsby'
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 50%; */
-  /* z-index: 10; */
-  /* width: 10rem; */
-  /* margin-left: -5rem; */
   height: 3rem;
   grid-area: logo;
   a {
