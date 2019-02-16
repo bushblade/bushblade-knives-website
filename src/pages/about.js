@@ -222,7 +222,7 @@ const AboutPage = () => (
             </a>{' '}
             For those geeky enough to want to know - this site is built with
             GatsbyJS, ReactJS and styled-components mainly using VS Code on a
-            desktop instalation of Manjaro Linux with continuous deployment to
+            desktop installation of Manjaro Linux with continuous deployment to
             Netlify through GitHub.
           </p>
         </NarrowContainer>
