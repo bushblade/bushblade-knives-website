@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { useTrail, useSpring, config, animated } from 'react-spring'
+import {
+  useTrail,
+  useSpring,
+  useTransition,
+  config,
+  animated,
+} from 'react-spring'
 import { Link } from 'gatsby'
 import { siteLinks, socialLinks, knifeLinks } from './navLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -107,9 +113,10 @@ const activeStyle = {
 const menu = () => {
   const [open, setOpen] = useState(false)
 
-  const menuSpring = useSpring({
-    transform: open ? 'translate3d(0,0,0)' : 'translate3d(100%,-100%,0)',
-    opacity: open ? 1 : 0,
+  const menuTranstion = useTransition(open, null, {
+    from: { transform: 'translate3d(100%,-100%,0)', opacity: 0 },
+    enter: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
+    leave: { transform: 'translate3d(100%,-100%,0)', opacity: 0 },
   })
 
   const allLinks = siteLinks.concat(knifeLinks)
@@ -142,47 +149,54 @@ const menu = () => {
       <MenuButton open={open} onClick={() => setOpen(!open)}>
         <span />
       </MenuButton>
-      <animated.div
-        style={{
-          zIndex: 11,
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '100%',
-          ...menuSpring,
-        }}
-      >
-        <Menu>
-          <ul>
-            {trail.map((props, index) => (
-              <animated.li key={allLinks[index].text} style={props}>
-                <Link
-                  onClick={() => setOpen(false)}
-                  to={allLinks[index].to}
-                  activeStyle={activeStyle}
-                >
-                  {allLinks[index].text}
-                </Link>
-              </animated.li>
-            ))}
-          </ul>
-          <animated.div style={{ width: '100%', ...socialSpring }}>
-            <SocialLinks>
-              {socialLinks.map(({ to, icon, color }) => (
-                <a
-                  href={to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={to}
-                  color={color}
-                >
-                  <FontAwesomeIcon icon={icon} size="lg" />
-                </a>
-              ))}
-            </SocialLinks>
-          </animated.div>
-        </Menu>
-      </animated.div>
+
+      {menuTranstion.map(
+        ({ item, key, props }) =>
+          item && (
+            <animated.div
+              key={key}
+              style={{
+                zIndex: 11,
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                width: '100%',
+                ...props,
+              }}
+            >
+              <Menu>
+                <ul>
+                  {trail.map((linkProps, index) => (
+                    <animated.li key={allLinks[index].text} style={linkProps}>
+                      <Link
+                        onClick={() => setOpen(false)}
+                        to={allLinks[index].to}
+                        activeStyle={activeStyle}
+                      >
+                        {allLinks[index].text}
+                      </Link>
+                    </animated.li>
+                  ))}
+                </ul>
+                <animated.div style={{ width: '100%', ...socialSpring }}>
+                  <SocialLinks>
+                    {socialLinks.map(({ to, icon, color }) => (
+                      <a
+                        href={to}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={to}
+                        color={color}
+                      >
+                        <FontAwesomeIcon icon={icon} size="lg" />
+                      </a>
+                    ))}
+                  </SocialLinks>
+                </animated.div>
+              </Menu>
+            </animated.div>
+          )
+      )}
     </>
   )
 }
