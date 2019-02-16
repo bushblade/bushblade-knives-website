@@ -16,7 +16,7 @@ const aboutQuery = graphql`
   query aboutQuery {
     banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }

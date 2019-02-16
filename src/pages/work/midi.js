@@ -13,7 +13,7 @@ const query = graphql`
   query midiImages {
     banner: file(relativePath: { eq: "banner01.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }

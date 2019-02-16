@@ -15,7 +15,7 @@ const indexQuery = graphql`
   query indexQuery {
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }
