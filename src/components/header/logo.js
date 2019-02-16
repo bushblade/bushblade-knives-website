@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
 const Logo = ({ logoBig }) => {
   const logoAnimation = useSpring({
     transform: logoBig
-      ? 'scale(1.5) translate3d(0, 1rem, 0)'
+      ? 'scale(1.6) translate3d(0, 1rem, 0)'
       : 'scale(1) translate3d(0, 0rem, 0)',
     config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
@@ -36,7 +36,7 @@ const Logo = ({ logoBig }) => {
           version="1.1"
           viewBox="0 0 132.29178 38.641926"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ height: '3rem', ...logoAnimation }}
+          style={{ height: '2.9rem', ...logoAnimation }}
         >
           <defs id="defs4725" />
           <g
