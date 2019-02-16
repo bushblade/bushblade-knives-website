@@ -7,7 +7,10 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/layout/layout'
 import Gallery from '../components/Gallery'
-import { NarrowContainer } from '../components/layout/styledComponents'
+import {
+  NarrowContainer,
+  TwoColumnContainer,
+} from '../components/layout/styledComponents'
 
 const indexQuery = graphql`
   query indexQuery {
@@ -45,17 +48,6 @@ const indexQuery = graphql`
   }
 `
 
-const ProfileContainer = styled.div`
-  margin: 0 auto 4rem auto;
-  max-width: 960px;
-  display: grid;
-  grid-template-columns: 1fr;
-  @media (min-width: 800px) {
-    grid-template-columns: 40% 60%;
-    grid-gap: 1.5rem;
-  }
-`
-
 const IndexPage = () => (
   <StaticQuery
     query={indexQuery}
@@ -73,8 +65,14 @@ const IndexPage = () => (
           'uk',
         ]}
       >
-        <ProfileContainer>
-          <Img fluid={data.profile.childImageSharp.fluid} title="Will Adams" />
+        <TwoColumnContainer narrow>
+          <div>
+            <Img
+              fluid={data.profile.childImageSharp.fluid}
+              title="Will Adams"
+            />
+            <br />
+          </div>
           <div>
             <blockquote style={{ maxWidth: '800px', margin: 'auto' }}>
               <FontAwesomeIcon
@@ -100,7 +98,7 @@ const IndexPage = () => (
               since the early days.
             </p>
           </div>
-        </ProfileContainer>
+        </TwoColumnContainer>
 
         <NarrowContainer style={{ textAlign: 'center' }}>
           <p>

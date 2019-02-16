@@ -55,10 +55,6 @@ const aboutQuery = graphql`
   }
 `
 
-const Cell = styled.div`
-  margin: 1rem 0;
-`
-
 const WoodsmokeCell = styled.div`
   margin: 1rem 0;
   grid-area: ${props => props.area};
@@ -97,7 +93,7 @@ const AboutPage = () => (
         ]}
       >
         <TwoColumnContainer>
-          <Cell>
+          <div>
             <blockquote>
               <p>
                 <FontAwesomeIcon
@@ -128,15 +124,15 @@ const AboutPage = () => (
               brought the term bushcraft to my attention, that became my subject
               of study.
             </p>
-          </Cell>
-          <Cell>
+          </div>
+          <div>
             <Img
               fixed={typeof window === 'undefined' ? { src: {} } : undefined}
               fluid={data.me.childImageSharp.fluid}
               style={{ margin: 'auto' }}
               title="Yep that's me"
             />
-          </Cell>
+          </div>
         </TwoColumnContainer>
         <WoodsmokeContainer>
           <WoodsmokeCell area="left">

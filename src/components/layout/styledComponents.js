@@ -10,6 +10,7 @@ export const TwoColumnContainer = styled.div`
   grid-template-columns: 1fr;
   margin: 2rem auto;
   grid-gap: 2rem;
+
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
   }
