@@ -149,7 +149,6 @@ const menu = () => {
       <MenuButton open={open} onClick={() => setOpen(!open)}>
         <span />
       </MenuButton>
-
       {menuTranstion.map(
         ({ item, key, props }) =>
           item && (

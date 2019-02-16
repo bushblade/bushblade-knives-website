@@ -39,6 +39,15 @@ const Bottom = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
+  a {
+    color: whitesmoke;
+    box-shadow: inset 0 -2px 0px 0px transparent;
+    transition: all 0.2s ease-in-out;
+    :hover {
+      box-shadow: inset 0 -2px 0px 0px #c2c2a3;
+      background: none;
+    }
+  }
 `
 const ListContainer = styled.div`
   display: flex;
@@ -88,9 +97,9 @@ const footer = ({ author }) => {
         <ListContainer>
           <h4>Social Media</h4>
           {socialLinks.map(({ to, text }) => (
-            <Link to={to} key={to}>
+            <a href={to} target="_blank" rel="noopener noreferrer" key={to}>
               {text}
-            </Link>
+            </a>
           ))}
         </ListContainer>
         <ListContainer>
@@ -100,8 +109,16 @@ const footer = ({ author }) => {
         </ListContainer>
       </Main>
       <Bottom>
-        All content © {new Date().getFullYear()} {author}. Site design and
-        development by {author}. All images © Lou Adams Photography
+        All content &copy; {new Date().getFullYear()} {author}. Site design and
+        development by {author}. All images &copy;
+        <a
+          href="https://louadamsphotography.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {' '}
+          Lou Adams Photography
+        </a>
       </Bottom>
     </FooterContainer>
   )
