@@ -92,7 +92,6 @@ const ContactForm = ({ setMessageSent }) => {
         }),
       })
         .then(res => {
-          console.log(res)
           if (res.ok) {
             clearForm()
             setMessageSent(true)

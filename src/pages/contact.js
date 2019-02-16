@@ -45,11 +45,14 @@ const Container = styled.div`
 const ContactPage = () => {
   const [messageSent, setMessageSent] = useState(false)
 
-  const transition = useTransition(messageSent, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: { duration: 3000 },
+  const sentTransition = useTransition(messageSent, null, {
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, 10rem, 0)',
+    },
+    enter: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    leave: { opacity: 0, transform: 'translate3d(0, 10rem, 0)' },
+    config: config.stiff,
   })
 
   return (
@@ -63,12 +66,18 @@ const ContactPage = () => {
           keywords={['contact', 'email', 'social media', 'phone']}
         >
           <Container>
-            <div style={{ gridArea: 'form' }}>
-              {messageSent ? (
-                <MessageSuccess />
-              ) : (
-                <ContactForm setMessageSent={setMessageSent} />
-              )}
+            <div style={{ gridArea: 'form', position: 'relative' }}>
+              {messageSent &&
+                sentTransition.map(
+                  ({ item, key, props }) =>
+                    item && (
+                      <animated.div style={props} key={key}>
+                        <MessageSuccess />
+                      </animated.div>
+                    )
+                )}
+
+              {!messageSent && <ContactForm setMessageSent={setMessageSent} />}
             </div>
 
             <div style={{ gridArea: 'article', padding: '0 1rem' }}>

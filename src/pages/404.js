@@ -18,11 +18,16 @@ const NotFoundPage = ({ location }) => {
         >
           <h2 style={{ color: '#a94442' }}>ROUTE NOT FOUND</h2>
           <p>
-            😭
+            <span role="img" aria-label="sad">
+              😭
+            </span>
             <strong> {location.pathname}</strong> does not exist on this site...
             yet.
             <br />
-            Don't be sad, try one of the other links. 😎
+            Don't be sad, try one of the other links.{' '}
+            <span role="img" aria-label="cool">
+              😎
+            </span>
           </p>
         </article>
       </NarrowContainer>

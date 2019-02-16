@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 
 const BtnContainer = styled.div`
   margin: 0 1rem 1rem 0;
