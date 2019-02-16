@@ -99,7 +99,7 @@ const AboutPage = () => (
                 <FontAwesomeIcon
                   icon={faQuoteLeft}
                   size="xs"
-                  style={{ marginBottom: '0.3rem' }}
+                  style={{ marginBottom: '0.3rem', maxWidth: '1.5rem' }}
                 />{' '}
                 I have always had a passion for wild places and spending time in
                 them. Bushcraft for me is a way of being comfortable and feeling
@@ -107,7 +107,7 @@ const AboutPage = () => (
                 <FontAwesomeIcon
                   icon={faQuoteRight}
                   size="xs"
-                  style={{ marginBottom: '0.3rem' }}
+                  style={{ marginBottom: '0.3rem', maxWidth: '1.5rem' }}
                 />
               </p>
             </blockquote>

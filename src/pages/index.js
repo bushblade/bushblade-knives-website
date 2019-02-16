@@ -77,7 +77,7 @@ const IndexPage = () => (
               <FontAwesomeIcon
                 icon={faQuoteLeft}
                 size="xs"
-                style={{ marginBottom: '0.3rem' }}
+                style={{ marginBottom: '0.3rem', maxWidth: '1.5rem' }}
               />{' '}
               Having used and acquired many knives over the years, from a
               variety of brand name manufacturers and without sufficient funds
@@ -85,7 +85,7 @@ const IndexPage = () => (
               <FontAwesomeIcon
                 icon={faQuoteRight}
                 size="xs"
-                style={{ marginBottom: '0.3rem' }}
+                style={{ marginBottom: '0.3rem', maxWidth: '1.5rem' }}
               />
             </blockquote>
             <br />
