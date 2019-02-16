@@ -25,7 +25,7 @@ const Logo = ({ logoBig }) => {
     transform: logoBig
       ? 'scale(1.5) translate3d(0, 1rem, 0)'
       : 'scale(1) translate3d(0, 0rem, 0)',
-    config: config.stiff,
+    config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
 
   return (
