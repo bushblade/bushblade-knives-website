@@ -133,7 +133,11 @@ const navbar = () => {
                 key={to}
                 color={color}
               >
-                <FontAwesomeIcon icon={icon} size="lg" />
+                <FontAwesomeIcon
+                  icon={icon}
+                  size="lg"
+                  style={{ maxWidth: '1.5rem' }}
+                />
               </SocialLink>
             ))}
           </div>
