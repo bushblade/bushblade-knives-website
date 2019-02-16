@@ -9,12 +9,11 @@ const ImageWrapper = styled.div`
   transition: all 0.2s ease-in-out;
   border-radius: 2px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: zoom-in;
   div {
     transition: transform 2s;
   }
   :hover {
-    /* transform: scale(1.01) translate3d(0, -2px, 0); */
     box-shadow: -2px 5px 8px 2px rgba(0, 0, 0, 0.3);
     div {
       transform: scale(1.05);
