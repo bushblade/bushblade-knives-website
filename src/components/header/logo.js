@@ -6,12 +6,12 @@ import { Link } from 'gatsby'
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  z-index: 10;
-  width: 10rem;
-  margin-left: -5rem;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 50%; */
+  /* z-index: 10; */
+  /* width: 10rem; */
+  /* margin-left: -5rem; */
   height: 3rem;
   grid-area: logo;
   a {
@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
 const Logo = ({ logoBig }) => {
   const logoAnimation = useSpring({
     transform: logoBig
-      ? 'scale(1.6) translate3d(0, 1rem, 0)'
+      ? 'scale(1.6) translate3d(0, -1rem, 0)'
       : 'scale(1) translate3d(0, 0rem, 0)',
     config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
