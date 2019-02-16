@@ -209,7 +209,7 @@ const AboutPage = () => (
             , my local climbing gym.
           </p>
           <p>
-            I also have a passion for web development which originaly came from
+            I also have a passion for web development which originally came from
             a need to build a website for Bushblade Knives, which you can learn
             more about
             <a
