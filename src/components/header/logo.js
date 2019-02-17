@@ -14,8 +14,12 @@ const LogoContainer = styled.div`
   height: 6rem;
   grid-area: logo;
   a {
+    background: transparent;
     border: none;
     box-shadow: none;
+    :hover {
+      background: transparent;
+    }
   }
 `
 
