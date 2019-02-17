@@ -39,6 +39,10 @@ const Bottom = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
+  flex-wrap: wrap;
+  span {
+    padding: 0 0.2rem;
+  }
   a {
     color: whitesmoke;
     box-shadow: inset 0 -2px 0px 0px transparent;
@@ -109,16 +113,22 @@ const footer = ({ author }) => {
         </ListContainer>
       </Main>
       <Bottom>
-        All content &copy; {new Date().getFullYear()} {author}. Site design and
-        development by {author}. All images &copy;
-        <a
-          href="https://louadamsphotography.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <span>
           {' '}
-          Lou Adams Photography
-        </a>
+          All content &copy; {new Date().getFullYear()} {author}.{' '}
+        </span>
+        <span> Site design and development by {author}. </span>
+        <span>
+          All images &copy;
+          <a
+            href="https://louadamsphotography.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {' '}
+            Lou Adams Photography
+          </a>
+        </span>
       </Bottom>
     </FooterContainer>
   )
