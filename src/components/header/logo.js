@@ -14,6 +14,7 @@ const LogoContainer = styled.div`
   height: 6rem;
   grid-area: logo;
   a {
+    height: 3rem;
     background: transparent;
     border: none;
     box-shadow: none;
