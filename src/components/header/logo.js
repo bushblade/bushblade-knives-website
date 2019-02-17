@@ -4,9 +4,14 @@ import { config, useSpring, animated } from 'react-spring'
 import { Link } from 'gatsby'
 
 const LogoContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
-  height: 3rem;
+  align-content: center;
+  height: 6rem;
   grid-area: logo;
   a {
     border: none;
@@ -17,8 +22,9 @@ const LogoContainer = styled.div`
 const Logo = ({ logoBig }) => {
   const logoAnimation = useSpring({
     transform: logoBig
-      ? 'scale(1.6) translate3d(0, -1rem, 0)'
-      : 'scale(1) translate3d(0, 0rem, 0)',
+      ? 'translate3d(0, -2.9rem, 0)'
+      : 'translate3d(0, 0rem, 0)',
+    height: logoBig ? '5.8rem' : '2.9rem',
     config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
 
@@ -30,7 +36,7 @@ const Logo = ({ logoBig }) => {
           version="1.1"
           viewBox="0 0 132.29178 38.641926"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ height: '2.9rem', ...logoAnimation }}
+          style={logoAnimation}
         >
           <defs id="defs4725" />
           <g
