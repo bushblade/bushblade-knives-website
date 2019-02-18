@@ -126,6 +126,8 @@ const navbar = ({ location }) => {
     rootMargin: '0% 0% 0%',
   }
 
+  const checkPath = linkTo => (location ? location.pathname === linkTo : false)
+
   return (
     <>
       <Observer {...observerOptions}>
@@ -153,14 +155,14 @@ const navbar = ({ location }) => {
         <Logo logoBig={logoBig && !mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
-            <LinkBox key={to} active={to === location.pathname}>
+            <LinkBox key={to} active={checkPath(to)}>
               <Link to={to}>{text}</Link>
             </LinkBox>
           ))}
         </Links>
         <Links right>
           {knifeLinks.map(({ to, text }) => (
-            <LinkBox key={to} active={to === location.pathname}>
+            <LinkBox key={to} active={checkPath(to)}>
               <Link to={to}>{text}</Link>
             </LinkBox>
           ))}
