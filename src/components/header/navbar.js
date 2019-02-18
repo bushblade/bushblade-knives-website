@@ -30,6 +30,19 @@ const Links = styled.div`
   align-items: center;
   margin: auto;
   grid-area: ${props => (props.right ? 'rlinks' : 'llinks')};
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`
+const LinkBox = styled.span`
+  padding: 0 0.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-bottom: ${props =>
+    props.active
+      ? '4px solid rgba(73, 75, 70, 0.95)'
+      : '4px solid transparent'};
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
@@ -46,20 +59,7 @@ const Links = styled.div`
       transform: scale(1.1);
       text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
     }
-    @media (max-width: 1000px) {
-      display: none;
-    }
   }
-`
-const LinkBox = styled.span`
-  padding: 0 0.5rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  border-bottom: ${props =>
-    props.active
-      ? '4px solid rgba(73, 75, 70, 0.95)'
-      : '4px solid transparent'};
 `
 
 const PadDiv = styled.div`
