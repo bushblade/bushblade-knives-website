@@ -47,7 +47,7 @@ const indexQuery = graphql`
   }
 `
 
-const IndexPage = () => (
+const IndexPage = ({ location }) => (
   <StaticQuery
     query={indexQuery}
     render={data => (
@@ -63,6 +63,7 @@ const IndexPage = () => (
           'knife',
           'uk',
         ]}
+        location={location}
       >
         <TwoColumnContainer narrow>
           <div>

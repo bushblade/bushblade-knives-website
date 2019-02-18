@@ -33,8 +33,7 @@ const Links = styled.div`
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
-    padding: 0 0.5rem;
-    line-height: 1.4rem;
+    background: none;
     @media (min-width: 1100px) {
       margin: 0 0.5rem;
     }
@@ -43,6 +42,7 @@ const Links = styled.div`
     font-style: italic;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     :hover {
+      background: none;
       transform: scale(1.1);
       text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
     }
@@ -50,6 +50,16 @@ const Links = styled.div`
       display: none;
     }
   }
+`
+const LinkBox = styled.span`
+  padding: 0 0.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-bottom: ${props =>
+    props.active
+      ? '4px solid rgba(73, 75, 70, 0.95)'
+      : '4px solid transparent'};
 `
 
 const PadDiv = styled.div`
@@ -82,17 +92,13 @@ const SocialLink = styled.a`
   }
 `
 
-const activeStyle = {
-  borderBottom: '3px solid rgba(73, 75, 70, 0.95)',
-}
-
 const isMobile = () => {
   if (typeof window !== 'undefined') {
     return window.innerWidth < 780
   }
 }
 
-const navbar = () => {
+const navbar = ({ location }) => {
   const [logoBig, set] = useState(true)
   const [mobile, setMobile] = useState(isMobile())
 
@@ -147,16 +153,16 @@ const navbar = () => {
         <Logo logoBig={logoBig && !mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
-            <Link to={to} key={to} activeStyle={activeStyle}>
-              {text}
-            </Link>
+            <LinkBox key={to} active={to === location.pathname}>
+              <Link to={to}>{text}</Link>
+            </LinkBox>
           ))}
         </Links>
         <Links right>
           {knifeLinks.map(({ to, text }) => (
-            <Link to={to} key={to} activeStyle={activeStyle}>
-              {text}
-            </Link>
+            <LinkBox key={to} active={to === location.pathname}>
+              <Link to={to}>{text}</Link>
+            </LinkBox>
           ))}
         </Links>
       </Nav>

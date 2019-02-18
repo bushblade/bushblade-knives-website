@@ -55,7 +55,7 @@ const SVGContainer = styled.div`
   margin: 1rem 0;
 `
 
-const WoodloreClone = () => {
+const WoodloreClone = ({ location }) => {
   return (
     <StaticQuery
       query={query}
@@ -75,6 +75,7 @@ const WoodloreClone = () => {
             'knife',
             'carving',
           ]}
+          location={location}
         >
           <TwoColumnContainer>
             <ImageContainer>

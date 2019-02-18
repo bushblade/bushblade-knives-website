@@ -28,7 +28,14 @@ const ContentContainer = styled.div`
   margin: auto;
 `
 
-const Layout = ({ children, banner, pageTitle, tagline, keywords }) => (
+const Layout = ({
+  children,
+  banner,
+  pageTitle,
+  tagline,
+  keywords,
+  location,
+}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -43,7 +50,7 @@ const Layout = ({ children, banner, pageTitle, tagline, keywords }) => (
     render={data => (
       <>
         <Seo title={pageTitle} keywords={keywords} />
-        <Navbar />
+        <Navbar location={location} />
         <LayoutWrapper backgroundImage={backgroundImage}>
           {banner && (
             <Img

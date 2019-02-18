@@ -71,7 +71,7 @@ export const WoodsmokeContainer = styled.div`
   }
 `
 
-const AboutPage = () => (
+const AboutPage = ({ location }) => (
   <StaticQuery
     query={aboutQuery}
     render={data => (
@@ -91,6 +91,7 @@ const AboutPage = () => (
           'woodsmoke',
           'survival',
         ]}
+        location={location}
       >
         <TwoColumnContainer>
           <div>
