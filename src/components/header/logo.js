@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { config, useSpring, animated } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import { Link } from 'gatsby'
 
 const LogoContainer = styled.div`
