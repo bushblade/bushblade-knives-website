@@ -39,8 +39,8 @@ const socialLinks = [
 ]
 
 const knifeLinks = [
-  { to: '/work/woodlore-clone', text: 'Woodlore Clone' },
-  { to: '/work/midi', text: 'Midi' },
+  { to: '/woodlore-clone', text: 'Woodlore Clone' },
+  { to: '/midi', text: 'Midi' },
 ]
 
 export { siteLinks, socialLinks, knifeLinks }

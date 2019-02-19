@@ -1,13 +1,13 @@
 import React from 'react'
-import Layout from '../../components/layout/layout'
+import Layout from '../components/layout/layout'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Gallery from '../../components/Gallery'
-import { TwoColumnContainer } from '../../components/layout/styledComponents'
-import MidiSVG from '../../components/svg/midiSVG'
-import MidiSpineSVG from '../../components/svg/midiSpineSVG'
-import MidiSkeletonSVG from '../../components/svg/midiSkeletonSVG'
+import Gallery from '../components/Gallery'
+import { TwoColumnContainer } from '../components/layout/styledComponents'
+import MidiSVG from '../components/svg/midiSVG'
+import MidiSpineSVG from '../components/svg/midiSpineSVG'
+import MidiSkeletonSVG from '../components/svg/midiSkeletonSVG'
 
 const query = graphql`
   query midiImages {

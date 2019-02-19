@@ -1,13 +1,13 @@
 import React from 'react'
-import Layout from '../../components/layout/layout'
+import Layout from '../components/layout/layout'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Gallery from '../../components/Gallery'
-import { TwoColumnContainer } from '../../components/layout/styledComponents'
-import WoodloreSVG from '../../components/svg/woodloreSVG'
-import WoodloreSpineSVG from '../../components/svg/woodloreSpineSVG'
-import WoodloreSkeletonSVG from '../../components/svg/woodloreSkeletonSVG'
+import Gallery from '../components/Gallery'
+import { TwoColumnContainer } from '../components/layout/styledComponents'
+import WoodloreSVG from '../components/svg/woodloreSVG'
+import WoodloreSpineSVG from '../components/svg/woodloreSpineSVG'
+import WoodloreSkeletonSVG from '../components/svg/woodloreSkeletonSVG'
 
 const query = graphql`
   query woodloreImages {
