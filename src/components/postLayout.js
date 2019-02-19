@@ -9,20 +9,24 @@ const PostContainer = styled.div`
   margin: auto;
 `
 
-const postLayout = ({ data: { markdownRemark }, location }) => {
-  console.log(markdownRemark)
+const postLayout = ({
+  data: {
+    markdownRemark: { frontmatter, html },
+  },
+  location,
+}) => {
   return (
     <Layout
       location={location}
-      pageTitle={markdownRemark.frontmatter.title}
-      tagline={`by ${markdownRemark.frontmatter.author}`}
+      pageTitle={frontmatter.title}
+      tagline={` by ${frontmatter.author}, ${frontmatter.date}`}
     >
       <PostContainer>
-        <h1>{markdownRemark.frontmatter.title}</h1>
-        <h3>{markdownRemark.frontmatter.date}</h3>
+        <h1>{frontmatter.title}</h1>
+        <h3>{frontmatter.date}</h3>
         <div
           dangerouslySetInnerHTML={{
-            __html: markdownRemark.html,
+            __html: html,
           }}
         />
       </PostContainer>

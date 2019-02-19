@@ -9,6 +9,7 @@ const siteLinks = [
   { to: '/', text: 'Home' },
   { to: '/about', text: 'About' },
   { to: '/contact', text: 'Contact' },
+  { to: '/posts', text: 'Posts' },
 ]
 
 const socialLinks = [

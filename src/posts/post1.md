@@ -1,6 +1,6 @@
 ---
 slug: '/first-post'
-title: 'First Post'
+title: 'My first post'
 date: '2019-01-16'
 author: 'Will Adams'
 ---
