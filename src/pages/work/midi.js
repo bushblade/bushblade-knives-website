@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 import Gallery from '../../components/Gallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
-import MidiSVG from './midiSVG'
-import MidiSpineSVG from './midiSpineSVG'
-import MidiSkeletonSVG from './midiSkeletonSVG'
+import MidiSVG from '../../components/svg/midiSVG'
+import MidiSpineSVG from '../../components/svg/midiSpineSVG'
+import MidiSkeletonSVG from '../../components/svg/midiSkeletonSVG'
 
 const query = graphql`
   query midiImages {

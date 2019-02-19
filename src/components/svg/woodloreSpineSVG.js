@@ -1,7 +1,7 @@
 import React from 'react'
 import { animated } from 'react-spring'
 
-import PathAnimation from '../../components/pathAnimation'
+import PathAnimation from './pathAnimation'
 
 const SVG = () => {
   return (

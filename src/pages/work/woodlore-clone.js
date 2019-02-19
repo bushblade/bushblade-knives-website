@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 import Gallery from '../../components/Gallery'
 import { TwoColumnContainer } from '../../components/layout/styledComponents'
-import WoodloreSVG from './woodloreSVG'
-import WoodloreSpineSVG from './woodloreSpineSVG'
-import WoodloreSkeletonSVG from './woodloreSkeletonSVG'
+import WoodloreSVG from '../../components/svg/woodloreSVG'
+import WoodloreSpineSVG from '../../components/svg/woodloreSpineSVG'
+import WoodloreSkeletonSVG from '../../components/svg/woodloreSkeletonSVG'
 
 const query = graphql`
   query woodloreImages {
