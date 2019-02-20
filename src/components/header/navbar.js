@@ -106,15 +106,12 @@ const navbar = ({ location }) => {
     isMobile() ? setMobile(true) : setMobile(false)
   }
 
-  useEffect(
-    () => {
-      if (window) {
-        checkWindowSize()
-        window.onresize = checkWindowSize
-      }
-    },
-    [mobile]
-  )
+  useEffect(() => {
+    if (window) {
+      checkWindowSize()
+      window.onresize = checkWindowSize
+    }
+  }, [mobile])
 
   const observerOptions = {
     onChange: event => {
@@ -126,8 +123,12 @@ const navbar = ({ location }) => {
     rootMargin: '0% 0% 0%',
   }
 
-  const checkPath = (location, linkTo) =>
-    location ? location.pathname === linkTo : false
+  const checkPath = (location, linkTo) => {
+    if (location) {
+      const path = location.pathname
+      return linkTo === '/posts' ? path.includes('/posts') : path === linkTo
+    }
+  }
 
   return (
     <>
