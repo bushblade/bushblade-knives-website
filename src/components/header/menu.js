@@ -63,7 +63,7 @@ const MenuButton = styled.div`
         background-color: whitesmoke;
       }
     `}
-  @media (min-width: 1000px) {
+  @media (min-width: 1080px) {
     display: none;
   }
 `
