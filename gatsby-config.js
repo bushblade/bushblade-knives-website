@@ -57,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `bushblade-kinves`,
+        name: `bushblade-knives`,
         short_name: `Bushblade`,
         start_url: `/`,
         background_color: `#c2c2a3`,
