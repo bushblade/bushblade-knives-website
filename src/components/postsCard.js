@@ -5,13 +5,13 @@ const Card = styled.div`
   box-shadow: -1px 10px 45px 0px rgba(0, 0, 0, 0.2);
   border-radius: 0.2rem;
   background: whitesmoke;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-out;
   overflow: hidden;
   ${props =>
     props.hover &&
     css`
       box-shadow: -1px 15px 45px 0px rgba(0, 0, 0, 0.3);
-      transform: translate3d(0, -0.2rem, 0rem) scale(1.02);
+      transform: translate3d(0, -10px, 0) scale(1.02);
     `}
 `
 const CardHeader = styled.div`
