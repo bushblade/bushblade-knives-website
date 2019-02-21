@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 const LogoContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
   right: 0;
   display: flex;
@@ -27,9 +27,10 @@ const LogoContainer = styled.div`
 const Logo = ({ logoBig }) => {
   const logoAnimation = useSpring({
     transform: logoBig
-      ? 'translate3d(0, -2.9rem, 0)'
-      : 'translate3d(0, 0rem, 0)',
-    height: logoBig ? '5.8rem' : '2.9rem',
+      ? 'translate3d(0, -28px, 0) scale(2)'
+      : 'translate3d(0, 0, 0) scale(1)',
+    // height: logoBig ? '5.8rem' : '2.9rem',
+
     config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
 
@@ -41,6 +42,7 @@ const Logo = ({ logoBig }) => {
           version="1.1"
           viewBox="0 0 132.29178 38.641926"
           xmlns="http://www.w3.org/2000/svg"
+          height="50"
           style={logoAnimation}
         >
           <defs id="defs4725" />
