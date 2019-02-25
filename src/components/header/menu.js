@@ -92,7 +92,7 @@ const Menu = styled.div`
       background: none;
     }
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1080px) {
     display: none;
   }
 `
