@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarDay, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Card = styled.div`
   box-shadow: -1px 10px 45px 0px rgba(0, 0, 0, 0.2);
@@ -19,9 +21,22 @@ const CardHeader = styled.div`
   position: relative;
   border-bottom: 5px solid #c2c2a4;
   img {
-    max-height: 200px;
+    height: 200px;
     flex-grow: 1;
     object-fit: cover;
+  }
+  ::after {
+    content: '';
+    border-right: 8px solid #c2c2a4;
+    border-bottom: 8px solid #c2c2a4;
+    border-top: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-radius: 2px;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -8px;
+    transform: rotate(45deg);
   }
 `
 
@@ -45,14 +60,13 @@ const CardContent = styled.div`
 `
 
 const CardFooter = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 0 1rem;
-  h4,
-  h5 {
-    display: inline-block;
-  }
-  h4 {
-    padding-right: 1rem;
-  }
+  margin-bottom: 1rem;
+  color: dimgrey;
+  font-style: italic;
+  font-size: 0.9rem;
 `
 
 const postsCard = ({
@@ -78,10 +92,12 @@ const postsCard = ({
             <p>{excerpt}</p>
           </CardContent>
           <CardFooter>
-            <h4>{author}</h4>
-            <h5>
-              <em>{date}</em>
-            </h5>
+            <div>
+              <FontAwesomeIcon icon={faUserCircle} /> {author}
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faCalendarDay} /> {date}
+            </div>
           </CardFooter>
         </div>
       </a>
