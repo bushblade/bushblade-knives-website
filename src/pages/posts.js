@@ -1,9 +1,9 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import { useTrail, animated, config } from 'react-spring'
 
 import Layout from '../components/layout/layout'
-import { NarrowContainer } from '../components/layout/styledComponents'
 import PostsCard from '../components/postsCard'
 
 const postQuery = graphql`
@@ -42,6 +42,27 @@ const PostListContainer = styled.div`
   }
 `
 
+const PostList = ({ posts }) => {
+  const trail = useTrail(posts.length, {
+    opacity: 1,
+    transform: 'translate3d(0, 0, 0)',
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, 100px, 0)',
+    },
+    config: config.stiff,
+  })
+  return (
+    <PostListContainer>
+      {trail.map((props, index) => (
+        <animated.div key={posts[index].node.frontmatter.title} style={props}>
+          <PostsCard {...posts[index].node} />
+        </animated.div>
+      ))}
+    </PostListContainer>
+  )
+}
+
 const Posts = ({ location }) => (
   <StaticQuery
     query={postQuery}
@@ -52,11 +73,7 @@ const Posts = ({ location }) => (
         keywords={[]}
         location={location}
       >
-        <PostListContainer>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <PostsCard {...node} key={node.frontmatter.title} />
-          ))}
-        </PostListContainer>
+        <PostList posts={data.allMarkdownRemark.edges} />
       </Layout>
     )}
   />
