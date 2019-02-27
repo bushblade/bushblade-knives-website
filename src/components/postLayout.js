@@ -7,6 +7,11 @@ import Layout from './layout/layout'
 const PostContainer = styled.div`
   max-width: 960px;
   margin: auto;
+  .gatsby-resp-image-link {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
 `
 
 const postLayout = ({
