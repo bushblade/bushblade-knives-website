@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDay, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import Img from 'gatsby-image'
 
 const Card = styled.div`
   box-shadow: -1px 10px 45px 0px rgba(0, 0, 0, 0.2);
@@ -17,14 +18,8 @@ const Card = styled.div`
     `}
 `
 const CardHeader = styled.div`
-  display: flex;
   position: relative;
   border-bottom: 5px solid #c2c2a4;
-  img {
-    height: 200px;
-    flex-grow: 1;
-    object-fit: cover;
-  }
   ::after {
     content: '';
     border-right: 8px solid #c2c2a4;
@@ -74,6 +69,7 @@ const postsCard = ({
   frontmatter: { date, title, slug, author, image },
 }) => {
   const [hover, setHover] = useState(false)
+  console.log(image)
   return (
     <Card
       onMouseEnter={() => setHover(true)}
@@ -83,7 +79,10 @@ const postsCard = ({
       <a href={`/posts${slug}`}>
         <div>
           <CardHeader>
-            <img src={image} style={{ marginBottom: '0' }} />
+            <Img
+              fluid={image.childImageSharp.fluid}
+              style={{ maxHeight: '200px' }}
+            />
             <CardTitle>
               <h2>{title}</h2>
             </CardTitle>

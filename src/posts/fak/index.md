@@ -1,10 +1,12 @@
 ---
-slug: '/second-post'
-title: 'Our Second Post'
-date: '2019-01-17'
+slug: '/first-aid-kit'
+title: 'First Aid Kit'
+date: '2019-01-16'
 author: 'Will Adams'
-image: 'https://lh3.googleusercontent.com/E1ew0JxDWcYIBQHurV01-MbXJckm6TQwxVIEo7cd0Pk2R_WWWe4RUZ06uw9gimZRbB6uwb-ZqkmHjuLi0BRAXQBLVFMlj8hufEhqDVqqTF_HjH6wL4f5AijVrcvp2hp95NGeM0n2TGAy0m5ti8oxpTomLTSL6Edu3klWq6otDPutZLKpuJ0asxUO1slbRFFOb7SzB4X6QA8X6DGxAAvpTwcwYpEKzFd3yBQ4sHNxzR_PddRtRxJyFP3DlcUcO8sm2sMH2-5xSXk66xpjqBhIRehhzvZHJcbNNfJpKxRgZet3XEV47r5czbLHBM0cLkdRsJMTYFTWeSpwJuvD7i7XpGEmSb-P0kwSl-VB7cuMnMa4WablKYU3-pGsfPYiRBloAseiMPJc4iSpGoY9l3oDN-2sEiduLFoJiKhSGIzINVs9quSiZIGw8ElUGuB6thFA6NapF8GCdJU8EUUnMfDwVR3jTn2d5SiSHeQnW9HRtapYTVRKQ6jPh7ui5D2TXhoEt6rGqY8DVLe6FQvJJK1VTr5lpc6oQzSj08w2ZshtOjhFJvQ35rZtWFh8MWlnwcN_lXM_U-YeYuwMhPZq179HM6y6xQj62-gU0W7-fY9qmZ23I8alaAsEIs54kHcO8PtSA3oASr7SF3sGxQxLo_eD5B8GFA29k0VyjtQKUQEQ7CnAJ7kghTin6eF9XF5-qzmc_s7ciA9rwPYXmVp9DqPCiVgSxg=w1018-h557-no'
+image: './all-kit.jpg'
 ---
+
+![All Kit](./all-kit.jpg)
 
 # Hello
 

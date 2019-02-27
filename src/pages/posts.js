@@ -18,9 +18,14 @@ const postQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM YYYY")
             title
-            slug
             author
-            image
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
           }
         }
       }
