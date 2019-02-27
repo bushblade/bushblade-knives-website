@@ -69,7 +69,6 @@ const postsCard = ({
   frontmatter: { date, title, slug, author, image },
 }) => {
   const [hover, setHover] = useState(false)
-  console.log(image)
   return (
     <Card
       onMouseEnter={() => setHover(true)}

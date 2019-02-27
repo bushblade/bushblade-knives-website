@@ -19,6 +19,7 @@ const postQuery = graphql`
             date(formatString: "DD MMMM YYYY")
             title
             author
+            slug
             image {
               childImageSharp {
                 fluid {
