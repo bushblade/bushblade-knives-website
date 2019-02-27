@@ -27,8 +27,6 @@ const postLayout = ({
       tagline={` by ${frontmatter.author}, ${frontmatter.date}`}
     >
       <PostContainer>
-        <h1>{frontmatter.title}</h1>
-        <h3>{frontmatter.date}</h3>
         <div
           dangerouslySetInnerHTML={{
             __html: html,
