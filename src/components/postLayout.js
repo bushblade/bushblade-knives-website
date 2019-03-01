@@ -12,6 +12,13 @@ const PostContainer = styled.div`
     border: none;
     box-shadow: none;
   }
+  figcaption {
+    text-align: center;
+    font-style: italic;
+  }
+  ul {
+    max-width: 600px;
+  }
 `
 
 const postLayout = ({
@@ -25,6 +32,7 @@ const postLayout = ({
       location={location}
       pageTitle={frontmatter.title}
       tagline={` by ${frontmatter.author}, ${frontmatter.date}`}
+      keywords={frontmatter.keywords.split(',')}
     >
       <PostContainer>
         <div
