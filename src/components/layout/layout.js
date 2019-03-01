@@ -49,7 +49,11 @@ const Layout = ({
     `}
     render={data => (
       <>
-        <Seo title={pageTitle} keywords={keywords} />
+        <Seo
+          title={pageTitle}
+          keywords={keywords}
+          cardImage={banner ? banner.src : undefined}
+        />
         <Navbar location={location} />
         <LayoutWrapper backgroundImage={backgroundImage}>
           {banner && (
