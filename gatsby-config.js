@@ -77,9 +77,16 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: 'blank',
+              rel: 'noopener noreferrer',
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 590,
               showCaptions: true,
               quality: 80,
             },
