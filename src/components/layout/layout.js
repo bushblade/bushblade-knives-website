@@ -35,6 +35,7 @@ const Layout = ({
   tagline,
   keywords,
   location,
+  twitterCardImage,
 }) => (
   <StaticQuery
     query={graphql`
@@ -52,7 +53,7 @@ const Layout = ({
         <Seo
           title={pageTitle}
           keywords={keywords}
-          cardImage={banner ? banner.src : undefined}
+          twitterCardImage={twitterCardImage}
         />
         <Navbar location={location} />
         <LayoutWrapper backgroundImage={backgroundImage}>
