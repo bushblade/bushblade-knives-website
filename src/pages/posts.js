@@ -75,7 +75,7 @@ const Posts = ({ location }) => (
     render={data => (
       <Layout
         pageTitle="Posts"
-        tagline={' latest from Bushblade'}
+        tagline={' articles and info'}
         keywords={[]}
         location={location}
       >
