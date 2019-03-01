@@ -30,7 +30,7 @@ const Links = styled.div`
   align-items: center;
   margin: auto;
   grid-area: ${props => (props.right ? 'rlinks' : 'llinks')};
-  @media (max-width: 1000px) {
+  @media (max-width: 1080px) {
     display: none;
   }
 `
@@ -47,7 +47,7 @@ const LinkBox = styled.span`
     transition: all 0.2s ease-in-out;
     text-shadow: none;
     background: none;
-    @media (min-width: 1100px) {
+    @media (min-width: 1200px) {
       margin: 0 0.5rem;
     }
     color: rgb(51, 51, 51);
@@ -106,15 +106,12 @@ const navbar = ({ location }) => {
     isMobile() ? setMobile(true) : setMobile(false)
   }
 
-  useEffect(
-    () => {
-      if (window) {
-        checkWindowSize()
-        window.onresize = checkWindowSize
-      }
-    },
-    [mobile]
-  )
+  useEffect(() => {
+    if (window) {
+      checkWindowSize()
+      window.onresize = checkWindowSize
+    }
+  }, [mobile])
 
   const observerOptions = {
     onChange: event => {
@@ -126,8 +123,12 @@ const navbar = ({ location }) => {
     rootMargin: '0% 0% 0%',
   }
 
-  const checkPath = (location, linkTo) =>
-    location ? location.pathname === linkTo : false
+  const checkPath = (location, linkTo) => {
+    if (location) {
+      const path = location.pathname
+      return linkTo === '/posts' ? path.includes('/posts') : path === linkTo
+    }
+  }
 
   return (
     <>

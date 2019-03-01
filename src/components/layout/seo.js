@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, twitterCardImage }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -40,7 +40,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: 'bushblade',
               },
               {
                 name: `twitter:title`,
@@ -49,6 +49,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `twitter:description`,
                 content: metaDescription,
+              },
+              {
+                name: `twitter:image`,
+                content: twitterCardImage,
               },
             ]
               .concat(

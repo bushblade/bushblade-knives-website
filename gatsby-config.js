@@ -40,6 +40,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Bilbo`],
@@ -50,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `bushblade-kinves`,
+        name: `bushblade-knives`,
         short_name: `Bushblade`,
         start_url: `/`,
         background_color: `#c2c2a3`,
@@ -63,6 +70,28 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: 'blank',
+              rel: 'noopener noreferrer',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+              showCaptions: true,
+              quality: 80,
+            },
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
