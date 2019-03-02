@@ -11,18 +11,18 @@ keywords: 'bushblade,Alpkit,rig7,tarp'
 
 ## How I came to be testing an Alpkit tarp
 
-Those who know me know that I'm a massive fan of [Alpkit](https://www.alpkit.com/) gear. When considering the performance you get for the value for money it's hard to beat.
+Those who know me know that I'm a massive fan of [Alpkit](https://www.alpkit.com/) gear. When considering the performance you get for the **value for money** it's hard to beat.
 
 No gear is perfect though and after some long term durability issues I was having with two [Rig 7](https://www.alpkit.com/products/rig-7) tarps, and a few of their [Airlok](https://www.alpkit.com/products/airlok-20l) dry bags, I wrote to them with my findings.
 The outcome of those conversations resulted in Alpkit asking me to test out a new prototype for the next generation of Rig 7 tarps.
 
-The main differences between this prototype and the regular Rig 7 tarps is the fabric used. The prototype uses a ripstop polyester fabric instead of the silnylon of the standard Rig 7. This means there is a weight difference of 68g with the prototype weighing in at 604g with stuff sack and the silnylon Rig 7 weighing 536g with stuff sack.
+The main differences between this prototype and the regular Rig 7 tarps is the fabric used. The prototype uses a **ripstop polyester fabric instead of the silnylon** of the standard Rig 7. This means there is a weight difference of 68g with the prototype weighing in at 604g with stuff sack and the silnylon Rig 7 weighing 536g with stuff sack.
 
 ---
 
 ### Issues with silnylon
 
-Silnylon is very lightweight and waterproof so you'd think it a great fabric for tarps and for the most part it is. The issue I find with it is that the bolt sizes of fabric are generally limited to 1.5m width which means on a 2.8m X 2.4m tarp you going to have to have a seam. Silnylon has stretch to the fabric but where the seam is the fabric does not stretch as much putting a lot of strain on the seam and the seam sealing in particular.
+Silnylon is very lightweight and waterproof so you'd think it a great fabric for tarps and for the most part it is. The issue I find with it is that the bolt sizes of fabric are generally limited to 1.5m width which means on a 2.8m X 2.4m tarp you going to have to have a seam. **Silnylon has a good deal of stretch to the fabric** but where the seam is the fabric does not stretch as much putting a lot of strain on the seam and the seam sealing in particular.
 You can see this in the below image, notice how the tarp dips down in the center along the seam when under tension. In addition the stretch in silnylon tarps can lead to puddles forming on your tarp in heavy prolonged rain.
 
 ![Silnylon Rig 7](IMG_2261.jpg 'Silnylon Rig 7 with seam tension')
@@ -41,7 +41,7 @@ Seam sealing fails on all tarps eventually and it's usually no big deal, in the 
 
 ### The solution
 
-The solution is to have a tarp with no center seam such as the now very rare or very expensive Australian army tarp like in my [Tarp & Hammock Knots](https://bushblade.co.uk/posts/tarp-and-hammock) article. Or use a fabric that has low stretch and is easy to repair. I think for Alpkit they have found that in the use of the new polyester fabric. Polyester has very low stretch compared to nylon, and seems to be following a trend from tent manufacturers in switching fabrics.
+The solution is to have a tarp with no center seam such as the now very rare or very expensive **Australian army tarp** like in my [Tarp & Hammock Knots](https://bushblade.co.uk/posts/tarp-and-hammock) article. Or use a fabric that has low stretch and is easy to repair. I think for Alpkit they have found that in the use of the new polyester fabric. Polyester has very low stretch compared to nylon, and seems to be following a trend from tent manufacturers in switching fabrics.
 
 ![Pitched flat](./img07.jpg 'No center seam dip')
 
