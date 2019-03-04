@@ -30,7 +30,9 @@ const Logo = ({ logoBig }) => {
       ? 'translate3d(0, -28px, 0) scale(2)'
       : 'translate3d(0, 0, 0) scale(1)',
     // height: logoBig ? '5.8rem' : '2.9rem',
-
+    WebkitTransform: logoBig
+      ? 'translate3d(0, -28px, 0) scale(2)'
+      : 'translate3d(0, 0, 0) scale(1)',
     config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
   })
 
