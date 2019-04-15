@@ -28,7 +28,7 @@ const aboutQuery = graphql`
         }
       }
     }
-    me: file(relativePath: { eq: "meintree.jpg" }) {
+    me: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
