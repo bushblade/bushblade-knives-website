@@ -15,3 +15,18 @@ export const TwoColumnContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `
+export const ReverseCell = styled.div`
+  margin: 1rem 0;
+  grid-area: ${props => props.area};
+`
+
+export const ReverseContainer = styled.div`
+  margin: 2rem auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'right right' 'left left';
+  @media (min-width: 800px) {
+    grid-template-areas: 'left right';
+  }
+`

@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +8,8 @@ import Layout from '../components/layout/layout'
 import {
   TwoColumnContainer,
   NarrowContainer,
+  ReverseContainer,
+  ReverseCell,
 } from '../components/layout/styledComponents'
 import Gallery from '../components/Gallery'
 
@@ -28,7 +29,7 @@ const aboutQuery = graphql`
         }
       }
     }
-    me: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
+    me: file(relativePath: { eq: "meintree.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
@@ -52,22 +53,6 @@ const aboutQuery = graphql`
         }
       }
     }
-  }
-`
-
-const WoodsmokeCell = styled.div`
-  margin: 1rem 0;
-  grid-area: ${props => props.area};
-`
-
-export const WoodsmokeContainer = styled.div`
-  margin: 2rem auto;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'right right' 'left left';
-  @media (min-width: 800px) {
-    grid-template-areas: 'left right';
   }
 `
 
@@ -135,8 +120,8 @@ const AboutPage = ({ location }) => (
             />
           </div>
         </TwoColumnContainer>
-        <WoodsmokeContainer>
-          <WoodsmokeCell area="left">
+        <ReverseContainer>
+          <ReverseCell area="left">
             <Img
               fixed={typeof window === 'undefined' ? { src: {} } : undefined}
               fluid={data.woodsmoke.childImageSharp.fluid}
@@ -151,8 +136,8 @@ const AboutPage = ({ location }) => (
             >
               Woodsmoke - June 2003
             </h4>
-          </WoodsmokeCell>
-          <WoodsmokeCell area="right">
+          </ReverseCell>
+          <ReverseCell area="right">
             <p>
               In 2003 I attended a week long bushcraft course called the
               Woodlander which was run by{' '}
@@ -193,8 +178,8 @@ const AboutPage = ({ location }) => (
                 Dryad Bushcraft.
               </a>{' '}
             </p>
-          </WoodsmokeCell>
-        </WoodsmokeContainer>
+          </ReverseCell>
+        </ReverseContainer>
         <NarrowContainer>
           <p>
             <strong>I only spend a few days each week making knives </strong>as
