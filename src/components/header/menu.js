@@ -113,9 +113,8 @@ const activeStyle = {
 const menu = () => {
   const [open, setOpen] = useState(false)
 
-  const html = document.querySelector('html')
-
   useEffect(() => {
+    const html = document.querySelector('html')
     open ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible')
   }, [open])
 
