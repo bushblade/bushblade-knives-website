@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import {
   useTrail,
@@ -112,6 +112,12 @@ const activeStyle = {
 
 const menu = () => {
   const [open, setOpen] = useState(false)
+
+  const html = document.querySelector('html')
+
+  useEffect(() => {
+    open ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible')
+  }, [open])
 
   const menuTranstion = useTransition(open, null, {
     from: { transform: 'translate3d(100%,-100%,0)', opacity: 0 },
