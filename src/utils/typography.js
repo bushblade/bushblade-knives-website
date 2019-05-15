@@ -6,9 +6,6 @@ moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
   '*': {
     boxSizing: 'border-box',
   },
-  body: {
-    backgroundColor: '#c2c2a3',
-  },
   a: {
     color: 'rgb(51, 51, 51)',
     textDecoration: 'none',
@@ -18,21 +15,6 @@ moraga.overrideStyles = ({ adjustFontSizeTo, rhythm }, options, styles) => ({
   },
   'a:hover': {
     background: '#c2c2a3',
-  },
-  blockQuote: {
-    borderRadius: '5px',
-    borderLeft: '5px solid #c2c2a3',
-    padding: '1rem',
-    background: '#f1f1f1',
-    fontStyle: 'italic',
-    boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.05)',
-  },
-  article: {
-    borderRadius: '5px',
-    borderTop: '5px solid #c2c2a3',
-    padding: '1rem',
-    background: '#f1f1f1',
-    boxShadow: '0 3px 6px 1px rgba(0, 0, 0, 0.05)',
   },
   'h1,h2,h3,h4,h5,h6': { color: 'rgb(51, 51, 51)' },
 })

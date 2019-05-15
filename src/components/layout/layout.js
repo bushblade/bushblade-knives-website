@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
 import Seo from './seo'
 
+import { GlobalStyle } from './styledComponents'
 import Footer from '../layout/footer'
 import Navbar from '../header/navbar'
 import PageTitle from './pageTitle'
@@ -55,6 +56,7 @@ const Layout = ({
           keywords={keywords}
           twitterCardImage={twitterCardImage}
         />
+        <GlobalStyle />
         <Navbar location={location} />
         <LayoutWrapper backgroundImage={backgroundImage}>
           {banner && (

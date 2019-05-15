@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const NarrowContainer = styled.section`
   margin: auto;
@@ -28,5 +28,26 @@ export const ReverseContainer = styled.div`
   grid-template-areas: 'right right' 'left left';
   @media (min-width: 800px) {
     grid-template-areas: 'left right';
+  }
+`
+export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #c2c2a3;
+  }
+
+  blockquote, article {
+    border-radius: 5px;
+    padding: 1rem;
+    background: #f1f1f1;
+    font-style: italic;
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  blockquote {
+    border-left: 5px solid #c2c2a3;
+  }
+  
+  article {
+    border-top: 5px solid #c2c2a3;
   }
 `
