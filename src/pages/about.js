@@ -207,9 +207,10 @@ const AboutPage = ({ location }) => (
               here.
             </a>{' '}
             For those geeky enough to want to know - this site is built with
-            GatsbyJS, ReactJS and styled-components mainly using VS Code on a
-            desktop installation of Manjaro Linux with continuous deployment to
-            Netlify through GitHub.
+            GatsbyJS, ReactJS and styled-components mainly using{' '}
+            <span style={{ textDecoration: 'line-through' }}>VS Code</span> VS
+            Codium on a desktop installation of Manjaro Linux with continuous
+            deployment to Netlify through GitHub.
           </p>
         </NarrowContainer>
         <Gallery
