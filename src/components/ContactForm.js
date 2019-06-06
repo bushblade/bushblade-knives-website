@@ -15,15 +15,15 @@ const Field = styled.div`
   textarea {
     outline: none;
     padding: 0 2rem;
-    border: 1px solid transparent;
+    border: 1px solid
+      ${({ length, valid }) =>
+        length === 0 ? '#dbdbdb' : valid ? 'rgb(60, 179, 113)' : '#a94442'};
     border-radius: 3px;
     font-size: 1rem;
     height: 2.25em;
     line-height: 1.5;
     padding: calc(0.375em - 1px) calc(0.625em - 1px);
     background-color: whitesmoke;
-    border-color: ${({ length, valid }) =>
-      length === 0 ? '#dbdbdb' : valid ? 'rgb(60, 179, 113)' : '#a94442'};
     color: #363636;
     box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
     :focus,
@@ -59,6 +59,10 @@ const encode = data => {
     .join('&')
 }
 
+const CheckValid = (...fields) =>
+  fields.every(({ text, regex }) => regex.test(text))
+
+// Component
 const ContactForm = ({ setMessageSent }) => {
   const [name, setName] = useState({
     text: '',
@@ -68,7 +72,6 @@ const ContactForm = ({ setMessageSent }) => {
   const [email, setEmail] = useState({
     text: '',
     valid: false,
-    // eslint-disable-next-line
     regex: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
   })
   const [message, setMessage] = useState({
@@ -77,11 +80,8 @@ const ContactForm = ({ setMessageSent }) => {
     regex: /\S/,
   })
 
-  const CheckValid = () =>
-    [name, email, message].every(({ text, regex }) => regex.test(text))
-
   const handleSubmit = e => {
-    if (CheckValid()) {
+    if (CheckValid(name, email, message)) {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -96,11 +96,16 @@ const ContactForm = ({ setMessageSent }) => {
           if (res.ok) {
             clearForm()
             setMessageSent(true)
+          } else {
+            throw Error(
+              `Something went wrong and your message was not sent! 🤯 ${
+                res.status
+              } ${res.message}`
+            )
           }
         })
         .catch(error => alert(error))
     }
-
     e.preventDefault()
   }
 
@@ -110,10 +115,10 @@ const ContactForm = ({ setMessageSent }) => {
     setMessage({ ...message, text: '' })
   }
 
-  const handleChange = (value, field, set) => {
-    field.regex.test(value)
-      ? set({ ...field, valid: true, text: value })
-      : set({ ...field, valid: false, text: value })
+  const handleChange = (state, set) => ({ target: { value } }) => {
+    state.regex.test(value)
+      ? set({ ...state, valid: true, text: value })
+      : set({ ...state, valid: false, text: value })
   }
 
   return (
@@ -131,9 +136,7 @@ const ContactForm = ({ setMessageSent }) => {
           name="name"
           value={name.text}
           placeholder="Your Name"
-          onChange={({ target: { value } }) =>
-            handleChange(value, name, setName)
-          }
+          onChange={handleChange(name, setName)}
         />
       </Field>
       <Field valid={email.valid} length={email.text.length}>
@@ -143,9 +146,7 @@ const ContactForm = ({ setMessageSent }) => {
           name="email"
           value={email.text}
           placeholder="you@youremail.com"
-          onChange={({ target: { value } }) =>
-            handleChange(value, email, setEmail)
-          }
+          onChange={handleChange(email, setEmail)}
         />
       </Field>
       <Field valid={message.valid} length={message.text.length}>
@@ -154,13 +155,11 @@ const ContactForm = ({ setMessageSent }) => {
           name="message"
           value={message.text}
           placeholder="What do you want to say?"
-          onChange={({ target: { value } }) =>
-            handleChange(value, message, setMessage)
-          }
+          onChange={handleChange(message, setMessage)}
         />
       </Field>
       <BtnField>
-        <Button type="submit" disabled={!CheckValid()}>
+        <Button type="submit" disabled={!CheckValid(name, email, message)}>
           Send Message
         </Button>
         <Button onClick={clearForm}>Clear Form</Button>
