@@ -72,6 +72,7 @@ const ContactForm = ({ setMessageSent }) => {
   const [email, setEmail] = useState({
     text: '',
     valid: false,
+    // eslint-disable-next-line
     regex: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
   })
   const [message, setMessage] = useState({
