@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useTransition, animated, config } from 'react-spring'
 
@@ -44,6 +44,7 @@ const Container = styled.div`
 
 const ContactPage = ({ location }) => {
   const [messageSent, setMessageSent] = useState(false)
+  const data = useStaticQuery(contactQuery)
 
   const sentTransition = useTransition(messageSent, null, {
     from: {
@@ -56,69 +57,63 @@ const ContactPage = ({ location }) => {
   })
 
   return (
-    <StaticQuery
-      query={contactQuery}
-      render={data => (
-        <Layout
-          banner={data.file.childImageSharp.fluid}
-          pageTitle="Contact Me"
-          tagline="bushblade@gmail.com"
-          keywords={['contact', 'email', 'social media', 'phone']}
-          location={location}
-        >
-          <Container>
-            <div style={{ gridArea: 'form', position: 'relative' }}>
-              {messageSent &&
-                sentTransition.map(
-                  ({ item, key, props }) =>
-                    item && (
-                      <animated.div style={props} key={key}>
-                        <MessageSuccess />
-                      </animated.div>
-                    )
-                )}
+    <Layout
+      banner={data.file.childImageSharp.fluid}
+      pageTitle="Contact Me"
+      tagline="bushblade@gmail.com"
+      keywords={['contact', 'email', 'social media', 'phone']}
+      location={location}
+    >
+      <Container>
+        <div style={{ gridArea: 'form', position: 'relative' }}>
+          {messageSent &&
+            sentTransition.map(
+              ({ item, key, props }) =>
+                item && (
+                  <animated.div style={props} key={key}>
+                    <MessageSuccess />
+                  </animated.div>
+                )
+            )}
 
-              {!messageSent && <ContactForm setMessageSent={setMessageSent} />}
-            </div>
+          {!messageSent && <ContactForm setMessageSent={setMessageSent} />}
+        </div>
 
-            <div style={{ gridArea: 'article', padding: '0 1rem' }}>
-              <h2>A few things I get asked often...</h2>
-              <hr />
-              <h3>How much does a knife cost?</h3>
-              <p>
-                Each knife is custom made and as such price can vary depending
-                on materials, sheath options and etching etc. As a rough guide a
-                Midi in 3mm stock starts at £
-                {data.prices.siteMetadata.prices.midi} and a Woodlore Clone in
-                4mm stock with a tapered tang starts at £
-                {data.prices.siteMetadata.prices.woodloreClone}.
-              </p>
-              <h3>Can you make a knife to my design?</h3>
-              <p>At the moment I do not take on commisioned designs.</p>
-              <h3>What's your waiting list like?</h3>
-              <p>
-                I have moved away from commisioned work for the forseeable
-                future. Any knives I have available will be listed on the{' '}
-                <a
-                  href="https://www.facebook.com/Bushbladehandmadeknives/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Facebook page.
-                </a>{' '}
-                Please follow me on social media for latest availability.
-              </p>
-              {/* <h3>Who built your website?</h3> */}
-              {/* <p>
+        <div style={{ gridArea: 'article', padding: '0 1rem' }}>
+          <h2>A few things I get asked often...</h2>
+          <hr />
+          <h3>How much does a knife cost?</h3>
+          <p>
+            Each knife is custom made and as such price can vary depending on
+            materials, sheath options and etching etc. As a rough guide a Midi
+            in 3mm stock starts at £{data.prices.siteMetadata.prices.midi} and a
+            Woodlore Clone in 4mm stock with a tapered tang starts at £
+            {data.prices.siteMetadata.prices.woodloreClone}.
+          </p>
+          <h3>Can you make a knife to my design?</h3>
+          <p>At the moment I do not take on commisioned designs.</p>
+          <h3>What's your waiting list like?</h3>
+          <p>
+            I have moved away from commisioned work for the forseeable future.
+            Any knives I have available will be listed on the{' '}
+            <a
+              href="https://www.facebook.com/Bushbladehandmadeknives/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook page.
+            </a>{' '}
+            Please follow me on social media for latest availability.
+          </p>
+          {/* <h3>Who built your website?</h3> */}
+          {/* <p>
                 I built the site myself. I am not a developer by profession but
                 if you have a project you think I would be intersted in then
                 please get in touch.
               </p> */}
-            </div>
-          </Container>
-        </Layout>
-      )}
-    />
+        </div>
+      </Container>
+    </Layout>
   )
 }
 

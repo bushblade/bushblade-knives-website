@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useTrail, animated, config } from 'react-spring'
 
@@ -69,20 +69,17 @@ const PostList = ({ posts }) => {
   )
 }
 
-const Posts = ({ location }) => (
-  <StaticQuery
-    query={postQuery}
-    render={data => (
-      <Layout
-        pageTitle="Posts"
-        tagline={' articles and info'}
-        keywords={[]}
-        location={location}
-      >
-        <PostList posts={data.allMarkdownRemark.edges} />
-      </Layout>
-    )}
-  />
-)
-
+const Posts = ({ location }) => {
+  const data = useStaticQuery(postQuery)
+  return (
+    <Layout
+      pageTitle="Posts"
+      tagline={' articles and info'}
+      keywords={[]}
+      location={location}
+    >
+      <PostList posts={data.allMarkdownRemark.edges} />
+    </Layout>
+  )
+}
 export default Posts
