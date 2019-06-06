@@ -1,8 +1,8 @@
 const path = require('path')
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  graphql(`
+  await graphql(`
     {
       allMarkdownRemark {
         edges {
