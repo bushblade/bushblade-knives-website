@@ -109,7 +109,8 @@ const navbar = ({ location }) => {
   useEffect(() => {
     if (window) {
       checkWindowSize()
-      window.onresize = checkWindowSize
+      window.addEventListener('resize', checkWindowSize)
+      return () => window.removeEventListener('resize', checkWindowSize)
     }
   }, [mobile])
 
