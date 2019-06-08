@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +7,7 @@ import Observer from 'react-intersection-observer'
 
 import Logo from './logo'
 import Menu from './menu'
+import { useIsMobile } from '../hooks'
 
 const Nav = styled.nav`
   position: sticky;
@@ -92,27 +93,9 @@ const SocialLink = styled.a`
   }
 `
 
-const isMobile = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth < 780
-  }
-}
-
 const navbar = ({ location }) => {
   const [logoBig, set] = useState(true)
-  const [mobile, setMobile] = useState(isMobile())
-
-  const checkWindowSize = () => {
-    isMobile() ? setMobile(true) : setMobile(false)
-  }
-
-  useEffect(() => {
-    if (window) {
-      checkWindowSize()
-      window.addEventListener('resize', checkWindowSize)
-      return () => window.removeEventListener('resize', checkWindowSize)
-    }
-  }, [mobile])
+  const mobile = useIsMobile()
 
   const observerOptions = {
     onChange: event => {
