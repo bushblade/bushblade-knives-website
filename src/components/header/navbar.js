@@ -40,10 +40,8 @@ const LinkBox = styled.span`
   height: 3rem;
   display: flex;
   align-items: center;
-  border-bottom: ${props =>
-    props.active
-      ? '4px solid rgba(73, 75, 70, 0.95)'
-      : '4px solid transparent'};
+  border-bottom: 4px solid
+    ${props => (props.active ? 'rgba(73, 75, 70, 0.95)' : 'transparent')};
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
@@ -94,13 +92,13 @@ const SocialLink = styled.a`
 `
 
 const navbar = ({ location }) => {
-  const [logoBig, set] = useState(true)
+  const [logoBig, setLogoBig] = useState(true)
   const mobile = useIsMobile()
 
   const observerOptions = {
     onChange: event => {
       if (!mobile) {
-        event ? set(true) : set(false)
+        event ? setLogoBig(true) : setLogoBig(false)
       }
     },
     threshold: 0.7,

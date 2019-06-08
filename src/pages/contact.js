@@ -66,7 +66,7 @@ const ContactPage = ({ location }) => {
     >
       <Container>
         <div style={{ gridArea: 'form', position: 'relative' }}>
-          {messageSent &&
+          {messageSent ? (
             sentTransition.map(
               ({ item, key, props }) =>
                 item && (
@@ -74,9 +74,10 @@ const ContactPage = ({ location }) => {
                     <MessageSuccess />
                   </animated.div>
                 )
-            )}
-
-          {!messageSent && <ContactForm setMessageSent={setMessageSent} />}
+            )
+          ) : (
+            <ContactForm setMessageSent={setMessageSent} />
+          )}
         </div>
 
         <div style={{ gridArea: 'article', padding: '0 1rem' }}>
