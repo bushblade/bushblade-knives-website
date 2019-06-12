@@ -56,7 +56,7 @@ const LinkBox = styled.span`
     :hover {
       background: none;
       transform: scale(1.1);
-      text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+      text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
     }
   }
 `
