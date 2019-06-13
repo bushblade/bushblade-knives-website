@@ -40,32 +40,29 @@ const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
 
-  useEffect(
-    () => {
-      if (images.length === 0 && photos) {
-        setImages(
-          photos
-            .sort((a, b) => {
-              const fileNumber = file =>
-                Number(
-                  file.node.childImageSharp.fluid.originalName.replace(
-                    /[a-z]/gi,
-                    ''
-                  )
+  useEffect(() => {
+    if (images.length === 0 && photos) {
+      setImages(
+        photos
+          .sort((a, b) => {
+            const fileNumber = file =>
+              Number(
+                file.node.childImageSharp.fluid.originalName.replace(
+                  /[a-z]/gi,
+                  ''
                 )
-              return fileNumber(b) - fileNumber(a)
-            })
-            .map(({ node: { childImageSharp: { fluid, original } } }) => ({
-              height: original.height,
-              width: original.width,
-              src: fluid.originalImg,
-              fluid,
-            }))
-        )
-      }
-    },
-    [images]
-  )
+              )
+            return fileNumber(b) - fileNumber(a)
+          })
+          .map(({ node: { childImageSharp: { fluid, original } } }) => ({
+            height: original.height,
+            width: original.width,
+            src: fluid.originalImg,
+            fluid,
+          }))
+      )
+    }
+  }, [images])
   return (
     <div style={{ margin: '4rem auto' }}>
       {images.length > 1 && (
@@ -75,7 +72,8 @@ const KnifeGallery = ({ photos, ...rest }) => {
             setCurrent(obj.index)
             setOpen(true)
           }}
-          ImageComponent={GatsbyImage}
+          renderImage={GatsbyImage}
+          targetRowHeight={250}
           margin={5}
           {...rest}
         />
