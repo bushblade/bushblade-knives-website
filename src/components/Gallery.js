@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Gallery from 'react-photo-gallery'
-import Lightbox from 'react-images'
+// import Lightbox from 'react-images'
+import Carousel, { Modal, ModalGateway } from 'react-images'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -78,19 +79,19 @@ const KnifeGallery = ({ photos, ...rest }) => {
           {...rest}
         />
       )}
-      <Lightbox
-        images={images}
-        onClose={() => {
-          setOpen(false)
-          setCurrent(0)
-        }}
-        onClickPrev={() => setCurrent(current - 1)}
-        onClickNext={() => setCurrent(current + 1)}
-        currentImage={current}
-        isOpen={isOpen}
-        backdropClosesModal
-        width={2000}
-      />
+
+      <ModalGateway>
+        {isOpen ? (
+          <Modal
+            onClose={() => {
+              setCurrent(0)
+              setOpen(false)
+            }}
+          >
+            <Carousel views={images} currentIndex={current} />
+          </Modal>
+        ) : null}
+      </ModalGateway>
     </div>
   )
 }
