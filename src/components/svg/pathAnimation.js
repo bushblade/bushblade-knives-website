@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSpring, config } from 'react-spring'
 import Observer from '@researchgate/react-intersection-observer'
+import PropTypes from 'prop-types'
 
 const PathAnimation = ({ children }) => {
   const [inview, set] = useState(false)
@@ -21,4 +22,9 @@ const PathAnimation = ({ children }) => {
 
   return <Observer {...options}>{children(pathSpring)}</Observer>
 }
+
+PathAnimation.propTypes = {
+  children: PropTypes.func.isRequired,
+}
+
 export default PathAnimation

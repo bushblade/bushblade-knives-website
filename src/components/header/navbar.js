@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +7,7 @@ import Observer from 'react-intersection-observer'
 
 import Logo from './logo'
 import Menu from './menu'
+import { useIsMobile } from '../hooks'
 
 const Nav = styled.nav`
   position: sticky;
@@ -39,10 +40,8 @@ const LinkBox = styled.span`
   height: 3rem;
   display: flex;
   align-items: center;
-  border-bottom: ${props =>
-    props.active
-      ? '4px solid rgba(73, 75, 70, 0.95)'
-      : '4px solid transparent'};
+  border-bottom: 4px solid
+    ${props => (props.active ? 'rgba(73, 75, 70, 0.95)' : 'transparent')};
   a {
     transition: all 0.2s ease-in-out;
     text-shadow: none;
@@ -57,7 +56,7 @@ const LinkBox = styled.span`
     :hover {
       background: none;
       transform: scale(1.1);
-      text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+      text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
     }
   }
 `
@@ -92,31 +91,14 @@ const SocialLink = styled.a`
   }
 `
 
-const isMobile = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth < 780
-  }
-}
-
 const navbar = ({ location }) => {
-  const [logoBig, set] = useState(true)
-  const [mobile, setMobile] = useState(isMobile())
-
-  const checkWindowSize = () => {
-    isMobile() ? setMobile(true) : setMobile(false)
-  }
-
-  useEffect(() => {
-    if (window) {
-      checkWindowSize()
-      window.onresize = checkWindowSize
-    }
-  }, [mobile])
+  const [logoBig, setLogoBig] = useState(true)
+  const mobile = useIsMobile()
 
   const observerOptions = {
     onChange: event => {
       if (!mobile) {
-        event ? set(true) : set(false)
+        event ? setLogoBig(true) : setLogoBig(false)
       }
     },
     threshold: 0.7,
