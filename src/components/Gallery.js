@@ -64,6 +64,16 @@ const KnifeGallery = ({ photos, ...rest }) => {
       )
     }
   }, [images])
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        document.querySelector('.react-images__blanket').style.zIndex = 100
+        document.querySelector('.react-images__positioner').style.zIndex = 100
+      }, 0)
+    }
+  }, [isOpen])
+
   return (
     <div style={{ margin: '4rem auto' }}>
       {images.length > 1 && (
