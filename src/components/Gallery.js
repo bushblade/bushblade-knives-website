@@ -65,14 +65,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
     }
   }, [images])
 
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        document.querySelector('.react-images__blanket').style.zIndex = 100
-        document.querySelector('.react-images__positioner').style.zIndex = 100
-      }, 0)
-    }
-  }, [isOpen])
+  const styleFn = styleObj => ({ ...styleObj, zIndex: 100 })
 
   return (
     <div style={{ margin: '4rem auto' }}>
@@ -97,13 +90,9 @@ const KnifeGallery = ({ photos, ...rest }) => {
               setCurrent(0)
               setOpen(false)
             }}
-            style={{ zIndex: 100 }}
+            styles={{ blanket: styleFn, positioner: styleFn }}
           >
-            <Carousel
-              views={images}
-              currentIndex={current}
-              style={{ zIndex: 100 }}
-            />
+            <Carousel views={images} currentIndex={current} />
           </Modal>
         ) : null}
       </ModalGateway>
