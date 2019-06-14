@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Gallery from 'react-photo-gallery'
-// import Lightbox from 'react-images'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
