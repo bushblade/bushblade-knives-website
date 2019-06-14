@@ -27,12 +27,10 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
     style={{ margin, height: photo.height, width: photo.width }}
     onClick={e => onClick(e, { index, photo })}
   >
-    <div>
-      <Img
-        fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-        fluid={photo.fluid}
-      />
-    </div>
+    <Img
+      fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+      fluid={photo.fluid}
+    />
   </ImageWrapper>
 )
 
@@ -46,6 +44,7 @@ const getImages = imageArray => {
       height: original.height,
       width: original.width,
       src: fluid.originalImg,
+      srcSet: fluid.srcSet,
       fluid,
     }))
 }
@@ -56,15 +55,18 @@ const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
   const images = getImages(photos)
+
+  const imageClick = (e, obj) => {
+    setCurrent(obj.index)
+    setOpen(true)
+  }
+
   return (
     <div style={{ margin: '4rem auto' }}>
       {photos.length > 1 && (
         <Gallery
           photos={images}
-          onClick={(event, obj) => {
-            setCurrent(obj.index)
-            setOpen(true)
-          }}
+          onClick={imageClick}
           renderImage={GatsbyImage}
           targetRowHeight={250}
           margin={5}
