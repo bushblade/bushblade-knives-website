@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Gallery from 'react-photo-gallery'
 // import Lightbox from 'react-images'
 import Carousel, { Modal, ModalGateway } from 'react-images'
@@ -36,40 +36,29 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
   </ImageWrapper>
 )
 
+const fileNumber = file =>
+  Number(file.node.childImageSharp.fluid.originalName.replace(/[a-z]/gi, ''))
+
+const getImages = imageArray => {
+  return imageArray
+    .sort((a, b) => fileNumber(b) - fileNumber(a))
+    .map(({ node: { childImageSharp: { fluid, original } } }) => ({
+      height: original.height,
+      width: original.width,
+      src: fluid.originalImg,
+      fluid,
+    }))
+}
+
+const styleFn = styleObj => ({ ...styleObj, zIndex: 100 })
+
 const KnifeGallery = ({ photos, ...rest }) => {
-  const [images, setImages] = useState([])
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    if (images.length === 0 && photos) {
-      setImages(
-        photos
-          .sort((a, b) => {
-            const fileNumber = file =>
-              Number(
-                file.node.childImageSharp.fluid.originalName.replace(
-                  /[a-z]/gi,
-                  ''
-                )
-              )
-            return fileNumber(b) - fileNumber(a)
-          })
-          .map(({ node: { childImageSharp: { fluid, original } } }) => ({
-            height: original.height,
-            width: original.width,
-            src: fluid.originalImg,
-            fluid,
-          }))
-      )
-    }
-  }, [images])
-
-  const styleFn = styleObj => ({ ...styleObj, zIndex: 100 })
-
+  const images = getImages(photos)
   return (
     <div style={{ margin: '4rem auto' }}>
-      {images.length > 1 && (
+      {photos.length > 1 && (
         <Gallery
           photos={images}
           onClick={(event, obj) => {
