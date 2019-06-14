@@ -32,7 +32,7 @@ export const ReverseContainer = styled.div`
 `
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #c2c2a3;
+    background-color: #f1f1f1;
   }
 
   blockquote, article {
