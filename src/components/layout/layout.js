@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
@@ -29,6 +29,17 @@ const ContentContainer = styled.div`
   margin: auto;
 `
 
+const layoutQuery = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+  }
+`
+
 const Layout = ({
   children,
   banner,
@@ -37,44 +48,33 @@ const Layout = ({
   keywords,
   location,
   twitterCardImage,
-}) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Seo
-          title={pageTitle}
-          keywords={keywords}
-          twitterCardImage={twitterCardImage}
-        />
-        <GlobalStyle />
-        <Navbar location={location} />
-        <LayoutWrapper backgroundImage={backgroundImage}>
-          {banner && (
-            <Img
-              fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-              fluid={banner}
-            />
-          )}
-          <br />
-          <ContentContainer>
-            {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
-            {children}
-          </ContentContainer>
-          <Footer author={data.site.siteMetadata.author} />
-        </LayoutWrapper>
-      </>
-    )}
-  />
-)
+}) => {
+  const data = useStaticQuery(layoutQuery)
+  return (
+    <>
+      <Seo
+        title={pageTitle}
+        keywords={keywords}
+        twitterCardImage={twitterCardImage}
+      />
+      <GlobalStyle />
+      <Navbar location={location} />
+      <LayoutWrapper backgroundImage={backgroundImage}>
+        {banner && (
+          <Img
+            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
+            fluid={banner}
+          />
+        )}
+        <br />
+        <ContentContainer>
+          {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
+          {children}
+        </ContentContainer>
+        <Footer author={data.site.siteMetadata.author} />
+      </LayoutWrapper>
+    </>
+  )
+}
 
 export default Layout
