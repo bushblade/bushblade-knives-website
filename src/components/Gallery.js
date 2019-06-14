@@ -37,7 +37,7 @@ const fileNumber = file =>
   Number(file.node.childImageSharp.fluid.originalName.replace(/[a-z]/gi, ''))
 
 const getImages = imageArray => {
-  return imageArray
+  return [...imageArray]
     .sort((a, b) => fileNumber(b) - fileNumber(a))
     .map(({ node: { childImageSharp: { fluid, original } } }) => ({
       height: original.height,
