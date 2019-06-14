@@ -97,8 +97,13 @@ const KnifeGallery = ({ photos, ...rest }) => {
               setCurrent(0)
               setOpen(false)
             }}
+            style={{ zIndex: 100 }}
           >
-            <Carousel views={images} currentIndex={current} />
+            <Carousel
+              views={images}
+              currentIndex={current}
+              style={{ zIndex: 100 }}
+            />
           </Modal>
         ) : null}
       </ModalGateway>
