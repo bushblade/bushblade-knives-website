@@ -34,7 +34,7 @@
     "react-photo-gallery": "^7.0.2",
     "react-spring": "^8.0.25",
     "react-typography": "^0.16.19",
-    "styled-components": "^4.3.1",
+    "styled-components": "^5.0.0-beta.0",
     "typography": "^0.16.19",
     "typography-theme-moraga": "^0.16.19"
   },
