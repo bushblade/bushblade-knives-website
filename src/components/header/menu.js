@@ -67,7 +67,7 @@ const MenuButton = styled.div`
     display: none;
   }
 `
-const Menu = styled.div`
+const SideMenu = styled.div`
   height: 100vh;
   background-color: rgba(73, 75, 70, 0.95);
   display: flex;
@@ -110,7 +110,7 @@ const activeStyle = {
   borderBottom: '2px solid whitesmoke',
 }
 
-const menu = () => {
+const Menu = () => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -168,7 +168,7 @@ const menu = () => {
                 ...props,
               }}
             >
-              <Menu>
+              <SideMenu>
                 <ul>
                   {trail.map((linkProps, index) => (
                     <animated.li key={allLinks[index].text} style={linkProps}>
@@ -197,7 +197,7 @@ const menu = () => {
                     ))}
                   </SocialLinks>
                 </animated.div>
-              </Menu>
+              </SideMenu>
             </animated.div>
           )
       )}
@@ -205,4 +205,4 @@ const menu = () => {
   )
 }
 
-export default menu
+export default Menu

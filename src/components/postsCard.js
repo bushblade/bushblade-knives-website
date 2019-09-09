@@ -64,7 +64,7 @@ const CardFooter = styled.div`
   font-size: 0.9rem;
 `
 
-const postsCard = ({
+const PostsCard = ({
   excerpt,
   frontmatter: { date, title, slug, author, image },
 }) => {
@@ -103,4 +103,4 @@ const postsCard = ({
   )
 }
 
-export default postsCard
+export default PostsCard
