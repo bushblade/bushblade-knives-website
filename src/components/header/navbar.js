@@ -91,7 +91,7 @@ const SocialLink = styled.a`
   }
 `
 
-const navbar = ({ location }) => {
+const Navbar = ({ location }) => {
   const [logoBig, setLogoBig] = useState(true)
   const mobile = useIsMobile()
 
@@ -157,4 +157,4 @@ const navbar = ({ location }) => {
   )
 }
 
-export default navbar
+export default Navbar
