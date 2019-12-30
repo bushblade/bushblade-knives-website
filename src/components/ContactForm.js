@@ -99,9 +99,7 @@ const ContactForm = ({ setMessageSent }) => {
             setMessageSent(true)
           } else {
             throw Error(
-              `Something went wrong and your message was not sent! 🤯 ${
-                res.status
-              } ${res.message}`
+              `Something went wrong and your message was not sent! 🤯 ${res.status} ${res.message}`
             )
           }
         })
@@ -131,7 +129,7 @@ const ContactForm = ({ setMessageSent }) => {
     >
       <input type="hidden" name="form-name" value="contact" />
       <Field valid={name.valid} length={name.text.length}>
-        <label>Your Name: </label>
+        <label htmlfor="name">Your Name: </label>
         <input
           type="text"
           name="name"
@@ -141,7 +139,7 @@ const ContactForm = ({ setMessageSent }) => {
         />
       </Field>
       <Field valid={email.valid} length={email.text.length}>
-        <label>Your Email: </label>
+        <label htmlfor="email">Your Email: </label>
         <input
           type="email"
           name="email"
@@ -151,7 +149,7 @@ const ContactForm = ({ setMessageSent }) => {
         />
       </Field>
       <Field valid={message.valid} length={message.text.length}>
-        <label>Message: </label>
+        <label htmlfor="message">Message: </label>
         <textarea
           name="message"
           value={message.text}
