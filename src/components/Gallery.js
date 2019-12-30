@@ -25,6 +25,7 @@ const GatsbyImage = ({ index, onClick, photo, margin }) => (
   <ImageWrapper
     style={{ margin, height: photo.height, width: photo.width }}
     onClick={e => onClick(e, { index, photo })}
+    key={photo.key}
   >
     <Img
       fixed={typeof window === 'undefined' ? { src: {} } : undefined}
@@ -45,6 +46,7 @@ const getImages = imageArray => {
       src: fluid.originalImg,
       srcSet: fluid.srcSet,
       fluid,
+      key: fluid.originalName,
     }))
 }
 
