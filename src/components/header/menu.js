@@ -67,7 +67,7 @@ const MenuButton = styled.div`
     display: none;
   }
 `
-const SideMenu = styled.div`
+const SideMenu = styled.nav`
   height: 100vh;
   background-color: rgba(73, 75, 70, 0.95);
   display: flex;
