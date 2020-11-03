@@ -19,14 +19,6 @@ const Modal = styled.div`
   padding: 0;
   margin: 0;
 `
-const SliderImageWrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-`
 
 const ImageWrapper = styled.div`
   box-shadow: -1px 3px 6px 1px rgba(0, 0, 0, 0.3);
@@ -74,8 +66,6 @@ const getImages = (imageArray) => {
       key: fluid.originalName,
     }))
 }
-
-const styleFn = (styleObj) => ({ ...styleObj, zIndex: 100 })
 
 const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
