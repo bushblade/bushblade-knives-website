@@ -20,6 +20,39 @@ const Modal = styled.div`
   margin: 0;
 `
 
+const CloseModalButton = styled.div`
+  position: fixed;
+  top: 0.4rem;
+  right: 1rem;
+  z-index: 102;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  margin: 0 auto;
+  transform: rotate(45deg);
+  span {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
+  span:after {
+    position: absolute;
+    // top: 50%;
+    display: block;
+    content: '';
+    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
+`
+
 const ImageWrapper = styled.div`
   box-shadow: -1px 3px 6px 1px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
@@ -92,6 +125,9 @@ const KnifeGallery = ({ photos, ...rest }) => {
 
       {isOpen ? (
         <Modal>
+          <CloseModalButton onClick={() => setOpen(false)}>
+            <span></span>
+          </CloseModalButton>
           <Slider hasArrows hasBullets activeIndex={current}>
             {images.map((image) => (
               <div
