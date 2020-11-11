@@ -18,6 +18,26 @@ const ModalStyles = styled.div`
     width: 100%;
     position: relative;
   }
+  a {
+    border: none;
+    background-image: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background: none;
+    }
+  }
+  i {
+    margin-right: 1.8rem;
+    color: whitesmoke;
+    height: 2rem;
+    width: 2rem;
+    border: solid whitesmoke;
+    border-width: 0 5px 5px 0;
+    border-radius: 3px;
+    opacity: 0.5;
+  }
 `
 
 function Modal({ open, children }) {
