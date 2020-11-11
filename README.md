@@ -9,3 +9,7 @@
 - close modal button
 - modal keydown listeners
 - prevent body scroll when modal open
+
+# Useful links
+[react spring with portal/modal](https://codesandbox.io/s/react-spring-modal-plnvn?from-embed=&file=/index.js)
+[Gatsby portal plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-portal/)
