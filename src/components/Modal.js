@@ -50,7 +50,7 @@ function Modal({ open, children }) {
     return item ? (
       <animated.div
         key={key}
-        style={{ ...props, position: 'fixed', top: 0, zIndex: 10 }}
+        style={{ ...props, position: 'fixed', top: 0, zIndex: 100 }}
         aria-modal="true"
         role="dialog"
       >
