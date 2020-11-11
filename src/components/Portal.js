@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 const portalRoot =
   typeof document !== `undefined` ? document.getElementById('portal') : null
 
-const Portal = ({ children }) => {
+const Portal = ({ children, className }) => {
   const mainDivRef = useRef(
     typeof document !== `undefined` ? document.createElement('div') : null
   )

@@ -1,27 +1,10 @@
 import React, { useState } from 'react'
 import Gallery from 'react-photo-gallery'
-// import Carousel from 'react-images'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Slider from '@farbenmeer/react-spring-slider'
 import Portal from './Portal'
 import Modal from '../components/Modal'
-
-// const Modal = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 100;
-//   background: rgba(0, 0, 0, 0.8);
-//   height: 100vh;
-//   width: 100vw;
-//   display: flex;
-//   align-content: center;
-//   justify-content: center;
-//   padding: 0;
-//   margin: 0;
-//   overflow: hidden;
-// `
 
 const CloseModalButton = styled.div`
   position: fixed;
@@ -114,18 +97,19 @@ const KnifeGallery = ({ photos, ...rest }) => {
   }
 
   return (
-    <div style={{ margin: '4rem auto' }}>
-      {photos.length > 1 && (
-        <Gallery
-          photos={images}
-          onClick={imageClick}
-          renderImage={GatsbyImage}
-          targetRowHeight={250}
-          margin={5}
-          {...rest}
-        />
-      )}
-
+    <>
+      <div style={{ margin: '4rem auto' }}>
+        {photos.length > 1 && (
+          <Gallery
+            photos={images}
+            onClick={imageClick}
+            renderImage={GatsbyImage}
+            targetRowHeight={250}
+            margin={5}
+            {...rest}
+          />
+        )}
+      </div>
       <Portal>
         <Modal open={isOpen}>
           <CloseModalButton onClick={() => setOpen(false)}>
@@ -148,7 +132,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
           </Slider>
         </Modal>
       </Portal>
-    </div>
+    </>
   )
 }
 

@@ -5,7 +5,7 @@ export const NarrowContainer = styled.section`
   max-width: 960px;
 `
 export const TwoColumnContainer = styled.div`
-  max-width: ${props => props.narrow && '960px'};
+  max-width: ${(props) => props.narrow && '960px'};
   display: grid;
   grid-template-columns: 1fr;
   margin: 2rem auto;
@@ -17,7 +17,7 @@ export const TwoColumnContainer = styled.div`
 `
 export const ReverseCell = styled.div`
   margin: 1rem 0;
-  grid-area: ${props => props.area};
+  grid-area: ${(props) => props.area};
 `
 
 export const ReverseContainer = styled.div`
