@@ -6,7 +6,7 @@
 
 # TODO
 - replace react-images with a react-sring carousel ✅
-- close modal button
+- close modal button ✅
 - modal keydown listeners
 - prevent body scroll when modal open
 

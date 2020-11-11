@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import Slider from '@farbenmeer/react-spring-slider'
 import Portal from './Portal'
 import Modal from '../components/Modal'
+import { useIsMobile } from './hooks'
 
 const CloseModalButton = styled.div`
   position: fixed;
@@ -90,6 +91,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
   const images = getImages(photos)
+  const isMobile = useIsMobile()
 
   const imageClick = (e, obj) => {
     setCurrent(obj.index)
@@ -115,7 +117,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
           <CloseModalButton onClick={() => setOpen(false)}>
             <span></span>
           </CloseModalButton>
-          <Slider hasArrows hasBullets activeIndex={current}>
+          <Slider hasArrows={!isMobile} hasBullets activeIndex={current}>
             {images.map((image) => (
               <div
                 key={image.key}
