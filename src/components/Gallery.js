@@ -115,6 +115,10 @@ const KnifeGallery = ({ photos, ...rest }) => {
       window.removeEventListener('keydown', handleKeyDown)
     }
     if (window && isOpen) {
+      const html = document.querySelector('html')
+      isOpen
+        ? (html.style.overflow = 'hidden')
+        : (html.style.overflow = 'visible')
       window.addEventListener('keydown', handleKeyDown)
     }
     return removeEvent
