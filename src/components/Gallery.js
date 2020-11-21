@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -97,6 +97,28 @@ const KnifeGallery = ({ photos, ...rest }) => {
     setCurrent(obj.index)
     setOpen(true)
   }
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      switch (e.keyCode) {
+        case 27:
+          setOpen(false)
+          break
+        case 39:
+          setCurrent(current + 1 < images.length ? current + 1 : 0)
+          break
+        case 37:
+          setCurrent(current - 1 >= 0 ? current - 1 : images.length - 1)
+      }
+    }
+    const removeEvent = () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+    if (window && isOpen) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return removeEvent
+  })
 
   return (
     <>
