@@ -10,6 +10,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: 'portal',
+        id: 'portal',
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

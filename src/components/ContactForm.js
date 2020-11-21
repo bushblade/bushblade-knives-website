@@ -53,9 +53,9 @@ const BtnField = styled.div`
   }
 `
 
-const encode = data => {
+const encode = (data) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
 
@@ -81,7 +81,7 @@ const ContactForm = ({ setMessageSent }) => {
     regex: /\S/,
   })
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     if (CheckValid(name, email, message)) {
       fetch('/', {
         method: 'POST',
@@ -93,7 +93,7 @@ const ContactForm = ({ setMessageSent }) => {
           message: message.text,
         }),
       })
-        .then(res => {
+        .then((res) => {
           if (res.ok) {
             clearForm()
             setMessageSent(true)
@@ -103,7 +103,7 @@ const ContactForm = ({ setMessageSent }) => {
             )
           }
         })
-        .catch(error => alert(error))
+        .catch((error) => alert(error))
     }
     e.preventDefault()
   }
@@ -129,7 +129,7 @@ const ContactForm = ({ setMessageSent }) => {
     >
       <input type="hidden" name="form-name" value="contact" />
       <Field valid={name.valid} length={name.text.length}>
-        <label htmlfor="name">Your Name: </label>
+        <label htmlFor="name">Your Name: </label>
         <input
           type="text"
           name="name"
@@ -139,7 +139,7 @@ const ContactForm = ({ setMessageSent }) => {
         />
       </Field>
       <Field valid={email.valid} length={email.text.length}>
-        <label htmlfor="email">Your Email: </label>
+        <label htmlFor="email">Your Email: </label>
         <input
           type="email"
           name="email"
@@ -149,7 +149,7 @@ const ContactForm = ({ setMessageSent }) => {
         />
       </Field>
       <Field valid={message.valid} length={message.text.length}>
-        <label htmlfor="message">Message: </label>
+        <label htmlFor="message">Message: </label>
         <textarea
           name="message"
           value={message.text}

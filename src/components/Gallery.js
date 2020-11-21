@@ -1,8 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
-import Carousel, { Modal, ModalGateway } from 'react-images'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import Slider from '@farbenmeer/react-spring-slider'
+import Portal from './Portal'
+import Modal from '../components/Modal'
+import { useIsMobile } from './hooks'
+
+const CloseModalButton = styled.div`
+  position: fixed;
+  top: 0.4rem;
+  right: 1rem;
+  z-index: 102;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  margin: 0 auto;
+  transform: rotate(45deg);
+  span {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
+  span:after {
+    position: absolute;
+    // top: 50%;
+    display: block;
+    content: '';
+    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    border-radius: 3px;
+  }
+`
 
 const ImageWrapper = styled.div`
   box-shadow: -1px 3px 6px 1px rgba(0, 0, 0, 0.3);
@@ -24,20 +60,21 @@ const ImageWrapper = styled.div`
 const GatsbyImage = ({ index, onClick, photo, margin }) => (
   <ImageWrapper
     style={{ margin, height: photo.height, width: photo.width }}
-    onClick={e => onClick(e, { index, photo })}
+    onClick={(e) => onClick(e, { index, photo })}
     key={photo.key}
   >
     <Img
+      style={{ maxWidth: '100vw', maxHeight: '100vh' }}
       fixed={typeof window === 'undefined' ? { src: {} } : undefined}
       fluid={photo.fluid}
     />
   </ImageWrapper>
 )
 
-const fileNumber = file =>
+const fileNumber = (file) =>
   Number(file.node.childImageSharp.fluid.originalName.replace(/[a-z]/gi, ''))
 
-const getImages = imageArray => {
+const getImages = (imageArray) => {
   return [...imageArray]
     .sort((a, b) => fileNumber(b) - fileNumber(a))
     .map(({ node: { childImageSharp: { fluid, original } } }) => ({
@@ -50,45 +87,81 @@ const getImages = imageArray => {
     }))
 }
 
-const styleFn = styleObj => ({ ...styleObj, zIndex: 100 })
-
 const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
   const images = getImages(photos)
+  const isMobile = useIsMobile()
 
   const imageClick = (e, obj) => {
     setCurrent(obj.index)
     setOpen(true)
   }
 
-  return (
-    <div style={{ margin: '4rem auto' }}>
-      {photos.length > 1 && (
-        <Gallery
-          photos={images}
-          onClick={imageClick}
-          renderImage={GatsbyImage}
-          targetRowHeight={250}
-          margin={5}
-          {...rest}
-        />
-      )}
+  useEffect(() => {
+    const html = document.querySelector('html')
+    isOpen
+      ? (html.style.overflow = 'hidden')
+      : (html.style.overflow = 'visible')
 
-      <ModalGateway>
-        {isOpen ? (
-          <Modal
-            onClose={() => {
-              setCurrent(0)
-              setOpen(false)
-            }}
-            styles={{ blanket: styleFn, positioner: styleFn }}
-          >
-            <Carousel views={images} currentIndex={current} />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    const handleKeyDown = (e) => {
+      switch (e.keyCode) {
+        case 27:
+          setOpen(false)
+          break
+        case 39:
+          setCurrent(current + 1 < images.length ? current + 1 : 0)
+          break
+        case 37:
+          setCurrent(current - 1 >= 0 ? current - 1 : images.length - 1)
+      }
+    }
+    const removeEvent = () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+    if (window && isOpen) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return removeEvent
+  })
+
+  return (
+    <>
+      <div style={{ margin: '4rem auto' }}>
+        {photos.length > 1 && (
+          <Gallery
+            photos={images}
+            onClick={imageClick}
+            renderImage={GatsbyImage}
+            targetRowHeight={250}
+            margin={5}
+            {...rest}
+          />
+        )}
+      </div>
+      <Portal>
+        <Modal open={isOpen}>
+          <CloseModalButton onClick={() => setOpen(false)}>
+            <span></span>
+          </CloseModalButton>
+          <Slider hasArrows={!isMobile} hasBullets activeIndex={current}>
+            {images.map((image) => (
+              <div
+                key={image.key}
+                style={{
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundImage: `url(${image.src})`,
+                  height: '100%',
+                  width: '100%',
+                }}
+              ></div>
+            ))}
+          </Slider>
+        </Modal>
+      </Portal>
+    </>
   )
 }
 
