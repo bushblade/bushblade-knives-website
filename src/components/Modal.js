@@ -43,7 +43,7 @@ const ModalStyles = styled.div`
 function Modal({ open, children }) {
   const modalTransition = useTransition(open, null, {
     from: { opacity: 0 },
-    enter: { opacity: 0.99 },
+    enter: { opacity: 1 },
     leave: { opacity: 0 },
   })
   return modalTransition.map(({ item, key, props }) => {
