@@ -99,6 +99,11 @@ const KnifeGallery = ({ photos, ...rest }) => {
   }
 
   useEffect(() => {
+    const html = document.querySelector('html')
+    isOpen
+      ? (html.style.overflow = 'hidden')
+      : (html.style.overflow = 'visible')
+
     const handleKeyDown = (e) => {
       switch (e.keyCode) {
         case 27:
@@ -115,10 +120,6 @@ const KnifeGallery = ({ photos, ...rest }) => {
       window.removeEventListener('keydown', handleKeyDown)
     }
     if (window && isOpen) {
-      const html = document.querySelector('html')
-      isOpen
-        ? (html.style.overflow = 'hidden')
-        : (html.style.overflow = 'visible')
       window.addEventListener('keydown', handleKeyDown)
     }
     return removeEvent
