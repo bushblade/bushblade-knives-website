@@ -101,8 +101,8 @@ const KnifeGallery = ({ photos, ...rest }) => {
   useEffect(() => {
     const html = document.querySelector('html')
     isOpen
-      ? (html.style.overflow = 'hidden')
-      : (html.style.overflow = 'visible')
+      ? (html.style.overflowY = 'hidden')
+      : (html.style.overflowY = 'visible')
 
     const handleKeyDown = (e) => {
       switch (e.keyCode) {
