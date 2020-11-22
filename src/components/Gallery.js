@@ -149,14 +149,26 @@ const KnifeGallery = ({ photos, ...rest }) => {
               <div
                 key={image.key}
                 style={{
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundImage: `url(${image.src})`,
                   height: '100%',
                   width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '1rem',
                 }}
-              ></div>
+              >
+                <img
+                  src={image.src}
+                  alt={image.originalName}
+                  style={{
+                    userDrag: 'none',
+                    draggable: false,
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    margin: 0,
+                  }}
+                />
+              </div>
             ))}
           </Slider>
         </Modal>
