@@ -128,6 +128,9 @@ const KnifeGallery = ({ photos, ...rest }) => {
           break
         case 37:
           setCurrent(current - 1 >= 0 ? current - 1 : images.length - 1)
+          break
+        default:
+          return
       }
     }
     const removeEvent = () => {
@@ -164,6 +167,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
                 <img
                   src={image.src}
                   alt={image.originalName}
+                  role="presentation"
                   onDragStart={(e) => {
                     e.preventDefault()
                     return false

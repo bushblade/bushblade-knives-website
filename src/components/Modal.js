@@ -51,8 +51,6 @@ function Modal({ open, children }) {
       <animated.div
         key={key}
         style={{ ...props, position: 'fixed', top: 0, zIndex: 100 }}
-        aria-modal="true"
-        role="dialog"
       >
         <ModalStyles>
           <animated.div className="modal-inner" style={props} key={key}>
