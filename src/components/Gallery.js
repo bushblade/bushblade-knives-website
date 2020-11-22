@@ -57,6 +57,20 @@ const ImageWrapper = styled.div`
   }
 `
 
+const SliderImageStyles = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+  }
+`
+
 const GatsbyImage = ({ index, onClick, photo, margin }) => (
   <ImageWrapper
     style={{ margin, height: photo.height, width: photo.width }}
@@ -146,29 +160,16 @@ const KnifeGallery = ({ photos, ...rest }) => {
           </CloseModalButton>
           <Slider hasArrows={!isMobile} hasBullets activeIndex={current}>
             {images.map((image) => (
-              <div
-                key={image.key}
-                style={{
-                  height: '100%',
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '1rem',
-                }}
-              >
+              <SliderImageStyles key={image.key}>
                 <img
                   src={image.src}
                   alt={image.originalName}
-                  style={{
-                    userDrag: 'none',
-                    draggable: false,
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    margin: 0,
+                  onDragStart={(e) => {
+                    e.preventDefault()
+                    return false
                   }}
                 />
-              </div>
+              </SliderImageStyles>
             ))}
           </Slider>
         </Modal>
