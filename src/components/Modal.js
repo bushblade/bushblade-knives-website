@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { useTransition, animated } from 'react-spring'
 
 const ModalStyles = styled.div`
-  position: fixed;
-  top: 0;
   background: rgba(0, 0, 0, 0.8);
   height: 100vh;
   width: 100vw;
@@ -14,7 +12,6 @@ const ModalStyles = styled.div`
   padding: 0;
   margin: 0;
   & .modal-inner {
-    z-index: 11;
     width: 100%;
     position: relative;
   }
@@ -42,9 +39,10 @@ const ModalStyles = styled.div`
 
 function Modal({ open, children }) {
   const modalTransition = useTransition(open, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    from: { opacity: 0, transform: 'scale(0.7)' },
+    enter: { opacity: 1, transform: 'scale(1)' },
+    leave: { opacity: 0, transform: 'scale(0.7)' },
+    config: { mass: 1, tension: 170, friction: 20 },
   })
   return modalTransition.map(({ item, key, props }) => {
     return item ? (
@@ -53,9 +51,7 @@ function Modal({ open, children }) {
         style={{ ...props, position: 'fixed', top: 0, zIndex: 100 }}
       >
         <ModalStyles>
-          <animated.div className="modal-inner" style={props} key={key}>
-            {children}
-          </animated.div>
+          <div className="modal-inner">{children}</div>
         </ModalStyles>
       </animated.div>
     ) : null
