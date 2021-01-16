@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Slider from '@farbenmeer/react-spring-slider'
+import Slider from 'react-touch-drag-slider'
 import Portal from './Portal'
 import Modal from '../components/Modal'
 // import { useIsMobile } from './hooks'
@@ -57,19 +57,16 @@ const ImageWrapper = styled.div`
   }
 `
 
-const SliderImageStyles = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0;
-  }
-`
+// const SliderImageStyles = styled.div`
+//   // height: 100vh;
+//   // width: 100vw;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   img {
+//     margin: 0;
+//   }
+// `
 
 const GatsbyImage = ({ index, onClick, photo, margin }) => (
   <ImageWrapper
@@ -161,19 +158,14 @@ const KnifeGallery = ({ photos, ...rest }) => {
           <CloseModalButton onClick={() => setOpen(false)}>
             <span></span>
           </CloseModalButton>
-          <Slider hasArrows hasBullets activeIndex={current}>
+          <Slider activeIndex={current}>
             {images.map((image) => (
-              <SliderImageStyles key={image.key}>
-                <img
-                  src={image.src}
-                  alt={image.originalName}
-                  role="presentation"
-                  onDragStart={(e) => {
-                    e.preventDefault()
-                    return false
-                  }}
-                />
-              </SliderImageStyles>
+              <img
+                key={image.key}
+                src={image.src}
+                alt={image.originalName}
+                role="presentation"
+              />
             ))}
           </Slider>
         </Modal>
