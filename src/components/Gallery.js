@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import Slider from 'react-touch-drag-slider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronCircleLeft,
+  faChevronCircleRight,
+} from '@fortawesome/free-solid-svg-icons'
+
 import Portal from './Portal'
 import Modal from '../components/Modal'
-// import { useIsMobile } from './hooks'
+import { useIsMobile } from './hooks'
 
 const CloseModalButton = styled.div`
   position: fixed;
@@ -56,17 +62,30 @@ const ImageWrapper = styled.div`
     }
   }
 `
-
-// const SliderImageStyles = styled.div`
-//   // height: 100vh;
-//   // width: 100vw;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   img {
-//     margin: 0;
-//   }
-// `
+const Button = styled.button`
+  font-size: 3rem;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+  opacity: 0.5;
+  padding: 3rem 1rem;
+  z-index: 10;
+  position: fixed;
+  height: 100%;
+  :hover {
+    opacity: 0.8;
+  }
+  ${(props) =>
+    props.right
+      ? css`
+          right: 0.5rem;
+        `
+      : css`
+          left: 0.5rem;
+        `}
+`
 
 const GatsbyImage = ({ index, onClick, photo, margin }) => (
   <ImageWrapper
@@ -102,9 +121,9 @@ const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
   const images = getImages(photos)
-  // const isMobile = useIsMobile()
+  const isMobile = useIsMobile()
 
-  const imageClick = (e, obj) => {
+  const imageClick = (_, obj) => {
     setCurrent(obj.index)
     setOpen(true)
   }
@@ -116,19 +135,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
       : (html.style.overflowY = 'visible')
 
     const handleKeyDown = (e) => {
-      switch (e.keyCode) {
-        case 27:
-          setOpen(false)
-          break
-        case 39:
-          setCurrent(current + 1 < images.length ? current + 1 : 0)
-          break
-        case 37:
-          setCurrent(current - 1 >= 0 ? current - 1 : images.length - 1)
-          break
-        default:
-          return
-      }
+      if (e.keyCode === 27) setOpen(false)
     }
     const removeEvent = () => {
       window.removeEventListener('keydown', handleKeyDown)
@@ -138,6 +145,14 @@ const KnifeGallery = ({ photos, ...rest }) => {
     }
     return removeEvent
   })
+
+  const increment = () => {
+    if (current < images.length - 1) setCurrent(current + 1)
+  }
+
+  const decrement = () => {
+    if (current > 0) setCurrent(current - 1)
+  }
 
   return (
     <>
@@ -158,13 +173,25 @@ const KnifeGallery = ({ photos, ...rest }) => {
           <CloseModalButton onClick={() => setOpen(false)}>
             <span></span>
           </CloseModalButton>
-          <Slider activeIndex={current}>
+          {current !== 0 && !isMobile ? (
+            <Button onClick={decrement}>
+              <FontAwesomeIcon icon={faChevronCircleLeft} />
+            </Button>
+          ) : null}
+          {current !== images.length - 1 && !isMobile ? (
+            <Button onClick={increment} right>
+              <FontAwesomeIcon icon={faChevronCircleRight} />
+            </Button>
+          ) : null}
+          <Slider activeIndex={current} onSlideComplete={setCurrent}>
             {images.map((image) => (
               <img
                 key={image.key}
                 src={image.src}
                 alt={image.originalName}
                 role="presentation"
+                style={{ margin: 0 }}
+                onMouseDown={(e) => e.preventDefault()}
               />
             ))}
           </Slider>
