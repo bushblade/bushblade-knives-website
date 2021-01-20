@@ -183,7 +183,11 @@ const KnifeGallery = ({ photos, ...rest }) => {
               <FontAwesomeIcon icon={faChevronCircleRight} />
             </Button>
           ) : null}
-          <Slider activeIndex={current} onSlideComplete={setCurrent}>
+          <Slider
+            activeIndex={current}
+            onSlideComplete={setCurrent}
+            scaleOnDrag={true}
+          >
             {images.map((image) => (
               <img
                 key={image.key}
