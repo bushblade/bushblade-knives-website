@@ -57,7 +57,6 @@ const SVGContainer = styled.div`
 
 const WoodloreClone = ({ location }) => {
   const data = useStaticQuery(query)
-  console.log(data)
   return (
     <Layout
       banner={data.banner.childImageSharp.fluid}
