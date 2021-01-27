@@ -18,21 +18,21 @@ const aboutQuery = graphql`
     banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     woodsmoke: file(relativePath: { eq: "woodsmoke2003.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     me: file(relativePath: { eq: "meintree.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -45,7 +45,7 @@ const aboutQuery = graphql`
               height
             }
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg
             }
@@ -212,7 +212,7 @@ const AboutPage = ({ location }) => {
       </NarrowContainer>
       <Gallery
         photos={data.allFile.edges}
-        columns={width => {
+        columns={(width) => {
           if (width < 700) {
             return 1
           } else if (width < 1000) {

@@ -96,6 +96,7 @@ module.exports = {
               maxWidth: 590,
               showCaptions: true,
               quality: 80,
+              withWebp: true,
             },
           },
         ],

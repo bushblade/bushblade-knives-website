@@ -14,7 +14,7 @@ const query = graphql`
     banner: file(relativePath: { eq: "banner01.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -27,7 +27,7 @@ const query = graphql`
               height
             }
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg
             }

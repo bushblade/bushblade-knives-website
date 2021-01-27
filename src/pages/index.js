@@ -17,14 +17,14 @@ const indexQuery = graphql`
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     profile: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
       childImageSharp {
         fluid {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -37,7 +37,7 @@ const indexQuery = graphql`
               height
             }
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg
             }
@@ -117,7 +117,7 @@ const IndexPage = ({ location }) => {
         </h2>
       </NarrowContainer>
       <Gallery
-        columns={width => {
+        columns={(width) => {
           if (width < 700) {
             return 2
           } else if (width < 1000) {
