@@ -13,7 +13,7 @@ const query = graphql`
   query woodloreImages {
     banner: file(relativePath: { eq: "woodlore-clone-banner.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920, quality: 75) {
+        fluid(maxWidth: 1920, quality: 80) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -26,7 +26,7 @@ const query = graphql`
               width
               height
             }
-            fluid {
+            fluid(maxWidth: 1200, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg
@@ -57,6 +57,7 @@ const SVGContainer = styled.div`
 
 const WoodloreClone = ({ location }) => {
   const data = useStaticQuery(query)
+  console.log(data)
   return (
     <Layout
       banner={data.banner.childImageSharp.fluid}

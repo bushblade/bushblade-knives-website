@@ -44,7 +44,7 @@ const aboutQuery = graphql`
               width
               height
             }
-            fluid {
+            fluid(maxWidth: 1200, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg

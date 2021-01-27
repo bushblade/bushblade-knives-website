@@ -110,8 +110,8 @@ const getImages = (imageArray) => {
     .map(({ node: { childImageSharp: { fluid, original } } }) => ({
       height: original.height,
       width: original.width,
-      src: fluid.originalImg,
-      srcSet: fluid.srcSet,
+      src: fluid.srcWebp,
+      srcSet: fluid.srcSetWebp,
       fluid,
       key: fluid.originalName,
     }))

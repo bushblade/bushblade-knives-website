@@ -23,7 +23,7 @@ const indexQuery = graphql`
     }
     profile: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -36,7 +36,7 @@ const indexQuery = graphql`
               width
               height
             }
-            fluid {
+            fluid(maxWidth: 1200, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
               originalName
               originalImg
