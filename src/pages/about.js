@@ -196,7 +196,7 @@ const AboutPage = ({ location }) => {
           need to build a website for Bushblade Knives, which you can learn more
           about
           <a
-            href="http://www.bushbladeprojects.co.uk"
+            href="https://github.com/bushblade"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -205,8 +205,8 @@ const AboutPage = ({ location }) => {
           </a>{' '}
           For those geeky enough to want to know - this site is built with
           GatsbyJS, ReactJS and styled-components mainly using{' '}
-          <span style={{ textDecoration: 'line-through' }}>VS Code</span> VS
-          Codium on a desktop installation of Manjaro Linux with continuous
+          <span style={{ textDecoration: 'line-through' }}>VS Code</span>
+          Neovim on a desktop installation of Manjaro Linux with continuous
           deployment to Netlify through GitHub.
         </p>
       </NarrowContainer>
