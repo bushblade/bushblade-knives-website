@@ -211,7 +211,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
                   objectFit="contain"
                   style={{
                     margin: 0,
-                    maxWidth: image.width,
+                    maxWidth: 1200,
                     maxHeight: image.height,
                   }}
                   onMouseDown={(e) => e.preventDefault()}
