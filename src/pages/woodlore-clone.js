@@ -9,40 +9,33 @@ import WoodloreSVG from '../components/svg/woodloreSVG'
 import WoodloreSpineSVG from '../components/svg/woodloreSpineSVG'
 import WoodloreSkeletonSVG from '../components/svg/woodloreSkeletonSVG'
 
-const query = graphql`
-  query woodloreImages {
-    banner: file(relativePath: { eq: "woodlore-clone-banner.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+const query = graphql`query woodloreImages {
+  banner: file(relativePath: {eq: "woodlore-clone-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 80, layout: FULL_WIDTH)
     }
-    allFile(filter: { relativeDirectory: { eq: "woodlore-clone-images" } }) {
-      edges {
-        node {
-          childImageSharp {
-            original {
-              width
-              height
-            }
-            fluid(maxWidth: 1200, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-              originalName
-              originalImg
-            }
+  }
+  allFile(filter: {relativeDirectory: {eq: "woodlore-clone-images"}}) {
+    edges {
+      node {
+        childImageSharp {
+          original {
+            width
+            height
           }
-        }
-      }
-    }
-    prices: site {
-      siteMetadata {
-        prices {
-          woodloreClone
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
         }
       }
     }
   }
+  prices: site {
+    siteMetadata {
+      prices {
+        woodloreClone
+      }
+    }
+  }
+}
 `
 
 const ImageContainer = styled.div`
@@ -59,7 +52,7 @@ const WoodloreClone = ({ location }) => {
   const data = useStaticQuery(query)
   return (
     <Layout
-      banner={data.banner.childImageSharp.fluid}
+      banner={data.banner.childImageSharp.gatsbyImageData}
       pageTitle="Woodlore Clone"
       tagline="The design that inspired it all"
       keywords={[
@@ -118,7 +111,7 @@ const WoodloreClone = ({ location }) => {
       </TwoColumnContainer>
       <Gallery photos={data.allFile.edges} />
     </Layout>
-  )
+  );
 }
 
 export default WoodloreClone

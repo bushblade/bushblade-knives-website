@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDay, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Card = styled.div`
   box-shadow: -1px 10px 45px 0px rgba(0, 0, 0, 0.2);
@@ -78,10 +78,9 @@ const PostsCard = ({
       <a href={`/posts${slug}`}>
         <div>
           <CardHeader>
-            <Img
-              fluid={image.childImageSharp.fluid}
-              style={{ maxHeight: '200px' }}
-            />
+            <GatsbyImage
+              image={image.childImageSharp.gatsbyImageData}
+              style={{ maxHeight: '200px' }} />
             <CardTitle>
               <h2>{title}</h2>
             </CardTitle>
@@ -100,7 +99,7 @@ const PostsCard = ({
         </div>
       </a>
     </Card>
-  )
+  );
 }
 
 export default PostsCard

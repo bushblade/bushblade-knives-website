@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
 import Seo from './seo'
@@ -12,7 +12,7 @@ import PageTitle from './pageTitle'
 
 const LayoutWrapper = styled.section`
   background-color: #f1f1f1;
-  ${props =>
+  ${(props) =>
     props.backgroundImage &&
     css`
       background-image: url(${props.backgroundImage});
@@ -50,30 +50,23 @@ const Layout = ({
   twitterCardImage,
 }) => {
   const data = useStaticQuery(layoutQuery)
-  return (
-    <>
-      <Seo
-        title={pageTitle}
-        keywords={keywords}
-        twitterCardImage={twitterCardImage}
-      />
-      <Navbar location={location} />
-      <LayoutWrapper backgroundImage={backgroundImage}>
-        {banner && (
-          <Img
-            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-            fluid={banner}
-          />
-        )}
-        <br />
-        <ContentContainer>
-          {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
-          {children}
-        </ContentContainer>
-        <Footer author={data.site.siteMetadata.author} />
-      </LayoutWrapper>
-    </>
-  )
+  return <>
+    <Seo
+      title={pageTitle}
+      keywords={keywords}
+      twitterCardImage={twitterCardImage}
+    />
+    <Navbar location={location} />
+    <LayoutWrapper backgroundImage={backgroundImage}>
+      {banner && <GatsbyImage image={banner} />}
+      <br />
+      <ContentContainer>
+        {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
+        {children}
+      </ContentContainer>
+      <Footer author={data.site.siteMetadata.author} />
+    </LayoutWrapper>
+  </>;
 }
 
 export default Layout

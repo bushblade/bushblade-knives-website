@@ -7,24 +7,21 @@ import Layout from '../components/layout/layout'
 import ContactForm from '../components/ContactForm'
 import MessageSuccess from '../components/messageSuccess'
 
-const contactQuery = graphql`
-  query contactQuery {
-    file(relativePath: { eq: "contact-banner.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+const contactQuery = graphql`query contactQuery {
+  file(relativePath: {eq: "contact-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
     }
-    prices: site {
-      siteMetadata {
-        prices {
-          midi
-          woodloreClone
-        }
+  }
+  prices: site {
+    siteMetadata {
+      prices {
+        midi
+        woodloreClone
       }
     }
   }
+}
 `
 
 const Container = styled.div`
@@ -58,7 +55,7 @@ const ContactPage = ({ location }) => {
 
   return (
     <Layout
-      banner={data.file.childImageSharp.fluid}
+      banner={data.file.childImageSharp.gatsbyImageData}
       pageTitle="Contact Me"
       tagline="bushblade@gmail.com"
       keywords={['contact', 'email', 'social media', 'phone']}
@@ -115,7 +112,7 @@ const ContactPage = ({ location }) => {
         </div>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default ContactPage

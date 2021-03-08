@@ -9,40 +9,33 @@ import MidiSVG from '../components/svg/midiSVG'
 import MidiSpineSVG from '../components/svg/midiSpineSVG'
 import MidiSkeletonSVG from '../components/svg/midiSkeletonSVG'
 
-const query = graphql`
-  query midiImages {
-    banner: file(relativePath: { eq: "banner01.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+const query = graphql`query midiImages {
+  banner: file(relativePath: {eq: "banner01.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
     }
-    allFile(filter: { relativeDirectory: { eq: "midi-images" } }) {
-      edges {
-        node {
-          childImageSharp {
-            original {
-              width
-              height
-            }
-            fluid(maxWidth: 1200, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-              originalName
-              originalImg
-            }
+  }
+  allFile(filter: {relativeDirectory: {eq: "midi-images"}}) {
+    edges {
+      node {
+        childImageSharp {
+          original {
+            width
+            height
           }
-        }
-      }
-    }
-    prices: site {
-      siteMetadata {
-        prices {
-          midi
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
         }
       }
     }
   }
+  prices: site {
+    siteMetadata {
+      prices {
+        midi
+      }
+    }
+  }
+}
 `
 
 const ImageContainer = styled.div`
@@ -58,7 +51,7 @@ const Midi = ({ location }) => {
 
   return (
     <Layout
-      banner={data.banner.childImageSharp.fluid}
+      banner={data.banner.childImageSharp.gatsbyImageData}
       pageTitle="Model 01 Midi"
       tagline="my design, my choice"
       keywords={[
@@ -116,7 +109,7 @@ const Midi = ({ location }) => {
       </TwoColumnContainer>
       <Gallery photos={data.allFile.edges} />
     </Layout>
-  )
+  );
 }
 
 export default Midi

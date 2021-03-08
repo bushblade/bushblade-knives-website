@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
 import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Slider from 'react-touch-drag-slider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -87,40 +87,48 @@ const Button = styled.button`
         `}
 `
 
-const GatsbyImage = ({ index, onClick, photo, margin }) => (
-  <ImageWrapper
-    style={{ margin, height: photo.height, width: photo.width }}
-    onClick={(e) => onClick(e, { index, photo })}
-    key={photo.key}
-  >
-    <Img
-      style={{ maxWidth: '100vw', maxHeight: '100vh' }}
-      fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-      fluid={photo.fluid}
-    />
-  </ImageWrapper>
-)
-
-const fileNumber = (file) =>
-  Number(file.node.childImageSharp.fluid.originalName.replace(/[a-z]/gi, ''))
+const GatsbyImageWrapper = ({ index, onClick, photo, margin }) => {
+  const image = getImage(photo)
+  return (
+    <ImageWrapper
+      style={{ margin, height: photo.height, width: photo.width }}
+      onClick={(e) => onClick(e, { index, photo })}
+      key={photo.key}
+    >
+      <GatsbyImage
+        image={image}
+        style={{ maxWidth: '100vw', maxHeight: '100vh' }}
+      />
+    </ImageWrapper>
+  )
+}
+const fileNumber = (file) => Number(file.node.name.replace(/[a-z]/gi, ''))
 
 const getImages = (imageArray) => {
   return [...imageArray]
     .sort((a, b) => fileNumber(b) - fileNumber(a))
-    .map(({ node: { childImageSharp: { fluid, original } } }) => ({
-      height: original.height,
-      width: original.width,
-      src: fluid.srcWebp,
-      srcSet: fluid.srcSetWebp,
-      fluid,
-      key: fluid.originalName,
-    }))
+    .map(
+      ({
+        node: {
+          name,
+          childImageSharp: { gatsbyImageData, original },
+        },
+      }) => ({
+        height: original.height,
+        width: original.width,
+        srcSet: gatsbyImageData.images.srcSet,
+        gatsbyImageData,
+        key: name,
+        name,
+      })
+    )
 }
 
 const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
   const images = getImages(photos)
+  console.log('mapped images', images)
   const isMobile = useIsMobile()
 
   const imageClick = (_, obj) => {
@@ -161,7 +169,7 @@ const KnifeGallery = ({ photos, ...rest }) => {
           <Gallery
             photos={images}
             onClick={imageClick}
-            renderImage={GatsbyImage}
+            renderImage={GatsbyImageWrapper}
             targetRowHeight={250}
             margin={5}
             {...rest}
@@ -191,8 +199,8 @@ const KnifeGallery = ({ photos, ...rest }) => {
             {images.map((image) => (
               <img
                 key={image.key}
-                src={image.src}
-                alt={image.originalName}
+                src={image.gatsbyImageData.images.fallback.src}
+                alt={image.name}
                 role="presentation"
                 style={{ margin: 0 }}
                 onMouseDown={(e) => e.preventDefault()}

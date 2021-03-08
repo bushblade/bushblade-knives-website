@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout'
 import Gallery from '../components/Gallery'
@@ -16,31 +16,24 @@ const indexQuery = graphql`
   query indexQuery {
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
       }
     }
     profile: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     allFile(filter: { relativeDirectory: { eq: "index-images" } }) {
       edges {
         node {
+          name
           childImageSharp {
             original {
               width
               height
             }
-            fluid(maxWidth: 1200, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-              originalName
-              originalImg
-            }
+            gatsbyImageData(quality: 90, layout: FULL_WIDTH)
           }
         }
       }
@@ -52,7 +45,7 @@ const IndexPage = ({ location }) => {
   const data = useStaticQuery(indexQuery)
   return (
     <Layout
-      banner={data.banner.childImageSharp.fluid}
+      banner={data.banner.childImageSharp.gatsbyImageData}
       pageTitle="Welcome to Bushblade"
       tagline={' handmade knives by Will Adams'}
       keywords={[
@@ -67,7 +60,10 @@ const IndexPage = ({ location }) => {
     >
       <ReverseContainer narrow>
         <ReverseCell area="right">
-          <Img fluid={data.profile.childImageSharp.fluid} title="Will Adams" />
+          <GatsbyImage
+            image={data.profile.childImageSharp.gatsbyImageData}
+            title="Will Adams"
+          />
           <br />
         </ReverseCell>
         <ReverseCell area="left">

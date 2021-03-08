@@ -6,32 +6,26 @@ import { useTrail, animated, config } from 'react-spring'
 import Layout from '../components/layout/layout'
 import PostsCard from '../components/postsCard'
 
-const postQuery = graphql`
-  query ListingQuery {
-    allMarkdownRemark(
-      limit: 20
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            date(formatString: "DD MMMM YYYY")
-            title
-            author
-            slug
-            image {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
+const postQuery = graphql`query ListingQuery {
+  allMarkdownRemark(limit: 20, sort: {order: DESC, fields: [frontmatter___date]}) {
+    edges {
+      node {
+        excerpt
+        frontmatter {
+          date(formatString: "DD MMMM YYYY")
+          title
+          author
+          slug
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   }
+}
 `
 
 const PostListContainer = styled.div`

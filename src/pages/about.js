@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,54 +13,43 @@ import {
 } from '../components/layout/styledComponents'
 import Gallery from '../components/Gallery'
 
-const aboutQuery = graphql`
-  query aboutQuery {
-    banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 75) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+const aboutQuery = graphql`query aboutQuery {
+  banner: file(relativePath: {eq: "knifemaking-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
     }
-    woodsmoke: file(relativePath: { eq: "woodsmoke2003.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+  }
+  woodsmoke: file(relativePath: {eq: "woodsmoke2003.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
     }
-    me: file(relativePath: { eq: "meintree.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+  }
+  me: file(relativePath: {eq: "meintree.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
     }
-    allFile(filter: { relativeDirectory: { eq: "me" } }) {
-      edges {
-        node {
-          childImageSharp {
-            original {
-              width
-              height
-            }
-            fluid(maxWidth: 1200, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-              originalName
-              originalImg
-            }
+  }
+  allFile(filter: {relativeDirectory: {eq: "me"}}) {
+    edges {
+      node {
+        childImageSharp {
+          original {
+            width
+            height
           }
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
         }
       }
     }
   }
+}
 `
 
 const AboutPage = ({ location }) => {
   const data = useStaticQuery(aboutQuery)
   return (
     <Layout
-      banner={data.banner.childImageSharp.fluid}
+      banner={data.banner.childImageSharp.gatsbyImageData}
       pageTitle="A little about me"
       tagline=" bushcrafter, climber, developer, dad..."
       keywords={[
@@ -109,21 +98,17 @@ const AboutPage = ({ location }) => {
           </p>
         </div>
         <div>
-          <Img
-            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-            fluid={data.me.childImageSharp.fluid}
+          <GatsbyImage
+            image={typeof window === 'undefined' ? { src: {} } : undefined}
             style={{ margin: 'auto' }}
-            title="Yep that's me"
-          />
+            title="Yep that's me" />
         </div>
       </TwoColumnContainer>
       <ReverseContainer>
         <ReverseCell area="left">
-          <Img
-            fixed={typeof window === 'undefined' ? { src: {} } : undefined}
-            fluid={data.woodsmoke.childImageSharp.fluid}
-            title="June 2003"
-          />
+          <GatsbyImage
+            image={typeof window === 'undefined' ? { src: {} } : undefined}
+            title="June 2003" />
           <h4
             style={{
               textAlign: 'center',
@@ -223,7 +208,7 @@ const AboutPage = ({ location }) => {
         }}
       />
     </Layout>
-  )
+  );
 }
 
 export default AboutPage
