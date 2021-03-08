@@ -47,7 +47,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ location, data }) => {
+const IndexPage = ({ data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}
@@ -61,7 +61,6 @@ const IndexPage = ({ location, data }) => {
         'knife',
         'uk',
       ]}
-      location={location}
     >
       <ReverseContainer narrow>
         <ReverseCell area="right">

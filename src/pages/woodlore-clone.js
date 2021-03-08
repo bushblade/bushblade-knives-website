@@ -56,7 +56,7 @@ const SVGContainer = styled.div`
   margin: 1rem 0;
 `
 
-const WoodloreClone = ({ location, data }) => {
+const WoodloreClone = ({ data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}
@@ -73,7 +73,6 @@ const WoodloreClone = ({ location, data }) => {
         'knife',
         'carving',
       ]}
-      location={location}
     >
       <TwoColumnContainer>
         <ImageContainer>

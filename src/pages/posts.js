@@ -68,14 +68,9 @@ const PostList = ({ posts }) => {
   )
 }
 
-const Posts = ({ location, data }) => {
+const Posts = ({ data }) => {
   return (
-    <Layout
-      pageTitle="Posts"
-      tagline={' articles and info'}
-      keywords={[]}
-      location={location}
-    >
+    <Layout pageTitle="Posts" tagline={' articles and info'} keywords={[]}>
       <PostList posts={data.allMarkdownRemark.edges} />
     </Layout>
   )

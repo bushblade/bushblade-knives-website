@@ -53,7 +53,7 @@ export const query = graphql`
   }
 `
 
-const AboutPage = ({ location, data }) => {
+const AboutPage = ({ data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}
@@ -71,7 +71,6 @@ const AboutPage = ({ location, data }) => {
         'woodsmoke',
         'survival',
       ]}
-      location={location}
     >
       <TwoColumnContainer>
         <div>

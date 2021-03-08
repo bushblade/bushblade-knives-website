@@ -40,7 +40,7 @@ const Container = styled.div`
   }
 `
 
-const ContactPage = ({ location, data }) => {
+const ContactPage = ({ data }) => {
   const [messageSent, setMessageSent] = useState(false)
 
   const sentTransition = useTransition(messageSent, null, {
@@ -59,7 +59,6 @@ const ContactPage = ({ location, data }) => {
       pageTitle="Contact Me"
       tagline="bushblade@gmail.com"
       keywords={['contact', 'email', 'social media', 'phone']}
-      location={location}
     >
       <Container>
         <div style={{ gridArea: 'form', position: 'relative' }}>

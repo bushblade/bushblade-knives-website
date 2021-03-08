@@ -54,7 +54,7 @@ const SVGContainer = styled.div`
   margin: 1rem 0;
 `
 
-const Midi = ({ location, data }) => {
+const Midi = ({ data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}
@@ -70,7 +70,6 @@ const Midi = ({ location, data }) => {
         'knife',
         'carving',
       ]}
-      location={location}
     >
       <TwoColumnContainer>
         <ImageContainer>

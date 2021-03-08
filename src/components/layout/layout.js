@@ -46,7 +46,6 @@ const Layout = ({
   pageTitle,
   tagline,
   keywords,
-  location,
   twitterCardImage,
 }) => {
   const data = useStaticQuery(layoutQuery)
@@ -57,7 +56,7 @@ const Layout = ({
         keywords={keywords}
         twitterCardImage={twitterCardImage}
       />
-      <Navbar location={location} />
+      <Navbar />
       <LayoutWrapper backgroundImage={backgroundImage}>
         {banner && <GatsbyImage image={banner} alt={pageTitle} />}
         <br />
