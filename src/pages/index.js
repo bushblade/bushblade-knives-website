@@ -68,6 +68,7 @@ const IndexPage = ({ location }) => {
           <GatsbyImage
             image={data.profile.childImageSharp.gatsbyImageData}
             title="Will Adams"
+            alt="Will Adams"
           />
           <br />
         </ReverseCell>

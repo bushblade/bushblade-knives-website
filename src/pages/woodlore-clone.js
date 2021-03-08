@@ -9,33 +9,40 @@ import WoodloreSVG from '../components/svg/woodloreSVG'
 import WoodloreSpineSVG from '../components/svg/woodloreSpineSVG'
 import WoodloreSkeletonSVG from '../components/svg/woodloreSkeletonSVG'
 
-const query = graphql`query woodloreImages {
-  banner: file(relativePath: {eq: "woodlore-clone-banner.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 80, layout: FULL_WIDTH)
+const query = graphql`
+  query woodloreImages {
+    banner: file(relativePath: { eq: "woodlore-clone-banner.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 80, layout: FULL_WIDTH)
+      }
     }
-  }
-  allFile(filter: {relativeDirectory: {eq: "woodlore-clone-images"}}) {
-    edges {
-      node {
-        childImageSharp {
-          original {
-            width
-            height
+    allFile(filter: { relativeDirectory: { eq: "woodlore-clone-images" } }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            gatsbyImageData(
+              quality: 90
+              layout: CONSTRAINED
+              formats: [AUTO, WEBP]
+              width: 1200
+            )
           }
-          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
+        }
+      }
+    }
+    prices: site {
+      siteMetadata {
+        prices {
+          woodloreClone
         }
       }
     }
   }
-  prices: site {
-    siteMetadata {
-      prices {
-        woodloreClone
-      }
-    }
-  }
-}
 `
 
 const ImageContainer = styled.div`
@@ -111,7 +118,7 @@ const WoodloreClone = ({ location }) => {
       </TwoColumnContainer>
       <Gallery photos={data.allFile.edges} />
     </Layout>
-  );
+  )
 }
 
 export default WoodloreClone

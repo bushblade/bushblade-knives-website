@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,36 +13,43 @@ import {
 } from '../components/layout/styledComponents'
 import Gallery from '../components/Gallery'
 
-const aboutQuery = graphql`query aboutQuery {
-  banner: file(relativePath: {eq: "knifemaking-banner.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+const aboutQuery = graphql`
+  query aboutQuery {
+    banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+      }
     }
-  }
-  woodsmoke: file(relativePath: {eq: "woodsmoke2003.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
+    woodsmoke: file(relativePath: { eq: "woodsmoke2003.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
     }
-  }
-  me: file(relativePath: {eq: "meintree.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
+    me: file(relativePath: { eq: "meintree.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
     }
-  }
-  allFile(filter: {relativeDirectory: {eq: "me"}}) {
-    edges {
-      node {
-        childImageSharp {
-          original {
-            width
-            height
+    allFile(filter: { relativeDirectory: { eq: "me" } }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            gatsbyImageData(
+              quality: 90
+              layout: CONSTRAINED
+              formats: [AUTO, WEBP]
+              width: 1200
+            )
           }
-          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
         }
       }
     }
   }
-}
 `
 
 const AboutPage = ({ location }) => {
@@ -99,16 +106,20 @@ const AboutPage = ({ location }) => {
         </div>
         <div>
           <GatsbyImage
-            image={typeof window === 'undefined' ? { src: {} } : undefined}
+            image={getImage(data.me.childImageSharp.gatsbyImageData)}
             style={{ margin: 'auto' }}
-            title="Yep that's me" />
+            title="Yep that's me"
+            alt="Will Adams"
+          />
         </div>
       </TwoColumnContainer>
       <ReverseContainer>
         <ReverseCell area="left">
           <GatsbyImage
-            image={typeof window === 'undefined' ? { src: {} } : undefined}
-            title="June 2003" />
+            image={data.woodsmoke.childImageSharp.gatsbyImageData}
+            title="June 2003"
+            alt="Woodsmoke 2003"
+          />
           <h4
             style={{
               textAlign: 'center',
@@ -208,7 +219,7 @@ const AboutPage = ({ location }) => {
         }}
       />
     </Layout>
-  );
+  )
 }
 
 export default AboutPage

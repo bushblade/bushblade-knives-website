@@ -9,33 +9,40 @@ import MidiSVG from '../components/svg/midiSVG'
 import MidiSpineSVG from '../components/svg/midiSpineSVG'
 import MidiSkeletonSVG from '../components/svg/midiSkeletonSVG'
 
-const query = graphql`query midiImages {
-  banner: file(relativePath: {eq: "banner01.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+const query = graphql`
+  query midiImages {
+    banner: file(relativePath: { eq: "banner01.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+      }
     }
-  }
-  allFile(filter: {relativeDirectory: {eq: "midi-images"}}) {
-    edges {
-      node {
-        childImageSharp {
-          original {
-            width
-            height
+    allFile(filter: { relativeDirectory: { eq: "midi-images" } }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            original {
+              width
+              height
+            }
+            gatsbyImageData(
+              quality: 90
+              layout: CONSTRAINED
+              formats: [AUTO, WEBP]
+              width: 1200
+            )
           }
-          gatsbyImageData(quality: 90, layout: FULL_WIDTH)
+        }
+      }
+    }
+    prices: site {
+      siteMetadata {
+        prices {
+          midi
         }
       }
     }
   }
-  prices: site {
-    siteMetadata {
-      prices {
-        midi
-      }
-    }
-  }
-}
 `
 
 const ImageContainer = styled.div`
@@ -109,7 +116,7 @@ const Midi = ({ location }) => {
       </TwoColumnContainer>
       <Gallery photos={data.allFile.edges} />
     </Layout>
-  );
+  )
 }
 
 export default Midi
