@@ -13,7 +13,7 @@ import {
 } from '../components/layout/styledComponents'
 import Gallery from '../components/Gallery'
 
-const aboutQuery = graphql`
+export const query = graphql`
   query aboutQuery {
     banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
       childImageSharp {
@@ -53,8 +53,7 @@ const aboutQuery = graphql`
   }
 `
 
-const AboutPage = ({ location }) => {
-  const data = useStaticQuery(aboutQuery)
+const AboutPage = ({ location, data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}

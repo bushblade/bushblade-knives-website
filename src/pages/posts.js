@@ -1,12 +1,12 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useTrail, animated, config } from 'react-spring'
 
 import Layout from '../components/layout/layout'
 import PostsCard from '../components/postsCard'
 
-const postQuery = graphql`
+export const query = graphql`
   query ListingQuery {
     allMarkdownRemark(
       limit: 20
@@ -68,8 +68,7 @@ const PostList = ({ posts }) => {
   )
 }
 
-const Posts = ({ location }) => {
-  const data = useStaticQuery(postQuery)
+const Posts = ({ location, data }) => {
   return (
     <Layout
       pageTitle="Posts"

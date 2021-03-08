@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout/layout'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Gallery from '../components/Gallery'
@@ -9,7 +9,7 @@ import WoodloreSVG from '../components/svg/woodloreSVG'
 import WoodloreSpineSVG from '../components/svg/woodloreSpineSVG'
 import WoodloreSkeletonSVG from '../components/svg/woodloreSkeletonSVG'
 
-const query = graphql`
+export const query = graphql`
   query woodloreImages {
     banner: file(relativePath: { eq: "woodlore-clone-banner.jpg" }) {
       childImageSharp {
@@ -56,8 +56,7 @@ const SVGContainer = styled.div`
   margin: 1rem 0;
 `
 
-const WoodloreClone = ({ location }) => {
-  const data = useStaticQuery(query)
+const WoodloreClone = ({ location, data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}

@@ -9,7 +9,7 @@ import MidiSVG from '../components/svg/midiSVG'
 import MidiSpineSVG from '../components/svg/midiSpineSVG'
 import MidiSkeletonSVG from '../components/svg/midiSkeletonSVG'
 
-const query = graphql`
+export const query = graphql`
   query midiImages {
     banner: file(relativePath: { eq: "banner01.jpg" }) {
       childImageSharp {
@@ -54,9 +54,7 @@ const SVGContainer = styled.div`
   margin: 1rem 0;
 `
 
-const Midi = ({ location }) => {
-  const data = useStaticQuery(query)
-
+const Midi = ({ location, data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import { GatsbyImage } from 'gatsby-plugin-image'
@@ -12,7 +12,7 @@ import {
   ReverseCell,
 } from '../components/layout/styledComponents'
 
-const indexQuery = graphql`
+export const query = graphql`
   query indexQuery {
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
@@ -47,8 +47,7 @@ const indexQuery = graphql`
   }
 `
 
-const IndexPage = ({ location }) => {
-  const data = useStaticQuery(indexQuery)
+const IndexPage = ({ location, data }) => {
   return (
     <Layout
       banner={data.banner.childImageSharp.gatsbyImageData}

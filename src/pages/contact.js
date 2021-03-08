@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useTransition, animated, config } from 'react-spring'
 
@@ -7,7 +7,7 @@ import Layout from '../components/layout/layout'
 import ContactForm from '../components/ContactForm'
 import MessageSuccess from '../components/messageSuccess'
 
-const contactQuery = graphql`
+export const query = graphql`
   query contactQuery {
     file(relativePath: { eq: "contact-banner.jpg" }) {
       childImageSharp {
@@ -40,9 +40,8 @@ const Container = styled.div`
   }
 `
 
-const ContactPage = ({ location }) => {
+const ContactPage = ({ location, data }) => {
   const [messageSent, setMessageSent] = useState(false)
-  const data = useStaticQuery(contactQuery)
 
   const sentTransition = useTransition(messageSent, null, {
     from: {
