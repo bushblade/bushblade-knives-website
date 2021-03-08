@@ -30,22 +30,29 @@ const Links = styled.div`
   display: flex;
   align-items: center;
   margin: auto;
-  grid-area: ${props => (props.right ? 'rlinks' : 'llinks')};
+  grid-area: ${(props) => (props.right ? 'rlinks' : 'llinks')};
   @media (max-width: 1080px) {
     display: none;
   }
 `
 const LinkBox = styled.span`
-  padding: 0 0.5rem;
-  height: 3rem;
   display: flex;
   align-items: center;
-  border-bottom: 4px solid
-    ${props => (props.active ? 'rgba(73, 75, 70, 0.95)' : 'transparent')};
   a {
+    padding: 0 0.5rem;
+    height: 3rem;
     transition: all 0.2s ease-in-out;
     text-shadow: none;
     background: none;
+    border-bottom: 4px solid transparent;
+    &[aria-current] {
+      border-bottom: 4px solid rgba(73, 75, 70, 0.95);
+      &:hover {
+        background: none;
+        transform: none;
+        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
     @media (min-width: 1200px) {
       margin: 0 0.5rem;
     }
@@ -87,29 +94,22 @@ const SocialLink = styled.a`
     display: none;
   }
   :hover {
-    color: ${props => props.color};
+    color: ${(props) => props.color};
   }
 `
 
-const Navbar = ({ location }) => {
+const Navbar = () => {
   const [logoBig, setLogoBig] = useState(true)
   const mobile = useIsMobile()
 
   const observerOptions = {
-    onChange: event => {
+    onChange: (event) => {
       if (!mobile) {
         event ? setLogoBig(true) : setLogoBig(false)
       }
     },
     threshold: 0.7,
     rootMargin: '0% 0% 0%',
-  }
-
-  const checkPath = (location, linkTo) => {
-    if (location) {
-      const path = location.pathname
-      return linkTo === '/posts' ? path.includes('/posts') : path === linkTo
-    }
   }
 
   return (
@@ -139,14 +139,14 @@ const Navbar = ({ location }) => {
         <Logo logoBig={logoBig && !mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
-            <LinkBox key={to} active={checkPath(location, to)}>
+            <LinkBox key={to}>
               <Link to={to}>{text}</Link>
             </LinkBox>
           ))}
         </Links>
         <Links right>
           {knifeLinks.map(({ to, text }) => (
-            <LinkBox key={to} active={checkPath(location, to)}>
+            <LinkBox key={to}>
               <Link to={to}>{text}</Link>
             </LinkBox>
           ))}

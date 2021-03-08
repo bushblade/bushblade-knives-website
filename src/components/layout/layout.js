@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled, { css } from 'styled-components'
 import backgroundImage from '../../images/floweroflife.svg'
 import Seo from './seo'
@@ -50,23 +50,25 @@ const Layout = ({
   twitterCardImage,
 }) => {
   const data = useStaticQuery(layoutQuery)
-  return <>
-    <Seo
-      title={pageTitle}
-      keywords={keywords}
-      twitterCardImage={twitterCardImage}
-    />
-    <Navbar location={location} />
-    <LayoutWrapper backgroundImage={backgroundImage}>
-      {banner && <GatsbyImage image={banner} />}
-      <br />
-      <ContentContainer>
-        {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
-        {children}
-      </ContentContainer>
-      <Footer author={data.site.siteMetadata.author} />
-    </LayoutWrapper>
-  </>;
+  return (
+    <>
+      <Seo
+        title={pageTitle}
+        keywords={keywords}
+        twitterCardImage={twitterCardImage}
+      />
+      <Navbar location={location} />
+      <LayoutWrapper backgroundImage={backgroundImage}>
+        {banner && <GatsbyImage image={banner} alt={pageTitle} />}
+        <br />
+        <ContentContainer>
+          {pageTitle && <PageTitle pageTitle={pageTitle} tagline={tagline} />}
+          {children}
+        </ContentContainer>
+        <Footer author={data.site.siteMetadata.author} />
+      </LayoutWrapper>
+    </>
+  )
 }
 
 export default Layout
