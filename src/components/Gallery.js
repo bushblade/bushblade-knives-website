@@ -98,6 +98,7 @@ const GatsbyImageWrapper = ({ index, onClick, photo, margin }) => {
       <GatsbyImage
         image={image}
         style={{ maxWidth: '100vw', maxHeight: '100vh' }}
+        alt={photo.name}
       />
     </ImageWrapper>
   )
@@ -105,21 +106,24 @@ const GatsbyImageWrapper = ({ index, onClick, photo, margin }) => {
 const fileNumber = (file) => Number(file.node.name.replace(/[a-z]/gi, ''))
 
 const getImages = (imageArray) => {
+  // sort the images
+  // map for react-photo-gallery
   return [...imageArray]
     .sort((a, b) => fileNumber(b) - fileNumber(a))
     .map(
       ({
         node: {
           name,
-          childImageSharp: { gatsbyImageData, original },
+          childImageSharp: { gatsbyImageData, original, fluid },
         },
       }) => ({
         height: original.height,
         width: original.width,
-        srcSet: gatsbyImageData.images.srcSet,
         gatsbyImageData,
         key: name,
         name,
+        alt: name,
+        fluid,
       })
     )
 }
@@ -127,6 +131,7 @@ const getImages = (imageArray) => {
 const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
+  console.log('photos', photos)
   const images = getImages(photos)
   console.log('mapped images', images)
   const isMobile = useIsMobile()
@@ -196,16 +201,18 @@ const KnifeGallery = ({ photos, ...rest }) => {
             onSlideComplete={setCurrent}
             scaleOnDrag={true}
           >
-            {images.map((image) => (
-              <img
-                key={image.key}
-                src={image.gatsbyImageData.images.fallback.src}
-                alt={image.name}
-                role="presentation"
-                style={{ margin: 0 }}
-                onMouseDown={(e) => e.preventDefault()}
-              />
-            ))}
+            {images.map((image) => {
+              return (
+                <img
+                  key={image.key}
+                  src={image.fluid.srcWebp}
+                  alt={image.name}
+                  role="presentation"
+                  style={{ margin: 0 }}
+                  onMouseDown={(e) => e.preventDefault()}
+                />
+              )
+            })}
           </Slider>
         </Modal>
       </Portal>
