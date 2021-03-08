@@ -131,9 +131,9 @@ const getImages = (imageArray) => {
 const KnifeGallery = ({ photos, ...rest }) => {
   const [isOpen, setOpen] = useState(false)
   const [current, setCurrent] = useState(0)
-  console.log('photos', photos)
+  // console.log('photos', photos)
   const images = getImages(photos)
-  console.log('mapped images', images)
+  // console.log('mapped images', images)
   const isMobile = useIsMobile()
 
   const imageClick = (_, obj) => {
@@ -203,12 +203,17 @@ const KnifeGallery = ({ photos, ...rest }) => {
           >
             {images.map((image) => {
               return (
-                <img
+                <GatsbyImage
                   key={image.key}
-                  src={image.fluid.srcWebp}
-                  alt={image.name}
+                  image={getImage(image)}
+                  alt={image.name || 'knife'}
                   role="presentation"
-                  style={{ margin: 0 }}
+                  objectFit="contain"
+                  style={{
+                    margin: 0,
+                    maxWidth: image.width,
+                    maxHeight: image.height,
+                  }}
                   onMouseDown={(e) => e.preventDefault()}
                 />
               )

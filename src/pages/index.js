@@ -33,14 +33,11 @@ const indexQuery = graphql`
               width
               height
             }
-            fluid {
-              srcWebp
-            }
             gatsbyImageData(
               quality: 90
               layout: CONSTRAINED
               formats: [AUTO, WEBP]
-              width: 1000
+              width: 1200
             )
           }
         }
