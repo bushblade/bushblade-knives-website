@@ -114,7 +114,7 @@ const getImages = (imageArray) => {
       ({
         node: {
           name,
-          childImageSharp: { gatsbyImageData, original, fluid },
+          childImageSharp: { gatsbyImageData, original },
         },
       }) => ({
         height: original.height,
@@ -123,7 +123,7 @@ const getImages = (imageArray) => {
         key: name,
         name,
         alt: name,
-        fluid,
+        src: gatsbyImageData.images.fallback.src,
       })
     )
 }
