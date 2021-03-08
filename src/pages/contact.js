@@ -7,21 +7,22 @@ import Layout from '../components/layout/layout'
 import ContactForm from '../components/ContactForm'
 import MessageSuccess from '../components/messageSuccess'
 
-const contactQuery = graphql`query contactQuery {
-  file(relativePath: {eq: "contact-banner.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+const contactQuery = graphql`
+  query contactQuery {
+    file(relativePath: { eq: "contact-banner.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH, placeholder: BLURRED)
+      }
     }
-  }
-  prices: site {
-    siteMetadata {
-      prices {
-        midi
-        woodloreClone
+    prices: site {
+      siteMetadata {
+        prices {
+          midi
+          woodloreClone
+        }
       }
     }
   }
-}
 `
 
 const Container = styled.div`
@@ -112,7 +113,7 @@ const ContactPage = ({ location }) => {
         </div>
       </Container>
     </Layout>
-  );
+  )
 }
 
 export default ContactPage

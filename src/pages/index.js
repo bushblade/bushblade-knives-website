@@ -16,12 +16,12 @@ const indexQuery = graphql`
   query indexQuery {
     banner: file(relativePath: { eq: "banner02.jpg" }) {
       childImageSharp {
-        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     profile: file(relativePath: { eq: "me-allerthorpe.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     allFile(filter: { relativeDirectory: { eq: "index-images" } }) {
@@ -38,6 +38,7 @@ const indexQuery = graphql`
               layout: CONSTRAINED
               formats: [AUTO, WEBP]
               width: 1200
+              placeholder: BLURRED
             )
           }
         }

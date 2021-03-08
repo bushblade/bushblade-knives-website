@@ -13,7 +13,7 @@ const query = graphql`
   query midiImages {
     banner: file(relativePath: { eq: "banner01.jpg" }) {
       childImageSharp {
-        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     allFile(filter: { relativeDirectory: { eq: "midi-images" } }) {
@@ -30,6 +30,7 @@ const query = graphql`
               layout: CONSTRAINED
               formats: [AUTO, WEBP]
               width: 1200
+              placeholder: BLURRED
             )
           }
         }

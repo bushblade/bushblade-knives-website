@@ -17,17 +17,17 @@ const aboutQuery = graphql`
   query aboutQuery {
     banner: file(relativePath: { eq: "knifemaking-banner.jpg" }) {
       childImageSharp {
-        gatsbyImageData(quality: 75, layout: FULL_WIDTH)
+        gatsbyImageData(quality: 75, layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     woodsmoke: file(relativePath: { eq: "woodsmoke2003.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     me: file(relativePath: { eq: "meintree.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     allFile(filter: { relativeDirectory: { eq: "me" } }) {
@@ -44,6 +44,7 @@ const aboutQuery = graphql`
               layout: CONSTRAINED
               formats: [AUTO, WEBP]
               width: 1200
+              placeholder: BLURRED
             )
           }
         }
