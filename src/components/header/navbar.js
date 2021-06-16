@@ -16,7 +16,7 @@ const Nav = styled.nav`
   background-color: #c2c2a3;
   z-index: 9;
   max-width: 100vw;
-  height: 3rem;
+  height: 3.5rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
@@ -70,7 +70,7 @@ const LinkBox = styled.span`
 
 const PadDiv = styled.div`
   background-color: #c2c2a3;
-  height: 3rem;
+  height: 3.5rem;
   max-width: 100vw;
   @media (max-width: 780px) {
     display: none;
