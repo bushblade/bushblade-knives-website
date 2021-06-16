@@ -88,10 +88,10 @@ const ContactPage = ({ data }) => {
             {data.prices.siteMetadata.prices.woodloreClone}.
           </p>
           <h3>Can you make a knife to my design?</h3>
-          <p>At the moment I do not take on commisioned designs.</p>
+          <p>At the moment I do not take on commissioned designs.</p>
           <h3>What's your waiting list like?</h3>
           <p>
-            I have moved away from commisioned work for the forseeable future.
+            I have moved away from commissioned work for the foreseeable future.
             Any knives I have available will be listed on the{' '}
             <a
               href="https://www.facebook.com/Bushbladehandmadeknives/"
