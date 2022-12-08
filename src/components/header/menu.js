@@ -47,7 +47,7 @@ const MenuButton = styled.div`
   span:after {
     transform: translateY(0.5rem);
   }
-  ${props =>
+  ${(props) =>
     props.open &&
     css`
       transform: rotate(45deg);
@@ -118,7 +118,7 @@ const Menu = () => {
     open ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible')
   }, [open])
 
-  const menuTranstion = useTransition(open, null, {
+  const menuTranstion = useTransition(open, {
     from: { transform: 'translate3d(100%,-100%,0)', opacity: 0 },
     enter: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
     leave: { transform: 'translate3d(100%,-100%,0)', opacity: 0 },
@@ -154,11 +154,10 @@ const Menu = () => {
       <MenuButton open={open} onClick={() => setOpen(!open)}>
         <span />
       </MenuButton>
-      {menuTranstion.map(
-        ({ item, key, props }) =>
+      {menuTranstion(
+        (props, item) =>
           item && (
             <animated.div
-              key={key}
               style={{
                 zIndex: 11,
                 position: 'fixed',

@@ -38,16 +38,15 @@ const ModalStyles = styled.div`
 `
 
 function Modal({ open, children }) {
-  const modalTransition = useTransition(open, null, {
+  const modalTransition = useTransition(open, {
     from: { opacity: 0, transform: 'scale(0.7)' },
     enter: { opacity: 1, transform: 'scale(1)' },
     leave: { opacity: 0, transform: 'scale(0.7)' },
     config: { mass: 1, tension: 170, friction: 20 },
   })
-  return modalTransition.map(({ item, key, props }) => {
+  return modalTransition((props, item) => {
     return item ? (
       <animated.div
-        key={key}
         style={{ ...props, position: 'fixed', top: 0, zIndex: 100 }}
       >
         <ModalStyles>
