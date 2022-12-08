@@ -8,10 +8,7 @@ import PostsCard from '../components/postsCard'
 
 export const query = graphql`
   query ListingQuery {
-    allMarkdownRemark(
-      limit: 20
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+    allMarkdownRemark(limit: 20, sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           excerpt

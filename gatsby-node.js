@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `).then(results => {
+  `).then((results) => {
     results.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: `/posts${node.frontmatter.slug}`,
