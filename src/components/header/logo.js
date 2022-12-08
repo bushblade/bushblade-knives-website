@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring'
 import { Link } from 'gatsby'
@@ -27,13 +27,26 @@ const LogoContainer = styled.div`
   }
 `
 
-const Logo = ({ logoBig }) => {
+const Logo = ({ logoBig, isMobile }) => {
+  const firstRender = useRef(true)
+
+  useEffect(() => {
+    firstRender.current = false
+  }, [])
+
+  const to = {
+    translateY: 0,
+    scale: 1,
+  }
+  const from = {
+    translateY: -26,
+    scale: 2,
+  }
+
   const logoAnimation = useSpring({
-    transform: logoBig
-      ? 'translate3d(0, -28px, 0) scale(2)'
-      : 'translate3d(0, 0, 0) scale(1)',
-    // height: logoBig ? '5.8rem' : '2.9rem',
-    config: { mass: 1, tension: 210, friction: 20, velocity: 20 },
+    to,
+    from,
+    reverse: logoBig,
   })
 
   return (
@@ -45,7 +58,13 @@ const Logo = ({ logoBig }) => {
           viewBox="0 0 132.29178 38.641926"
           xmlns="http://www.w3.org/2000/svg"
           height="50"
-          style={logoAnimation}
+          style={
+            isMobile
+              ? to
+              : firstRender.current && logoBig
+              ? from
+              : logoAnimation
+          }
         >
           <defs id="defs4725" />
           <g

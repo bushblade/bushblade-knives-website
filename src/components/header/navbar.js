@@ -136,7 +136,7 @@ const Navbar = () => {
         </PadDiv>
       </Observer>
       <Nav>
-        <Logo logoBig={logoBig && !mobile} />
+        <Logo logoBig={logoBig && !mobile} isMobile={mobile} />
         <Links>
           {siteLinks.map(({ to, text }) => (
             <LinkBox key={to}>
