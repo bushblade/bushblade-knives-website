@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { siteLinks, socialLinks, knifeLinks } from './navLinks'
-import Observer from 'react-intersection-observer'
+import { InView } from 'react-intersection-observer'
 
 import Logo from './logo'
 import Menu from './menu'
@@ -102,19 +102,18 @@ const Navbar = () => {
   const [logoBig, setLogoBig] = useState(true)
   const mobile = useIsMobile()
 
-  const observerOptions = {
-    onChange: (event) => {
-      if (!mobile) {
-        event ? setLogoBig(true) : setLogoBig(false)
-      }
-    },
-    threshold: 0.7,
-    rootMargin: '0% 0% 0%',
-  }
-
   return (
     <>
-      <Observer {...observerOptions}>
+      <InView
+        as="div"
+        threshold={0.7}
+        rootMargin={'0% 0% 0%'}
+        onChange={(inView) => {
+          if (!mobile) {
+            inView ? setLogoBig(true) : setLogoBig(false)
+          }
+        }}
+      >
         <PadDiv>
           <div>
             {socialLinks.map(({ to, icon, color }) => (
@@ -134,7 +133,7 @@ const Navbar = () => {
             ))}
           </div>
         </PadDiv>
-      </Observer>
+      </InView>
       <Nav>
         <Logo logoBig={logoBig && !mobile} isMobile={mobile} />
         <Links>
