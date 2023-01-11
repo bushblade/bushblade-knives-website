@@ -24,7 +24,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^4.0.0",
     "gatsby-source-filesystem": "^3.0.0",
-    "gatsby-transformer-remark": "^3.0.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.0.0",
     "intersection-observer": "^0.12.0",
     "prop-types": "^15.7.2",
