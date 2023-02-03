@@ -43,7 +43,7 @@ const Container = styled.div`
 const ContactPage = ({ data }) => {
   const [messageSent, setMessageSent] = useState(false)
 
-  const sentTransition = useTransition(messageSent, null, {
+  const sentTransition = useTransition(messageSent, {
     from: {
       opacity: 0,
       transform: 'translate3d(0, 10rem, 0)',
